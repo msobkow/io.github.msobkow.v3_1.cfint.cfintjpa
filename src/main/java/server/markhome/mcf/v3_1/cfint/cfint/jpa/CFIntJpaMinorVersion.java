@@ -65,7 +65,7 @@ public class CFIntJpaMinorVersion
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="MajorVersionId" )
+	@JoinColumn( name="MajorVersionId", referencedColumnName="Id" )
 	protected CFIntJpaMajorVersion requiredContainerParentMajVer;
 
 	@AttributeOverrides({

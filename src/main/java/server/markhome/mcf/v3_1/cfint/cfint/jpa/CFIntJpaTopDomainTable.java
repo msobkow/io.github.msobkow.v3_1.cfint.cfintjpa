@@ -542,11 +542,13 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, "readtopdomain", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntTopDomain retval = schema.getJpaHooksSchema().getTopDomainService().find(argId);
 		if(retval != null) {
 			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readtopdomain'), clear retval to null if not a member
@@ -573,11 +575,13 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		CFLibDbKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
-		boolean permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, "readtopdomain", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFIntJpaTopDomain> retlist = schema.getJpaHooksSchema().getTopDomainService().findByTenantIdx(argTenantId);
 		if(retlist != null) {
 			ArrayList<CFIntJpaTopDomain> finallist = new ArrayList<>();
@@ -614,11 +618,13 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		CFLibDbKeyHash256 argTldId )
 	{
 		final String S_ProcName = "readDerivedByTldIdx";
-		boolean permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, "readtopdomain", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFIntJpaTopDomain> retlist = schema.getJpaHooksSchema().getTopDomainService().findByTldIdx(argTldId);
 		if(retlist != null) {
 			ArrayList<CFIntJpaTopDomain> finallist = new ArrayList<>();
@@ -659,11 +665,13 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		String argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
-		boolean permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, "readtopdomain", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntTopDomain retval = schema.getJpaHooksSchema().getTopDomainService().findByNameIdx(argTldId,
 		argName);
 		if(retval != null) {
@@ -763,11 +771,13 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, "readtopdomain", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -787,11 +797,13 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		CFLibDbKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
-		boolean permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, "readtopdomain", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByTenantIdx");
 	}
 
@@ -811,11 +823,13 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		CFLibDbKeyHash256 argTldId )
 	{
 		final String S_ProcName = "readRecByTldIdx";
-		boolean permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, "readtopdomain", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByTldIdx");
 	}
 
@@ -839,11 +853,13 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		String argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
-		boolean permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopDomain(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, "readtopdomain", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByNameIdx");
 	}
 }

@@ -542,11 +542,13 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopProjectTable.TABLE_NAME, "readtopproject", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntTopProject retval = schema.getJpaHooksSchema().getTopProjectService().find(argId);
 		if(retval != null) {
 			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readtopproject'), clear retval to null if not a member
@@ -573,11 +575,13 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 		CFLibDbKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
-		boolean permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopProjectTable.TABLE_NAME, "readtopproject", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFIntJpaTopProject> retlist = schema.getJpaHooksSchema().getTopProjectService().findByTenantIdx(argTenantId);
 		if(retlist != null) {
 			ArrayList<CFIntJpaTopProject> finallist = new ArrayList<>();
@@ -614,11 +618,13 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 		CFLibDbKeyHash256 argTopDomainId )
 	{
 		final String S_ProcName = "readDerivedByTopDomainIdx";
-		boolean permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopProjectTable.TABLE_NAME, "readtopproject", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFIntJpaTopProject> retlist = schema.getJpaHooksSchema().getTopProjectService().findByTopDomainIdx(argTopDomainId);
 		if(retlist != null) {
 			ArrayList<CFIntJpaTopProject> finallist = new ArrayList<>();
@@ -659,11 +665,13 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 		String argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
-		boolean permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopProjectTable.TABLE_NAME, "readtopproject", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntTopProject retval = schema.getJpaHooksSchema().getTopProjectService().findByNameIdx(argTopDomainId,
 		argName);
 		if(retval != null) {
@@ -763,11 +771,13 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopProjectTable.TABLE_NAME, "readtopproject", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -787,11 +797,13 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 		CFLibDbKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
-		boolean permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopProjectTable.TABLE_NAME, "readtopproject", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByTenantIdx");
 	}
 
@@ -811,11 +823,13 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 		CFLibDbKeyHash256 argTopDomainId )
 	{
 		final String S_ProcName = "readRecByTopDomainIdx";
-		boolean permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopProjectTable.TABLE_NAME, "readtopproject", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByTopDomainIdx");
 	}
 
@@ -839,11 +853,13 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 		String argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
-		boolean permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTopProject(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTopProjectTable.TABLE_NAME, "readtopproject", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByNameIdx");
 	}
 }

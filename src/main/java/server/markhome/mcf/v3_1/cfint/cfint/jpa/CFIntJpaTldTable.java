@@ -496,11 +496,13 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadTld(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTld(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTldTable.TABLE_NAME, "readtld", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntTld retval = schema.getJpaHooksSchema().getTldService().find(argId);
 		if(retval != null) {
 			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readtld'), clear retval to null if not a member
@@ -527,11 +529,13 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 		CFLibDbKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
-		boolean permissionGranted = canReadTld(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTld(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTldTable.TABLE_NAME, "readtld", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFIntJpaTld> retlist = schema.getJpaHooksSchema().getTldService().findByTenantIdx(argTenantId);
 		if(retlist != null) {
 			ArrayList<CFIntJpaTld> finallist = new ArrayList<>();
@@ -569,11 +573,13 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 		String argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
-		boolean permissionGranted = canReadTld(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTld(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTldTable.TABLE_NAME, "readtld", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntTld retval = schema.getJpaHooksSchema().getTldService().findByNameIdx(argName);
 		if(retval != null) {
 			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readtld'), clear retval to null if not a member
@@ -672,11 +678,13 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadTld(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTld(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTldTable.TABLE_NAME, "readtld", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -696,11 +704,13 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 		CFLibDbKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
-		boolean permissionGranted = canReadTld(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTld(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTldTable.TABLE_NAME, "readtld", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByTenantIdx");
 	}
 
@@ -721,11 +731,13 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 		String argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
-		boolean permissionGranted = canReadTld(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTld(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntTldTable.TABLE_NAME, "readtld", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByNameIdx");
 	}
 }

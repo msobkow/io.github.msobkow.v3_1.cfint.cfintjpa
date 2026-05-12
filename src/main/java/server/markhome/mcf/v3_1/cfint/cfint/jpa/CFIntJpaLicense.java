@@ -65,7 +65,7 @@ public class CFIntJpaLicense
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="TopDomainId" )
+	@JoinColumn( name="TopDomainId", referencedColumnName="Id" )
 	protected CFIntJpaTopDomain requiredContainerTopDomain;
 
 	@AttributeOverrides({

@@ -67,7 +67,7 @@ public class CFIntJpaSubProject
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="TopProjectId" )
+	@JoinColumn( name="TopProjectId", referencedColumnName="Id" )
 	protected CFIntJpaTopProject requiredContainerParentTPrj;
 
 	@AttributeOverrides({

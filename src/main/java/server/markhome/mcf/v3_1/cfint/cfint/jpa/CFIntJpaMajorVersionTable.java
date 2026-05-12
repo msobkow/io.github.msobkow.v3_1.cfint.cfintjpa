@@ -542,11 +542,13 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, "readmajorversion", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntMajorVersion retval = schema.getJpaHooksSchema().getMajorVersionService().find(argId);
 		if(retval != null) {
 			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readmajorversion'), clear retval to null if not a member
@@ -573,11 +575,13 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		CFLibDbKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
-		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, "readmajorversion", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFIntJpaMajorVersion> retlist = schema.getJpaHooksSchema().getMajorVersionService().findByTenantIdx(argTenantId);
 		if(retlist != null) {
 			ArrayList<CFIntJpaMajorVersion> finallist = new ArrayList<>();
@@ -614,11 +618,13 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		CFLibDbKeyHash256 argSubProjectId )
 	{
 		final String S_ProcName = "readDerivedBySubProjectIdx";
-		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, "readmajorversion", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFIntJpaMajorVersion> retlist = schema.getJpaHooksSchema().getMajorVersionService().findBySubProjectIdx(argSubProjectId);
 		if(retlist != null) {
 			ArrayList<CFIntJpaMajorVersion> finallist = new ArrayList<>();
@@ -659,11 +665,13 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		String argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
-		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, "readmajorversion", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntMajorVersion retval = schema.getJpaHooksSchema().getMajorVersionService().findByNameIdx(argSubProjectId,
 		argName);
 		if(retval != null) {
@@ -763,11 +771,13 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, "readmajorversion", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -787,11 +797,13 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		CFLibDbKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
-		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, "readmajorversion", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByTenantIdx");
 	}
 
@@ -811,11 +823,13 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		CFLibDbKeyHash256 argSubProjectId )
 	{
 		final String S_ProcName = "readRecBySubProjectIdx";
-		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, "readmajorversion", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecBySubProjectIdx");
 	}
 
@@ -839,11 +853,13 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		String argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
-		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, "readmajorversion", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByNameIdx");
 	}
 }

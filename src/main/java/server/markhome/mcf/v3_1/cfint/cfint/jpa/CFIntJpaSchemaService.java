@@ -50,7 +50,7 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
  *	Services for schema CFInt defined in server.markhome.mcf.v3_1.cfint.cfint.jpa
  *	using the CFInt*Repository objects to access the data directly, bypassing normal application security for the bootstrap and login processing.
  */
-@Service("cfint31JpaSchemaService")
+@Service("cfintJpaSchemaService")
 public class CFIntJpaSchemaService {
 
 	@Autowired

@@ -451,11 +451,13 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 		int argURLProtocolId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntURLProtocolTable.TABLE_NAME, "readurlprotocol", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntURLProtocol retval = schema.getJpaHooksSchema().getURLProtocolService().find(argURLProtocolId);
 		return( retval );
 	}
@@ -475,11 +477,13 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 		String argName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
-		boolean permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntURLProtocolTable.TABLE_NAME, "readurlprotocol", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntURLProtocol retval = schema.getJpaHooksSchema().getURLProtocolService().findByUNameIdx(argName);
 		return( retval );
 	}
@@ -498,11 +502,13 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 		boolean argIsSecure )
 	{
 		final String S_ProcName = "readDerivedByIsSecureIdx";
-		boolean permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntURLProtocolTable.TABLE_NAME, "readurlprotocol", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFIntJpaURLProtocol> retlist = schema.getJpaHooksSchema().getURLProtocolService().findByIsSecureIdx(argIsSecure);
 		ICFIntURLProtocol[] retset = new ICFIntURLProtocol[retlist.size()];
 		int idx = 0;
@@ -598,11 +604,13 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 		int argURLProtocolId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntURLProtocolTable.TABLE_NAME, "readurlprotocol", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -623,11 +631,13 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 		String argName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
-		boolean permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntURLProtocolTable.TABLE_NAME, "readurlprotocol", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUNameIdx");
 	}
 
@@ -647,11 +657,13 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 		boolean argIsSecure )
 	{
 		final String S_ProcName = "readRecByIsSecureIdx";
-		boolean permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadURLProtocol(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntURLProtocolTable.TABLE_NAME, "readurlprotocol", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIsSecureIdx");
 	}
 }

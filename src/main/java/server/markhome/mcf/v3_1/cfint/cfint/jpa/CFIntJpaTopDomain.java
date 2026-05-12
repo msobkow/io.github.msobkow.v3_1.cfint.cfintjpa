@@ -69,7 +69,7 @@ public class CFIntJpaTopDomain
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="TldId" )
+	@JoinColumn( name="TldId", referencedColumnName="Id" )
 	protected CFIntJpaTld requiredContainerParentTld;
 
 	@AttributeOverrides({

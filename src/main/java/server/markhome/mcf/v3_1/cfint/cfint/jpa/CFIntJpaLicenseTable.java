@@ -542,11 +542,13 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadLicense(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadLicense(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, "readlicense", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntLicense retval = schema.getJpaHooksSchema().getLicenseService().find(argId);
 		if(retval != null) {
 			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readlicense'), clear retval to null if not a member
@@ -573,11 +575,13 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		CFLibDbKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readDerivedByLicnTenantIdx";
-		boolean permissionGranted = canReadLicense(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadLicense(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, "readlicense", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFIntJpaLicense> retlist = schema.getJpaHooksSchema().getLicenseService().findByLicnTenantIdx(argTenantId);
 		if(retlist != null) {
 			ArrayList<CFIntJpaLicense> finallist = new ArrayList<>();
@@ -614,11 +618,13 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		CFLibDbKeyHash256 argTopDomainId )
 	{
 		final String S_ProcName = "readDerivedByDomainIdx";
-		boolean permissionGranted = canReadLicense(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadLicense(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, "readlicense", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFIntJpaLicense> retlist = schema.getJpaHooksSchema().getLicenseService().findByDomainIdx(argTopDomainId);
 		if(retlist != null) {
 			ArrayList<CFIntJpaLicense> finallist = new ArrayList<>();
@@ -659,11 +665,13 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		String argName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
-		boolean permissionGranted = canReadLicense(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadLicense(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, "readlicense", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFIntLicense retval = schema.getJpaHooksSchema().getLicenseService().findByUNameIdx(argTopDomainId,
 		argName);
 		if(retval != null) {
@@ -763,11 +771,13 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadLicense(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadLicense(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, "readlicense", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -787,11 +797,13 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		CFLibDbKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readRecByLicnTenantIdx";
-		boolean permissionGranted = canReadLicense(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadLicense(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, "readlicense", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByLicnTenantIdx");
 	}
 
@@ -811,11 +823,13 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		CFLibDbKeyHash256 argTopDomainId )
 	{
 		final String S_ProcName = "readRecByDomainIdx";
-		boolean permissionGranted = canReadLicense(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadLicense(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, "readlicense", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByDomainIdx");
 	}
 
@@ -839,11 +853,13 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		String argName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
-		boolean permissionGranted = canReadLicense(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadLicense(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, "readlicense", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUNameIdx");
 	}
 }
