@@ -134,7 +134,7 @@ public class CFIntJpaTopDomain
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
 		}
-		ICFSecTenant targetRec = targetTable.readDerivedByIdIdx(null, getRequiredTenantId());
+		ICFSecTenant targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), getRequiredTenantId());
 		return(targetRec);
 	}
 	@Override
@@ -179,7 +179,7 @@ public class CFIntJpaTopDomain
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerParentTld", 0, "ICFIntSchema.getBackingCFInt().getTableTld()");
 		}
-		ICFIntTld targetRec = targetTable.readDerived(null, argTldId);
+		ICFIntTld targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argTldId);
 		setRequiredContainerParentTld(targetRec);
 	}
 

@@ -114,7 +114,7 @@ public class CFIntJpaMinorVersion
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
 		}
-		ICFSecTenant targetRec = targetTable.readDerivedByIdIdx(null, getRequiredTenantId());
+		ICFSecTenant targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), getRequiredTenantId());
 		return(targetRec);
 	}
 	@Override
@@ -159,7 +159,7 @@ public class CFIntJpaMinorVersion
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerParentMajVer", 0, "ICFIntSchema.getBackingCFInt().getTableMajorVersion()");
 		}
-		ICFIntMajorVersion targetRec = targetTable.readDerived(null, argMajorVersionId);
+		ICFIntMajorVersion targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argMajorVersionId);
 		setRequiredContainerParentMajVer(targetRec);
 	}
 
