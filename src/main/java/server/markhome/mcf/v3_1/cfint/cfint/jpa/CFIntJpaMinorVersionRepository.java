@@ -70,7 +70,7 @@ public interface CFIntJpaMinorVersionRepository extends JpaRepository<CFIntJpaMi
 	 *
 	 *		@return List&lt;CFIntJpaMinorVersion&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFIntJpaMinorVersion r where r.$reference Column reference SuperiorCandidateRelationCol reference Relation lower OptionalOrRequired$$reference Column reference SuperiorCandidateRelationCol reference Relation RelationType$$reference Column reference SuperiorCandidateRelationCol reference Relation Suffix$.$reference Column reference SuperiorCandidateRelationCol SchemaJpaRepositoryChaseRelationToCol$")
+	@Query("select r from CFIntJpaMinorVersion r where r.requiredOwnerTenant.requiredId = :tenantId")
 	List<CFIntJpaMinorVersion> findByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -151,7 +151,7 @@ public interface CFIntJpaMinorVersionRepository extends JpaRepository<CFIntJpaMi
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFIntJpaMinorVersion r where r.$reference Column reference SuperiorCandidateRelationCol reference Relation lower OptionalOrRequired$$reference Column reference SuperiorCandidateRelationCol reference Relation RelationType$$reference Column reference SuperiorCandidateRelationCol reference Relation Suffix$.$reference Column reference SuperiorCandidateRelationCol SchemaJpaRepositoryChaseRelationToCol$")
+	@Query("select r from CFIntJpaMinorVersion r where r.requiredOwnerTenant.requiredId = :tenantId")
 	List<CFIntJpaMinorVersion> lockByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -232,7 +232,7 @@ public interface CFIntJpaMinorVersionRepository extends JpaRepository<CFIntJpaMi
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFIntJpaMinorVersion r where r.$reference Column reference SuperiorCandidateRelationCol reference Relation lower OptionalOrRequired$$reference Column reference SuperiorCandidateRelationCol reference Relation RelationType$$reference Column reference SuperiorCandidateRelationCol reference Relation Suffix$.$reference Column reference SuperiorCandidateRelationCol SchemaJpaRepositoryChaseRelationToCol$")
+	@Query("delete from CFIntJpaMinorVersion r where r.requiredOwnerTenant.requiredId = :tenantId")
 	void deleteByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
