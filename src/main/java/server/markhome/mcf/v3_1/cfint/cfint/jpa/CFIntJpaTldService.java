@@ -87,6 +87,9 @@ public class CFIntJpaTldService {
 				"data.requiredName");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfint31TldRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFIntJpaTld)(cfint31TldRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
 				data.setRequiredId(new CFLibDbKeyHash256(0));
 				generatedRequiredId = true;
@@ -94,9 +97,6 @@ public class CFIntJpaTldService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfint31TldRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFIntJpaTld)(cfint31TldRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfint31TldRepository.save(data);
 		}
 		catch(Exception ex) {

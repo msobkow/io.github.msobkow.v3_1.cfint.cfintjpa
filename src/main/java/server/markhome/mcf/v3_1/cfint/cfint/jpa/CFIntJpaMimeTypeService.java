@@ -81,12 +81,12 @@ public class CFIntJpaMimeTypeService {
 				"data.requiredName");
 		}
 		try {
-			LocalDateTime now = LocalDateTime.now();
-			data.setCreatedAt(now);
-			data.setUpdatedAt(now);
 			if(data.getPKey() != null && cfint31MimeTypeRepository.existsById((Integer)data.getPKey())) {
 				return( (CFIntJpaMimeType)(cfint31MimeTypeRepository.findById((Integer)(data.getPKey())).get()));
 			}
+			LocalDateTime now = LocalDateTime.now();
+			data.setCreatedAt(now);
+			data.setUpdatedAt(now);
 			return cfint31MimeTypeRepository.save(data);
 		}
 		catch(Exception ex) {

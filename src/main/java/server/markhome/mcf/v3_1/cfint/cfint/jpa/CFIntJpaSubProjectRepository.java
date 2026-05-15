@@ -70,7 +70,7 @@ public interface CFIntJpaSubProjectRepository extends JpaRepository<CFIntJpaSubP
 	 *
 	 *		@return List&lt;CFIntJpaSubProject&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFIntJpaSubProject r where r.requiredTenantId = :tenantId")
+	@Query("select r from CFIntJpaSubProject r where r.$reference Column reference SuperiorCandidateRelationCol reference Relation lower OptionalOrRequired$$reference Column reference SuperiorCandidateRelationCol reference Relation RelationType$$reference Column reference SuperiorCandidateRelationCol reference Relation Suffix$.$reference Column reference SuperiorCandidateRelationCol SchemaJpaRepositoryChaseRelationToCol$")
 	List<CFIntJpaSubProject> findByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -151,7 +151,7 @@ public interface CFIntJpaSubProjectRepository extends JpaRepository<CFIntJpaSubP
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFIntJpaSubProject r where r.requiredTenantId = :tenantId")
+	@Query("select r from CFIntJpaSubProject r where r.$reference Column reference SuperiorCandidateRelationCol reference Relation lower OptionalOrRequired$$reference Column reference SuperiorCandidateRelationCol reference Relation RelationType$$reference Column reference SuperiorCandidateRelationCol reference Relation Suffix$.$reference Column reference SuperiorCandidateRelationCol SchemaJpaRepositoryChaseRelationToCol$")
 	List<CFIntJpaSubProject> lockByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -232,7 +232,7 @@ public interface CFIntJpaSubProjectRepository extends JpaRepository<CFIntJpaSubP
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFIntJpaSubProject r where r.requiredTenantId = :tenantId")
+	@Query("delete from CFIntJpaSubProject r where r.$reference Column reference SuperiorCandidateRelationCol reference Relation lower OptionalOrRequired$$reference Column reference SuperiorCandidateRelationCol reference Relation RelationType$$reference Column reference SuperiorCandidateRelationCol reference Relation Suffix$.$reference Column reference SuperiorCandidateRelationCol SchemaJpaRepositoryChaseRelationToCol$")
 	void deleteByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**

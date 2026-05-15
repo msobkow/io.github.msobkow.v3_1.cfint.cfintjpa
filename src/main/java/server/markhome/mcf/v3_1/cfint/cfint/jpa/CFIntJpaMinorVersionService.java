@@ -93,6 +93,9 @@ public class CFIntJpaMinorVersionService {
 				"data.requiredName");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfint31MinorVersionRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFIntJpaMinorVersion)(cfint31MinorVersionRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
 				data.setRequiredId(new CFLibDbKeyHash256(0));
 				generatedRequiredId = true;
@@ -100,9 +103,6 @@ public class CFIntJpaMinorVersionService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfint31MinorVersionRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFIntJpaMinorVersion)(cfint31MinorVersionRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfint31MinorVersionRepository.save(data);
 		}
 		catch(Exception ex) {

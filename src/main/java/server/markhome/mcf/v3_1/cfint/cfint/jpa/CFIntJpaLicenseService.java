@@ -93,12 +93,12 @@ public class CFIntJpaLicenseService {
 				"data.requiredName");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfint31LicenseRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFIntJpaLicense)(cfint31LicenseRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
 				data.setRequiredId(new CFLibDbKeyHash256(0));
 				generatedRequiredId = true;
-			}
-			if(data.getPKey() != null && cfint31LicenseRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFIntJpaLicense)(cfint31LicenseRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
 			}
 			return cfint31LicenseRepository.save(data);
 		}

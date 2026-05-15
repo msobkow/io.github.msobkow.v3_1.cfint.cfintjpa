@@ -87,12 +87,12 @@ public class CFIntJpaURLProtocolService {
 				"data.requiredDescription");
 		}
 		try {
-			LocalDateTime now = LocalDateTime.now();
-			data.setCreatedAt(now);
-			data.setUpdatedAt(now);
 			if(data.getPKey() != null && cfint31URLProtocolRepository.existsById((Integer)data.getPKey())) {
 				return( (CFIntJpaURLProtocol)(cfint31URLProtocolRepository.findById((Integer)(data.getPKey())).get()));
 			}
+			LocalDateTime now = LocalDateTime.now();
+			data.setCreatedAt(now);
+			data.setUpdatedAt(now);
 			return cfint31URLProtocolRepository.save(data);
 		}
 		catch(Exception ex) {

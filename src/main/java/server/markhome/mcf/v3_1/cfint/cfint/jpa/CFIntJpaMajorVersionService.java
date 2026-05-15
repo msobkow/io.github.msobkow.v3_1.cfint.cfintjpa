@@ -93,6 +93,9 @@ public class CFIntJpaMajorVersionService {
 				"data.requiredName");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfint31MajorVersionRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFIntJpaMajorVersion)(cfint31MajorVersionRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
 				data.setRequiredId(new CFLibDbKeyHash256(0));
 				generatedRequiredId = true;
@@ -100,9 +103,6 @@ public class CFIntJpaMajorVersionService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfint31MajorVersionRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFIntJpaMajorVersion)(cfint31MajorVersionRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfint31MajorVersionRepository.save(data);
 		}
 		catch(Exception ex) {
