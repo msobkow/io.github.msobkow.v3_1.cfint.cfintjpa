@@ -104,10 +104,7 @@ public class CFIntJpaTld
 
 	@Override
 	public List<ICFIntTopDomain> getOptionalComponentsTopDomain() {
-		List<ICFIntTopDomain> retlist = new ArrayList<>(optionalComponentsTopDomain.size());
-		for (CFIntJpaTopDomain cur: optionalComponentsTopDomain) {
-			retlist.add(cur);
-		}
+		List<ICFIntTopDomain> retlist = (optionalComponentsTopDomain != null) ? new ArrayList<>(optionalComponentsTopDomain) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

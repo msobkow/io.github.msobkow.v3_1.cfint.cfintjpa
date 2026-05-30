@@ -47,7 +47,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 		@Index(name = "TopDomainIdIdx", columnList = "Id", unique = true),
 		@Index(name = "TopDomainTenantIdx", columnList = "TenantId", unique = false),
 		@Index(name = "TopDomainTldIdx", columnList = "TldId", unique = false),
-		@Index(name = "TopDomNameIdx", columnList = "TldId, safe_name", unique = true)
+		@Index(name = "TopDomNameIdx", columnList = "TldId, safe_name", unique = true),
+		@Index(name = "TopDomainTldIdxParentTld", columnList = "TldIdParentTld", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -69,7 +70,7 @@ public class CFIntJpaTopDomain
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="TldId", referencedColumnName="Id" )
+	@JoinColumn( name="TldIdParentTld", referencedColumnName="Id" )
 	protected CFIntJpaTld requiredContainerParentTld;
 
 	@AttributeOverrides({
@@ -110,18 +111,12 @@ public class CFIntJpaTopDomain
 
 	@Override
 	public List<ICFIntTopProject> getOptionalComponentsTopProject() {
-		List<ICFIntTopProject> retlist = new ArrayList<>(optionalComponentsTopProject.size());
-		for (CFIntJpaTopProject cur: optionalComponentsTopProject) {
-			retlist.add(cur);
-		}
+		List<ICFIntTopProject> retlist = (optionalComponentsTopProject != null) ? new ArrayList<>(optionalComponentsTopProject) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFIntLicense> getOptionalComponentsLicense() {
-		List<ICFIntLicense> retlist = new ArrayList<>(optionalComponentsLicense.size());
-		for (CFIntJpaLicense cur: optionalComponentsLicense) {
-			retlist.add(cur);
-		}
+		List<ICFIntLicense> retlist = (optionalComponentsLicense != null) ? new ArrayList<>(optionalComponentsLicense) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
@@ -154,7 +149,7 @@ public class CFIntJpaTopDomain
 
 	@Override
 	public ICFIntTld getRequiredContainerParentTld() {
-		return( requiredContainerParentTld );
+		return(requiredContainerParentTld);
 	}
 	@Override
 	public void setRequiredContainerParentTld(ICFIntTld argObj) {

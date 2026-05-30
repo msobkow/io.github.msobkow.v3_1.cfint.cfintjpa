@@ -47,7 +47,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 		@Index(name = "LicenseIdIdx", columnList = "Id", unique = true),
 		@Index(name = "LicenseTenantIdx", columnList = "TenantId", unique = false),
 		@Index(name = "LicenseTopDomainIdx", columnList = "TopDomainId", unique = false),
-		@Index(name = "LicenseUNameIdx", columnList = "TopDomainId, safe_name", unique = true)
+		@Index(name = "LicenseUNameIdx", columnList = "TopDomainId, safe_name", unique = true),
+		@Index(name = "LicenseTopDomainIdxTopDomain", columnList = "TopDomainIdTopDomain", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -65,7 +66,7 @@ public class CFIntJpaLicense
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="TopDomainId", referencedColumnName="Id" )
+	@JoinColumn( name="TopDomainIdTopDomain", referencedColumnName="Id" )
 	protected CFIntJpaTopDomain requiredContainerTopDomain;
 
 	@AttributeOverrides({
@@ -125,7 +126,7 @@ public class CFIntJpaLicense
 
 	@Override
 	public ICFIntTopDomain getRequiredContainerTopDomain() {
-		return( requiredContainerTopDomain );
+		return(requiredContainerTopDomain);
 	}
 	@Override
 	public void setRequiredContainerTopDomain(ICFIntTopDomain argObj) {

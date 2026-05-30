@@ -47,7 +47,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 		@Index(name = "MajorVersionIdIdx", columnList = "Id", unique = true),
 		@Index(name = "MajorVersionTenantIdx", columnList = "TenantId", unique = false),
 		@Index(name = "MajorVersionSubProjectIdx", columnList = "SubProjectId", unique = false),
-		@Index(name = "MajorVersionNameIdx", columnList = "SubProjectId, safe_name", unique = true)
+		@Index(name = "MajorVersionNameIdx", columnList = "SubProjectId, safe_name", unique = true),
+		@Index(name = "MajorVersionSubProjectIdxParentSPrj", columnList = "SubProjectIdParentSPrj", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -67,7 +68,7 @@ public class CFIntJpaMajorVersion
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="SubProjectId", referencedColumnName="Id" )
+	@JoinColumn( name="SubProjectIdParentSPrj", referencedColumnName="Id" )
 	protected CFIntJpaSubProject requiredContainerParentSPrj;
 
 	@AttributeOverrides({
@@ -108,10 +109,7 @@ public class CFIntJpaMajorVersion
 
 	@Override
 	public List<ICFIntMinorVersion> getOptionalComponentsMinorVer() {
-		List<ICFIntMinorVersion> retlist = new ArrayList<>(optionalComponentsMinorVer.size());
-		for (CFIntJpaMinorVersion cur: optionalComponentsMinorVer) {
-			retlist.add(cur);
-		}
+		List<ICFIntMinorVersion> retlist = (optionalComponentsMinorVer != null) ? new ArrayList<>(optionalComponentsMinorVer) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
@@ -144,7 +142,7 @@ public class CFIntJpaMajorVersion
 
 	@Override
 	public ICFIntSubProject getRequiredContainerParentSPrj() {
-		return( requiredContainerParentSPrj );
+		return(requiredContainerParentSPrj);
 	}
 	@Override
 	public void setRequiredContainerParentSPrj(ICFIntSubProject argObj) {

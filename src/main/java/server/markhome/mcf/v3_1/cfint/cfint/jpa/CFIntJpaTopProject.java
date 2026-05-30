@@ -47,7 +47,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 		@Index(name = "TopProjectIdIdx", columnList = "Id", unique = true),
 		@Index(name = "TopProjectTenantIdx", columnList = "TenantId", unique = false),
 		@Index(name = "TopProjectTopDomainIdx", columnList = "TopDomainId", unique = false),
-		@Index(name = "TopProjectNameIdx", columnList = "TopDomainId, safe_name", unique = true)
+		@Index(name = "TopProjectNameIdx", columnList = "TopDomainId, safe_name", unique = true),
+		@Index(name = "TopProjectTopDomainIdxParentSDom", columnList = "TopDomainIdParentSDom", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -67,7 +68,7 @@ public class CFIntJpaTopProject
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="TopDomainId", referencedColumnName="Id" )
+	@JoinColumn( name="TopDomainIdParentSDom", referencedColumnName="Id" )
 	protected CFIntJpaTopDomain requiredContainerParentSDom;
 
 	@AttributeOverrides({
@@ -108,10 +109,7 @@ public class CFIntJpaTopProject
 
 	@Override
 	public List<ICFIntSubProject> getOptionalComponentsSubProject() {
-		List<ICFIntSubProject> retlist = new ArrayList<>(optionalComponentsSubProject.size());
-		for (CFIntJpaSubProject cur: optionalComponentsSubProject) {
-			retlist.add(cur);
-		}
+		List<ICFIntSubProject> retlist = (optionalComponentsSubProject != null) ? new ArrayList<>(optionalComponentsSubProject) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
@@ -144,7 +142,7 @@ public class CFIntJpaTopProject
 
 	@Override
 	public ICFIntTopDomain getRequiredContainerParentSDom() {
-		return( requiredContainerParentSDom );
+		return(requiredContainerParentSDom);
 	}
 	@Override
 	public void setRequiredContainerParentSDom(ICFIntTopDomain argObj) {

@@ -47,7 +47,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 		@Index(name = "MinorVersionIdIdx", columnList = "Id", unique = true),
 		@Index(name = "MinorVersionTenantIdx", columnList = "TenantId", unique = false),
 		@Index(name = "MinorVersionMajorVersionIdx", columnList = "MajorVersionId", unique = false),
-		@Index(name = "MinorVersionNameIdx", columnList = "MajorVersionId, safe_name", unique = true)
+		@Index(name = "MinorVersionNameIdx", columnList = "MajorVersionId, safe_name", unique = true),
+		@Index(name = "MinorVersionMajorVersionIdxParentMajVer", columnList = "MajorVersionIdParentMajVer", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -65,7 +66,7 @@ public class CFIntJpaMinorVersion
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="MajorVersionId", referencedColumnName="Id" )
+	@JoinColumn( name="MajorVersionIdParentMajVer", referencedColumnName="Id" )
 	protected CFIntJpaMajorVersion requiredContainerParentMajVer;
 
 	@AttributeOverrides({
@@ -134,7 +135,7 @@ public class CFIntJpaMinorVersion
 
 	@Override
 	public ICFIntMajorVersion getRequiredContainerParentMajVer() {
-		return( requiredContainerParentMajVer );
+		return(requiredContainerParentMajVer);
 	}
 	@Override
 	public void setRequiredContainerParentMajVer(ICFIntMajorVersion argObj) {
