@@ -88,6 +88,10 @@ public class CFIntJpaMinorVersion
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredTenantId;
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="MajorVersionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredMajorVersionId;
 	@Column( name="safe_name", nullable=false, length=64 )
 	protected String requiredName;
 	@Column( name="descr", nullable=true, length=1024 )
@@ -96,6 +100,7 @@ public class CFIntJpaMinorVersion
 	public CFIntJpaMinorVersion() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFIntMinorVersion.ID_INIT_VALUE.toString() );
 		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntMinorVersion.TENANTID_INIT_VALUE.toString() );
+		requiredMajorVersionId = CFLibDbKeyHash256.fromHex( ICFIntMinorVersion.MAJORVERSIONID_INIT_VALUE.toString() );
 		requiredName = ICFIntMinorVersion.NAME_INIT_VALUE;
 		optionalDescription = null;
 	}
@@ -144,6 +149,11 @@ public class CFIntJpaMinorVersion
 		}
 		else if (argObj instanceof CFIntJpaMajorVersion) {
 			requiredContainerParentMajVer = (CFIntJpaMajorVersion)argObj;
+			if (requiredContainerParentMajVer != null) {
+				requiredMajorVersionId = requiredContainerParentMajVer.getRequiredId();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setContainerParentMajVer", "argObj", argObj, "CFIntJpaMajorVersion");
@@ -260,13 +270,7 @@ public class CFIntJpaMinorVersion
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredMajorVersionId() {
-		ICFIntMajorVersion result = getRequiredContainerParentMajVer();
-		if (result != null) {
-			return result.getRequiredId();
-		}
-		else {
-			return( ICFIntMajorVersion.ID_INIT_VALUE );
-		}
+		return( requiredMajorVersionId );
 	}
 
 	@Override

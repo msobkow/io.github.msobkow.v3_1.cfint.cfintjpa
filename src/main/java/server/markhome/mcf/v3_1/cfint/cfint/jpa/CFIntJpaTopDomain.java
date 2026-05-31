@@ -92,6 +92,10 @@ public class CFIntJpaTopDomain
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredTenantId;
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="TldId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredTldId;
 	@Column( name="safe_name", nullable=false, length=64 )
 	protected String requiredName;
 	@Column( name="descr", nullable=true, length=1024 )
@@ -100,6 +104,7 @@ public class CFIntJpaTopDomain
 	public CFIntJpaTopDomain() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFIntTopDomain.ID_INIT_VALUE.toString() );
 		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntTopDomain.TENANTID_INIT_VALUE.toString() );
+		requiredTldId = CFLibDbKeyHash256.fromHex( ICFIntTopDomain.TLDID_INIT_VALUE.toString() );
 		requiredName = ICFIntTopDomain.NAME_INIT_VALUE;
 		optionalDescription = null;
 	}
@@ -158,6 +163,11 @@ public class CFIntJpaTopDomain
 		}
 		else if (argObj instanceof CFIntJpaTld) {
 			requiredContainerParentTld = (CFIntJpaTld)argObj;
+			if (requiredContainerParentTld != null) {
+				requiredTldId = requiredContainerParentTld.getRequiredId();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setContainerParentTld", "argObj", argObj, "CFIntJpaTld");
@@ -274,13 +284,7 @@ public class CFIntJpaTopDomain
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTldId() {
-		ICFIntTld result = getRequiredContainerParentTld();
-		if (result != null) {
-			return result.getRequiredId();
-		}
-		else {
-			return( ICFIntTld.ID_INIT_VALUE );
-		}
+		return( requiredTldId );
 	}
 
 	@Override

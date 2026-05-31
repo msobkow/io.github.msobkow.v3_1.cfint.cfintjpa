@@ -183,7 +183,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "createMimeType";
 		boolean permissionGranted = canCreateMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "createmimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "createmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -214,7 +214,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "updateMimeType";
 		boolean permissionGranted = canUpdateMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "updatemimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatemimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -244,7 +244,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "deleteMimeType";
 		boolean permissionGranted = canDeleteMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "deletemimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletemimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -275,7 +275,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "deleteMimeTypeByIdIdx";
 		boolean permissionGranted = canDeleteMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "deletemimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletemimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getMimeTypeService().deleteByIdIdx(argKey);
@@ -295,7 +295,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "deleteMimeTypeByUNameIdx";
 		boolean permissionGranted = canDeleteMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "deletemimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletemimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getMimeTypeService().deleteByUNameIdx(argName);
@@ -316,7 +316,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "deleteMimeTypeByUNameIdx";
 		boolean permissionGranted = canDeleteMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "deletemimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletemimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getMimeTypeService().deleteByUNameIdx(argKey.getRequiredName());
@@ -340,7 +340,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "readmimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFIntMimeType retval = schema.getJpaHooksSchema().getMimeTypeService().find(PKey);
@@ -364,7 +364,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "updatemimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatemimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFIntMimeType retval = schema.getJpaHooksSchema().getMimeTypeService().lockByIdIdx(PKey);
@@ -383,7 +383,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "readAllDerived";
 		boolean permissionGranted = canReadMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "readmimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		List<CFIntJpaMimeType> retlist = schema.getJpaHooksSchema().getMimeTypeService().findAll();
@@ -415,7 +415,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 			permissionGranted = canReadMimeType(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "readmimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntMimeType retval = schema.getJpaHooksSchema().getMimeTypeService().find(argMimeTypeId);
 		return( retval );
@@ -441,7 +441,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 			permissionGranted = canReadMimeType(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "readmimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntMimeType retval = schema.getJpaHooksSchema().getMimeTypeService().findByUNameIdx(argName);
 		return( retval );
@@ -466,7 +466,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "readmimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readRec");
@@ -491,7 +491,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "updatemimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatemimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "lockRec");
@@ -509,7 +509,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		final String S_ProcName = "readAllRec";
 		boolean permissionGranted = canReadMimeType(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "readmimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readAllRec");
@@ -538,7 +538,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 			permissionGranted = canReadMimeType(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "readmimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
@@ -565,7 +565,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 			permissionGranted = canReadMimeType(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, "readmimetype", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUNameIdx");
 	}

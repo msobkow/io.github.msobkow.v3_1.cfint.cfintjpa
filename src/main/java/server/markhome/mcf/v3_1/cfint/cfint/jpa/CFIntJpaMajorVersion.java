@@ -90,6 +90,10 @@ public class CFIntJpaMajorVersion
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredTenantId;
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="SubProjectId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredSubProjectId;
 	@Column( name="safe_name", nullable=false, length=64 )
 	protected String requiredName;
 	@Column( name="descr", nullable=true, length=1024 )
@@ -98,6 +102,7 @@ public class CFIntJpaMajorVersion
 	public CFIntJpaMajorVersion() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFIntMajorVersion.ID_INIT_VALUE.toString() );
 		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntMajorVersion.TENANTID_INIT_VALUE.toString() );
+		requiredSubProjectId = CFLibDbKeyHash256.fromHex( ICFIntMajorVersion.SUBPROJECTID_INIT_VALUE.toString() );
 		requiredName = ICFIntMajorVersion.NAME_INIT_VALUE;
 		optionalDescription = null;
 	}
@@ -151,6 +156,11 @@ public class CFIntJpaMajorVersion
 		}
 		else if (argObj instanceof CFIntJpaSubProject) {
 			requiredContainerParentSPrj = (CFIntJpaSubProject)argObj;
+			if (requiredContainerParentSPrj != null) {
+				requiredSubProjectId = requiredContainerParentSPrj.getRequiredId();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setContainerParentSPrj", "argObj", argObj, "CFIntJpaSubProject");
@@ -267,13 +277,7 @@ public class CFIntJpaMajorVersion
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSubProjectId() {
-		ICFIntSubProject result = getRequiredContainerParentSPrj();
-		if (result != null) {
-			return result.getRequiredId();
-		}
-		else {
-			return( ICFIntSubProject.ID_INIT_VALUE );
-		}
+		return( requiredSubProjectId );
 	}
 
 	@Override
