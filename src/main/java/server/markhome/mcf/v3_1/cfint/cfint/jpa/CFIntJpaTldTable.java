@@ -191,6 +191,10 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 		}
 		else if (rec instanceof CFIntJpaTld) {
 			CFIntJpaTld jparec = (CFIntJpaTld)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaTld retval = schema.getJpaHooksSchema().getTldService().create(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredContainerTenant();
@@ -201,7 +205,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createTld", "rec", rec, "CFIntJpaTld");
@@ -231,6 +235,8 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 		}
 		else if (rec instanceof CFIntJpaTld) {
 			CFIntJpaTld jparec = (CFIntJpaTld)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaTld retval = schema.getJpaHooksSchema().getTldService().update(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredContainerTenant();
@@ -241,7 +247,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateTld", "rec", rec, "CFIntJpaTld");
@@ -412,7 +418,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -445,7 +451,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -517,7 +523,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -595,7 +601,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**

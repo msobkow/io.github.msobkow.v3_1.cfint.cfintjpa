@@ -51,6 +51,10 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 @Transactional(readOnly = true)
 public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMajorVersion, CFLibDbKeyHash256> {
 
+	@Transactional
+	@Modifying
+	CFIntJpaMajorVersion save(CFIntJpaMajorVersion obj);
+
 	/**
 	 *	Argument-based get database instance for compatibility with the current MSS code factory code base.
 	 *

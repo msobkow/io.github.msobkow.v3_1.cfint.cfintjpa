@@ -42,6 +42,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /**
  *  CFIntJpaMinorVersionH provides history objects matching the CFIntMinorVersion change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
  */
 @Entity
 @Table(
@@ -50,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
         @Index(name = "MinorVersionIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, Id", unique = true),
         @Index(name = "MinorVersionTenantIdx_h", columnList = "TenantId", unique = false),
         @Index(name = "MinorVersionMajorVersionIdx_h", columnList = "MajorVersionId", unique = false),
-        @Index(name = "MinorVersionNameIdx_h", columnList = "MajorVersionId, safe_name", unique = true)
+        @Index(name = "MinorVersionNameIdx_h", columnList = "MajorVersionId, safe_name", unique = false)
     }
 )
 @Transactional(Transactional.TxType.SUPPORTS)

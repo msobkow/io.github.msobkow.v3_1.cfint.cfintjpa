@@ -191,6 +191,10 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 		}
 		else if (rec instanceof CFIntJpaTopProject) {
 			CFIntJpaTopProject jparec = (CFIntJpaTopProject)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaTopProject retval = schema.getJpaHooksSchema().getTopProjectService().create(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
@@ -201,7 +205,7 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createTopProject", "rec", rec, "CFIntJpaTopProject");
@@ -231,6 +235,8 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 		}
 		else if (rec instanceof CFIntJpaTopProject) {
 			CFIntJpaTopProject jparec = (CFIntJpaTopProject)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaTopProject retval = schema.getJpaHooksSchema().getTopProjectService().update(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
@@ -241,7 +247,7 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateTopProject", "rec", rec, "CFIntJpaTopProject");
@@ -458,7 +464,7 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -491,7 +497,7 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -563,7 +569,7 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -688,7 +694,7 @@ public class CFIntJpaTopProjectTable implements ICFIntTopProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**

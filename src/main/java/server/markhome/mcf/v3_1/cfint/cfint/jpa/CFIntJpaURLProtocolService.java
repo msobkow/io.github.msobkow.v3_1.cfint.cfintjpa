@@ -90,6 +90,9 @@ public class CFIntJpaURLProtocolService {
 			if(data.getPKey() != null && cfint31URLProtocolRepository.existsById((Integer)data.getPKey())) {
 				return( (CFIntJpaURLProtocol)(cfint31URLProtocolRepository.findById((Integer)(data.getPKey())).get()));
 			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
+			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);

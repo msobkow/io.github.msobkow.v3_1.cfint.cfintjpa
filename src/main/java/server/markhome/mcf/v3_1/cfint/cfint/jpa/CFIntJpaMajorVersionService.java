@@ -74,18 +74,28 @@ public class CFIntJpaMajorVersionService {
 		}
 		CFLibDbKeyHash256 originalRequiredId = data.getRequiredId();
 		boolean generatedRequiredId = false;
-			if (data.getRequiredOwnerTenant() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredOwnerTenant()");
-			}
-			if (data.getRequiredContainerParentSPrj() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerParentSPrj()");
-			}
+		if (data.getRequiredOwnerTenant() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Owner",
+				"Owner",
+				"data.requiredOwnerTenant",
+				"data.requiredOwnerTenant",
+				"Tenant",
+				"Tenant",
+				null);
+		}
+		if (data.getRequiredContainerParentSPrj() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerParentSPrj",
+				"data.requiredContainerParentSPrj",
+				"SubProject",
+				"SubProject",
+				null);
+		}
 		if(data.getRequiredTenantId() == null || data.getRequiredTenantId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -107,6 +117,9 @@ public class CFIntJpaMajorVersionService {
 		try {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfint31MajorVersionRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFIntJpaMajorVersion)(cfint31MajorVersionRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
 				data.setRequiredId(new CFLibDbKeyHash256(0));
@@ -146,18 +159,28 @@ public class CFIntJpaMajorVersionService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredOwnerTenant() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredOwnerTenant()");
-			}
-			if (data.getRequiredContainerParentSPrj() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerParentSPrj()");
-			}
+		if (data.getRequiredOwnerTenant() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Owner",
+				"Owner",
+				"data.requiredOwnerTenant",
+				"data.requiredOwnerTenant",
+				"Tenant",
+				"Tenant",
+				null);
+		}
+		if (data.getRequiredContainerParentSPrj() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerParentSPrj",
+				"data.requiredContainerParentSPrj",
+				"SubProject",
+				"SubProject",
+				null);
+		}
 		if(data.getRequiredTenantId() == null || data.getRequiredTenantId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

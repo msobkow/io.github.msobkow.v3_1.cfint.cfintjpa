@@ -51,6 +51,10 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 @Transactional(readOnly = true)
 public interface CFIntJpaMimeTypeRepository extends JpaRepository<CFIntJpaMimeType, Integer> {
 
+	@Transactional
+	@Modifying
+	CFIntJpaMimeType save(CFIntJpaMimeType obj);
+
 	/**
 	 *	Argument-based get database instance for compatibility with the current MSS code factory code base.
 	 *

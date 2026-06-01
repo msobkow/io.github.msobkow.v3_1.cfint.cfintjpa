@@ -51,6 +51,10 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 @Transactional(readOnly = true)
 public interface CFIntJpaURLProtocolRepository extends JpaRepository<CFIntJpaURLProtocol, Integer> {
 
+	@Transactional
+	@Modifying
+	CFIntJpaURLProtocol save(CFIntJpaURLProtocol obj);
+
 	/**
 	 *	Argument-based get database instance for compatibility with the current MSS code factory code base.
 	 *

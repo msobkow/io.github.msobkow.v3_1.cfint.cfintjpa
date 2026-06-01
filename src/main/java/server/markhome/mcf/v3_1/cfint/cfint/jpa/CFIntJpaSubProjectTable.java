@@ -191,6 +191,10 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 		}
 		else if (rec instanceof CFIntJpaSubProject) {
 			CFIntJpaSubProject jparec = (CFIntJpaSubProject)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaSubProject retval = schema.getJpaHooksSchema().getSubProjectService().create(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
@@ -201,7 +205,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSubProject", "rec", rec, "CFIntJpaSubProject");
@@ -231,6 +235,8 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 		}
 		else if (rec instanceof CFIntJpaSubProject) {
 			CFIntJpaSubProject jparec = (CFIntJpaSubProject)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaSubProject retval = schema.getJpaHooksSchema().getSubProjectService().update(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
@@ -241,7 +247,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSubProject", "rec", rec, "CFIntJpaSubProject");
@@ -458,7 +464,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -491,7 +497,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -563,7 +569,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -688,7 +694,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**

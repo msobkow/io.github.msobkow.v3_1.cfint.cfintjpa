@@ -201,7 +201,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createLicense", "rec", rec, "CFIntJpaLicense");
@@ -241,7 +241,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateLicense", "rec", rec, "CFIntJpaLicense");
@@ -458,7 +458,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -491,7 +491,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -563,7 +563,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -688,7 +688,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**

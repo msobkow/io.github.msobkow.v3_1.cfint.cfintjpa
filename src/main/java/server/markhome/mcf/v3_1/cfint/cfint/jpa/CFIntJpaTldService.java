@@ -74,12 +74,17 @@ public class CFIntJpaTldService {
 		}
 		CFLibDbKeyHash256 originalRequiredId = data.getRequiredId();
 		boolean generatedRequiredId = false;
-			if (data.getRequiredContainerTenant() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerTenant()");
-			}
+		if (data.getRequiredContainerTenant() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerTenant",
+				"data.requiredContainerTenant",
+				"Tenant",
+				"Tenant",
+				null);
+		}
 		if(data.getRequiredTenantId() == null || data.getRequiredTenantId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -95,6 +100,9 @@ public class CFIntJpaTldService {
 		try {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfint31TldRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFIntJpaTld)(cfint31TldRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
 				data.setRequiredId(new CFLibDbKeyHash256(0));
@@ -134,12 +142,17 @@ public class CFIntJpaTldService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredContainerTenant() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerTenant()");
-			}
+		if (data.getRequiredContainerTenant() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerTenant",
+				"data.requiredContainerTenant",
+				"Tenant",
+				"Tenant",
+				null);
+		}
 		if(data.getRequiredTenantId() == null || data.getRequiredTenantId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

@@ -42,13 +42,14 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /**
  *  CFIntJpaURLProtocolH provides history objects matching the CFIntURLProtocol change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
  */
 @Entity
 @Table(
     name = "URLProto_h", schema = "CFInt31",
     indexes = {
         @Index(name = "URLProtocolIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, URLProtocolId", unique = true),
-        @Index(name = "URLProtocolUNameIdx_h", columnList = "safe_name", unique = true),
+        @Index(name = "URLProtocolUNameIdx_h", columnList = "safe_name", unique = false),
         @Index(name = "URLProtocolIsSecureIdx_h", columnList = "IsSecure", unique = false)
     }
 )

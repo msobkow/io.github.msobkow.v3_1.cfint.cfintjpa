@@ -191,6 +191,10 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 		}
 		else if (rec instanceof CFIntJpaMinorVersion) {
 			CFIntJpaMinorVersion jparec = (CFIntJpaMinorVersion)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaMinorVersion retval = schema.getJpaHooksSchema().getMinorVersionService().create(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
@@ -201,7 +205,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createMinorVersion", "rec", rec, "CFIntJpaMinorVersion");
@@ -231,6 +235,8 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 		}
 		else if (rec instanceof CFIntJpaMinorVersion) {
 			CFIntJpaMinorVersion jparec = (CFIntJpaMinorVersion)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaMinorVersion retval = schema.getJpaHooksSchema().getMinorVersionService().update(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
@@ -241,7 +247,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateMinorVersion", "rec", rec, "CFIntJpaMinorVersion");
@@ -458,7 +464,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -491,7 +497,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -563,7 +569,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -688,7 +694,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**

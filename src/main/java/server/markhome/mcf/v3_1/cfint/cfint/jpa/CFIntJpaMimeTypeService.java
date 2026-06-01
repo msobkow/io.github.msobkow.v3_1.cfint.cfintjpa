@@ -84,6 +84,9 @@ public class CFIntJpaMimeTypeService {
 			if(data.getPKey() != null && cfint31MimeTypeRepository.existsById((Integer)data.getPKey())) {
 				return( (CFIntJpaMimeType)(cfint31MimeTypeRepository.findById((Integer)(data.getPKey())).get()));
 			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
+			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);

@@ -191,6 +191,10 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		}
 		else if (rec instanceof CFIntJpaMajorVersion) {
 			CFIntJpaMajorVersion jparec = (CFIntJpaMajorVersion)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaMajorVersion retval = schema.getJpaHooksSchema().getMajorVersionService().create(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
@@ -201,7 +205,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createMajorVersion", "rec", rec, "CFIntJpaMajorVersion");
@@ -231,6 +235,8 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		}
 		else if (rec instanceof CFIntJpaMajorVersion) {
 			CFIntJpaMajorVersion jparec = (CFIntJpaMajorVersion)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaMajorVersion retval = schema.getJpaHooksSchema().getMajorVersionService().update(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
@@ -241,7 +247,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateMajorVersion", "rec", rec, "CFIntJpaMajorVersion");
@@ -458,7 +464,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -491,7 +497,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -563,7 +569,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -688,7 +694,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**

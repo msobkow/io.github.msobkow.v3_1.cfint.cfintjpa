@@ -191,8 +191,12 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		}
 		else if (rec instanceof CFIntJpaMimeType) {
 			CFIntJpaMimeType jparec = (CFIntJpaMimeType)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaMimeType retval = schema.getJpaHooksSchema().getMimeTypeService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createMimeType", "rec", rec, "CFIntJpaMimeType");
@@ -222,8 +226,10 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		}
 		else if (rec instanceof CFIntJpaMimeType) {
 			CFIntJpaMimeType jparec = (CFIntJpaMimeType)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaMimeType retval = schema.getJpaHooksSchema().getMimeTypeService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateMimeType", "rec", rec, "CFIntJpaMimeType");
@@ -344,7 +350,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		}
 
 		ICFIntMimeType retval = schema.getJpaHooksSchema().getMimeTypeService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -368,7 +374,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 		}
 
 		ICFIntMimeType retval = schema.getJpaHooksSchema().getMimeTypeService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -418,7 +424,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntMimeType retval = schema.getJpaHooksSchema().getMimeTypeService().find(argMimeTypeId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -444,7 +450,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmimetype", ICFIntSchema.SCHEMA_NAME, ICFIntMimeTypeTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntMimeType retval = schema.getJpaHooksSchema().getMimeTypeService().findByUNameIdx(argName);
-		return( retval );
+		return(retval);
 	}
 
 	/**

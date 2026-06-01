@@ -191,8 +191,12 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 		}
 		else if (rec instanceof CFIntJpaURLProtocol) {
 			CFIntJpaURLProtocol jparec = (CFIntJpaURLProtocol)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaURLProtocol retval = schema.getJpaHooksSchema().getURLProtocolService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createURLProtocol", "rec", rec, "CFIntJpaURLProtocol");
@@ -222,8 +226,10 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 		}
 		else if (rec instanceof CFIntJpaURLProtocol) {
 			CFIntJpaURLProtocol jparec = (CFIntJpaURLProtocol)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaURLProtocol retval = schema.getJpaHooksSchema().getURLProtocolService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateURLProtocol", "rec", rec, "CFIntJpaURLProtocol");
@@ -385,7 +391,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 		}
 
 		ICFIntURLProtocol retval = schema.getJpaHooksSchema().getURLProtocolService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -409,7 +415,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 		}
 
 		ICFIntURLProtocol retval = schema.getJpaHooksSchema().getURLProtocolService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -459,7 +465,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readurlprotocol", ICFIntSchema.SCHEMA_NAME, ICFIntURLProtocolTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntURLProtocol retval = schema.getJpaHooksSchema().getURLProtocolService().find(argURLProtocolId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -485,7 +491,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readurlprotocol", ICFIntSchema.SCHEMA_NAME, ICFIntURLProtocolTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntURLProtocol retval = schema.getJpaHooksSchema().getURLProtocolService().findByUNameIdx(argName);
-		return( retval );
+		return(retval);
 	}
 
 	/**

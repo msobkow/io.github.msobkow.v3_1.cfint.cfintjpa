@@ -42,13 +42,14 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /**
  *  CFIntJpaMimeTypeH provides history objects matching the CFIntMimeType change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
  */
 @Entity
 @Table(
     name = "MimeType_h", schema = "CFInt31",
     indexes = {
         @Index(name = "MimeTypeIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, MimeTypeId", unique = true),
-        @Index(name = "MimeTypeUNameIdx_h", columnList = "safe_name", unique = true)
+        @Index(name = "MimeTypeUNameIdx_h", columnList = "safe_name", unique = false)
     }
 )
 @Transactional(Transactional.TxType.SUPPORTS)
