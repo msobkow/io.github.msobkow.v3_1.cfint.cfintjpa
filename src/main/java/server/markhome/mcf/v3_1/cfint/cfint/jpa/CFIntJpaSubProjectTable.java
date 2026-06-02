@@ -196,15 +196,6 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 			jparec.setCreatedByUserId(Authorization.getSecUserId());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaSubProject retval = schema.getJpaHooksSchema().getSubProjectService().create(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsubproject")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -238,15 +229,6 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 			jparec.setUpdatedAt(LocalDateTime.now());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaSubProject retval = schema.getJpaHooksSchema().getSubProjectService().update(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsubproject")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -455,15 +437,6 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 		}
 
 		ICFIntSubProject retval = schema.getJpaHooksSchema().getSubProjectService().find(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsubproject")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -488,15 +461,6 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 		}
 
 		ICFIntSubProject retval = schema.getJpaHooksSchema().getSubProjectService().lockByIdIdx(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsubproject")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -516,19 +480,6 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 		}
 
 		List<CFIntJpaSubProject> retlist = schema.getJpaHooksSchema().getSubProjectService().findAll();
-		if(retlist != null) {
-			ArrayList<CFIntJpaSubProject> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsubproject")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntSubProject[] retset = new ICFIntSubProject[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaSubProject cur: retlist) {
@@ -560,7 +511,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsubproject", ICFIntSchema.SCHEMA_NAME, ICFIntSubProjectTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntSubProject retval = schema.getJpaHooksSchema().getSubProjectService().find(argId);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
@@ -594,19 +545,6 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsubproject", ICFIntSchema.SCHEMA_NAME, ICFIntSubProjectTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFIntJpaSubProject> retlist = schema.getJpaHooksSchema().getSubProjectService().findByTenantIdx(argTenantId);
-		if(retlist != null) {
-			ArrayList<CFIntJpaSubProject> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsubproject")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntSubProject[] retset = new ICFIntSubProject[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaSubProject cur: retlist) {
@@ -637,19 +575,6 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsubproject", ICFIntSchema.SCHEMA_NAME, ICFIntSubProjectTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFIntJpaSubProject> retlist = schema.getJpaHooksSchema().getSubProjectService().findByTopProjectIdx(argTopProjectId);
-		if(retlist != null) {
-			ArrayList<CFIntJpaSubProject> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsubproject")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntSubProject[] retset = new ICFIntSubProject[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaSubProject cur: retlist) {
@@ -685,7 +610,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 		}
 		ICFIntSubProject retval = schema.getJpaHooksSchema().getSubProjectService().findByNameIdx(argTopProjectId,
 		argName);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();

@@ -196,15 +196,6 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 			jparec.setCreatedByUserId(Authorization.getSecUserId());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaMinorVersion retval = schema.getJpaHooksSchema().getMinorVersionService().create(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readminorversion")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -238,15 +229,6 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 			jparec.setUpdatedAt(LocalDateTime.now());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaMinorVersion retval = schema.getJpaHooksSchema().getMinorVersionService().update(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readminorversion")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -455,15 +437,6 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 		}
 
 		ICFIntMinorVersion retval = schema.getJpaHooksSchema().getMinorVersionService().find(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readminorversion")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -488,15 +461,6 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 		}
 
 		ICFIntMinorVersion retval = schema.getJpaHooksSchema().getMinorVersionService().lockByIdIdx(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readminorversion")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -516,19 +480,6 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 		}
 
 		List<CFIntJpaMinorVersion> retlist = schema.getJpaHooksSchema().getMinorVersionService().findAll();
-		if(retlist != null) {
-			ArrayList<CFIntJpaMinorVersion> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readminorversion")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntMinorVersion[] retset = new ICFIntMinorVersion[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaMinorVersion cur: retlist) {
@@ -560,7 +511,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readminorversion", ICFIntSchema.SCHEMA_NAME, ICFIntMinorVersionTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntMinorVersion retval = schema.getJpaHooksSchema().getMinorVersionService().find(argId);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
@@ -594,19 +545,6 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readminorversion", ICFIntSchema.SCHEMA_NAME, ICFIntMinorVersionTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFIntJpaMinorVersion> retlist = schema.getJpaHooksSchema().getMinorVersionService().findByTenantIdx(argTenantId);
-		if(retlist != null) {
-			ArrayList<CFIntJpaMinorVersion> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readminorversion")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntMinorVersion[] retset = new ICFIntMinorVersion[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaMinorVersion cur: retlist) {
@@ -637,19 +575,6 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readminorversion", ICFIntSchema.SCHEMA_NAME, ICFIntMinorVersionTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFIntJpaMinorVersion> retlist = schema.getJpaHooksSchema().getMinorVersionService().findByMajorVerIdx(argMajorVersionId);
-		if(retlist != null) {
-			ArrayList<CFIntJpaMinorVersion> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readminorversion")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntMinorVersion[] retset = new ICFIntMinorVersion[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaMinorVersion cur: retlist) {
@@ -685,7 +610,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 		}
 		ICFIntMinorVersion retval = schema.getJpaHooksSchema().getMinorVersionService().findByNameIdx(argMajorVersionId,
 		argName);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();

@@ -196,15 +196,6 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 			jparec.setCreatedByUserId(Authorization.getSecUserId());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaMajorVersion retval = schema.getJpaHooksSchema().getMajorVersionService().create(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readmajorversion")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -238,15 +229,6 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 			jparec.setUpdatedAt(LocalDateTime.now());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaMajorVersion retval = schema.getJpaHooksSchema().getMajorVersionService().update(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readmajorversion")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -455,15 +437,6 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		}
 
 		ICFIntMajorVersion retval = schema.getJpaHooksSchema().getMajorVersionService().find(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readmajorversion")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -488,15 +461,6 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		}
 
 		ICFIntMajorVersion retval = schema.getJpaHooksSchema().getMajorVersionService().lockByIdIdx(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readmajorversion")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -516,19 +480,6 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		}
 
 		List<CFIntJpaMajorVersion> retlist = schema.getJpaHooksSchema().getMajorVersionService().findAll();
-		if(retlist != null) {
-			ArrayList<CFIntJpaMajorVersion> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readmajorversion")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntMajorVersion[] retset = new ICFIntMajorVersion[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaMajorVersion cur: retlist) {
@@ -560,7 +511,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmajorversion", ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntMajorVersion retval = schema.getJpaHooksSchema().getMajorVersionService().find(argId);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
@@ -594,19 +545,6 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmajorversion", ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFIntJpaMajorVersion> retlist = schema.getJpaHooksSchema().getMajorVersionService().findByTenantIdx(argTenantId);
-		if(retlist != null) {
-			ArrayList<CFIntJpaMajorVersion> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readmajorversion")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntMajorVersion[] retset = new ICFIntMajorVersion[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaMajorVersion cur: retlist) {
@@ -637,19 +575,6 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readmajorversion", ICFIntSchema.SCHEMA_NAME, ICFIntMajorVersionTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFIntJpaMajorVersion> retlist = schema.getJpaHooksSchema().getMajorVersionService().findBySubProjectIdx(argSubProjectId);
-		if(retlist != null) {
-			ArrayList<CFIntJpaMajorVersion> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readmajorversion")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntMajorVersion[] retset = new ICFIntMajorVersion[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaMajorVersion cur: retlist) {
@@ -685,7 +610,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 		}
 		ICFIntMajorVersion retval = schema.getJpaHooksSchema().getMajorVersionService().findByNameIdx(argSubProjectId,
 		argName);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();

@@ -192,15 +192,6 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		else if (rec instanceof CFIntJpaLicense) {
 			CFIntJpaLicense jparec = (CFIntJpaLicense)rec;
 			CFIntJpaLicense retval = schema.getJpaHooksSchema().getLicenseService().create(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readlicense")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -232,15 +223,6 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		else if (rec instanceof CFIntJpaLicense) {
 			CFIntJpaLicense jparec = (CFIntJpaLicense)rec;
 			CFIntJpaLicense retval = schema.getJpaHooksSchema().getLicenseService().update(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readlicense")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -449,15 +431,6 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		}
 
 		ICFIntLicense retval = schema.getJpaHooksSchema().getLicenseService().find(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readlicense")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -482,15 +455,6 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		}
 
 		ICFIntLicense retval = schema.getJpaHooksSchema().getLicenseService().lockByIdIdx(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readlicense")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -510,19 +474,6 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		}
 
 		List<CFIntJpaLicense> retlist = schema.getJpaHooksSchema().getLicenseService().findAll();
-		if(retlist != null) {
-			ArrayList<CFIntJpaLicense> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readlicense")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntLicense[] retset = new ICFIntLicense[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaLicense cur: retlist) {
@@ -554,7 +505,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readlicense", ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntLicense retval = schema.getJpaHooksSchema().getLicenseService().find(argId);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
@@ -588,19 +539,6 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readlicense", ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFIntJpaLicense> retlist = schema.getJpaHooksSchema().getLicenseService().findByLicnTenantIdx(argTenantId);
-		if(retlist != null) {
-			ArrayList<CFIntJpaLicense> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readlicense")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntLicense[] retset = new ICFIntLicense[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaLicense cur: retlist) {
@@ -631,19 +569,6 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readlicense", ICFIntSchema.SCHEMA_NAME, ICFIntLicenseTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFIntJpaLicense> retlist = schema.getJpaHooksSchema().getLicenseService().findByDomainIdx(argTopDomainId);
-		if(retlist != null) {
-			ArrayList<CFIntJpaLicense> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readlicense")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntLicense[] retset = new ICFIntLicense[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaLicense cur: retlist) {
@@ -679,7 +604,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 		}
 		ICFIntLicense retval = schema.getJpaHooksSchema().getLicenseService().findByUNameIdx(argTopDomainId,
 		argName);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();

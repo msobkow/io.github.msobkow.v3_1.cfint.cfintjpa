@@ -196,15 +196,6 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 			jparec.setCreatedByUserId(Authorization.getSecUserId());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaTopDomain retval = schema.getJpaHooksSchema().getTopDomainService().create(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readtopdomain")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -238,15 +229,6 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 			jparec.setUpdatedAt(LocalDateTime.now());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFIntJpaTopDomain retval = schema.getJpaHooksSchema().getTopDomainService().update(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readtopdomain")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -455,15 +437,6 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		}
 
 		ICFIntTopDomain retval = schema.getJpaHooksSchema().getTopDomainService().find(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readtopdomain")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -488,15 +461,6 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		}
 
 		ICFIntTopDomain retval = schema.getJpaHooksSchema().getTopDomainService().lockByIdIdx(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readtopdomain")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -516,19 +480,6 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		}
 
 		List<CFIntJpaTopDomain> retlist = schema.getJpaHooksSchema().getTopDomainService().findAll();
-		if(retlist != null) {
-			ArrayList<CFIntJpaTopDomain> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readtopdomain")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntTopDomain[] retset = new ICFIntTopDomain[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaTopDomain cur: retlist) {
@@ -560,7 +511,7 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readtopdomain", ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFIntTopDomain retval = schema.getJpaHooksSchema().getTopDomainService().find(argId);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
@@ -594,19 +545,6 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readtopdomain", ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFIntJpaTopDomain> retlist = schema.getJpaHooksSchema().getTopDomainService().findByTenantIdx(argTenantId);
-		if(retlist != null) {
-			ArrayList<CFIntJpaTopDomain> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readtopdomain")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntTopDomain[] retset = new ICFIntTopDomain[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaTopDomain cur: retlist) {
@@ -637,19 +575,6 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readtopdomain", ICFIntSchema.SCHEMA_NAME, ICFIntTopDomainTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFIntJpaTopDomain> retlist = schema.getJpaHooksSchema().getTopDomainService().findByTldIdx(argTldId);
-		if(retlist != null) {
-			ArrayList<CFIntJpaTopDomain> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readtopdomain")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFIntTopDomain[] retset = new ICFIntTopDomain[retlist.size()];
 		int idx = 0;
 		for (CFIntJpaTopDomain cur: retlist) {
@@ -685,7 +610,7 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 		}
 		ICFIntTopDomain retval = schema.getJpaHooksSchema().getTopDomainService().findByNameIdx(argTldId,
 		argName);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
