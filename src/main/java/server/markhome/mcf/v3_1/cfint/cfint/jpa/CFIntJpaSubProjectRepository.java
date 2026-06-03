@@ -74,7 +74,7 @@ public interface CFIntJpaSubProjectRepository extends JpaRepository<CFIntJpaSubP
 	 *
 	 *		@return List&lt;CFIntJpaSubProject&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFIntJpaSubProject r where r.requiredOwnerTenant.requiredId = :tenantId")
+	@Query("select r from CFIntJpaSubProject r where r.requiredTenantId = :tenantId")
 	List<CFIntJpaSubProject> findByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -155,7 +155,7 @@ public interface CFIntJpaSubProjectRepository extends JpaRepository<CFIntJpaSubP
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFIntJpaSubProject r where r.requiredOwnerTenant.requiredId = :tenantId")
+	@Query("select r from CFIntJpaSubProject r where r.requiredTenantId = :tenantId")
 	List<CFIntJpaSubProject> lockByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -236,7 +236,7 @@ public interface CFIntJpaSubProjectRepository extends JpaRepository<CFIntJpaSubP
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFIntJpaSubProject r where r.requiredOwnerTenant.requiredId = :tenantId")
+	@Query("delete from CFIntJpaSubProject r where r.requiredTenantId = :tenantId")
 	void deleteByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**

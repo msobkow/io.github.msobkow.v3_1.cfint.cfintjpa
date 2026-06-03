@@ -74,7 +74,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	 *
 	 *		@return List&lt;CFIntJpaLicense&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFIntJpaLicense r where r.requiredOwnerTenant.requiredId = :tenantId")
+	@Query("select r from CFIntJpaLicense r where r.requiredTenantId = :tenantId")
 	List<CFIntJpaLicense> findByLicnTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -155,7 +155,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFIntJpaLicense r where r.requiredOwnerTenant.requiredId = :tenantId")
+	@Query("select r from CFIntJpaLicense r where r.requiredTenantId = :tenantId")
 	List<CFIntJpaLicense> lockByLicnTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -236,7 +236,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFIntJpaLicense r where r.requiredOwnerTenant.requiredId = :tenantId")
+	@Query("delete from CFIntJpaLicense r where r.requiredTenantId = :tenantId")
 	void deleteByLicnTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**

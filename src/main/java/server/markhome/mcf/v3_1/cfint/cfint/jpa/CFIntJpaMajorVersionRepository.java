@@ -74,7 +74,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	 *
 	 *		@return List&lt;CFIntJpaMajorVersion&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFIntJpaMajorVersion r where r.requiredOwnerTenant.requiredId = :tenantId")
+	@Query("select r from CFIntJpaMajorVersion r where r.requiredTenantId = :tenantId")
 	List<CFIntJpaMajorVersion> findByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -155,7 +155,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFIntJpaMajorVersion r where r.requiredOwnerTenant.requiredId = :tenantId")
+	@Query("select r from CFIntJpaMajorVersion r where r.requiredTenantId = :tenantId")
 	List<CFIntJpaMajorVersion> lockByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -236,7 +236,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFIntJpaMajorVersion r where r.requiredOwnerTenant.requiredId = :tenantId")
+	@Query("delete from CFIntJpaMajorVersion r where r.requiredTenantId = :tenantId")
 	void deleteByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
