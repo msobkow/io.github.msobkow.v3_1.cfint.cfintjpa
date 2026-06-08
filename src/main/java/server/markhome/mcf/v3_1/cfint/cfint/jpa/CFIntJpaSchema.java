@@ -88,6 +88,7 @@ public class CFIntJpaSchema
 	protected ICFSecSecUserPasswordTable tableSecUserPassword;
 	protected ICFIntSubProjectTable tableSubProject;
 	protected ICFSecSysClusterTable tableSysCluster;
+	protected ICFSecTableInfoTable tableTableInfo;
 	protected ICFSecTenantTable tableTenant;
 	protected ICFIntTldTable tableTld;
 	protected ICFIntTopDomainTable tableTopDomain;
@@ -127,6 +128,7 @@ public class CFIntJpaSchema
 	protected ICFSecSecUserPasswordFactory factorySecUserPassword;
 	protected ICFIntSubProjectFactory factorySubProject;
 	protected ICFSecSysClusterFactory factorySysCluster;
+	protected ICFSecTableInfoFactory factoryTableInfo;
 	protected ICFSecTenantFactory factoryTenant;
 	protected ICFIntTldFactory factoryTld;
 	protected ICFIntTopDomainFactory factoryTopDomain;
@@ -370,6 +372,7 @@ public class CFIntJpaSchema
 		tableSecUserPassword = null;
 		tableSubProject = null;
 		tableSysCluster = null;
+		tableTableInfo = null;
 		tableTenant = null;
 		tableTld = null;
 		tableTopDomain = null;
@@ -409,6 +412,7 @@ public class CFIntJpaSchema
 		factorySecUserPassword = new CFSecJpaSecUserPasswordDefaultFactory();
 		factorySubProject = new CFIntJpaSubProjectDefaultFactory();
 		factorySysCluster = new CFSecJpaSysClusterDefaultFactory();
+		factoryTableInfo = new CFSecJpaTableInfoDefaultFactory();
 		factoryTenant = new CFSecJpaTenantDefaultFactory();
 		factoryTld = new CFIntJpaTldDefaultFactory();
 		factoryTopDomain = new CFIntJpaTopDomainDefaultFactory();
@@ -438,6 +442,11 @@ public class CFIntJpaSchema
 	@Override
 	public short nextISOTZoneIdGen() {
 		throw new CFLibNotImplementedYetException( getClass(), "nextISOTZoneIdGen" );
+	}
+
+	@Override
+	public int nextTableInfoIdGen() {
+		throw new CFLibNotImplementedYetException( getClass(), "nextTableInfoIdGen" );
 	}
 
 	@Override
@@ -1072,6 +1081,22 @@ public class CFIntJpaSchema
 
 	public void setFactorySysCluster( ICFSecSysClusterFactory value ) {
 		factorySysCluster = value;
+	}
+
+	public ICFSecTableInfoTable getTableTableInfo() {
+		return( tableTableInfo );
+	}
+
+	public void setTableTableInfo( ICFSecTableInfoTable value ) {
+		tableTableInfo = value;
+	}
+
+	public ICFSecTableInfoFactory getFactoryTableInfo() {
+		return( factoryTableInfo );
+	}
+
+	public void setFactoryTableInfo( ICFSecTableInfoFactory value ) {
+		factoryTableInfo = value;
 	}
 
 	public ICFSecTenantTable getTableTenant() {
