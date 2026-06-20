@@ -294,6 +294,17 @@ public class CFIntJpaSchema
 	}
 
 	@Override
+	public ICFSecFactory getCFSecFactory() {
+		ICFSecSchema sch = ICFSecSchema.getBackingCFSec();
+		if (sch == null) {
+			return null;
+		}
+		else {
+			return(sch.getCFSecFactory());
+		}
+	}
+
+	@Override
 	public ICFIntFactory getCFIntFactory() {
 		return(CFIntJpaSchema.getJpaHooksSchema().getFactoryService());
 	}

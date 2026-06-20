@@ -93,47 +93,83 @@ public class CFIntJpaFactoryService
 	public CFIntJpaFactoryService() { }
 
 	@Override
-	public ICFIntLicenseFactoryService getLicenseFactoryService() {
+	public ICFIntLicenseFactory getFactoryLicense() {
+		return(licenseFactoryService);
+	}
+
+	public CFIntJpaLicenseFactoryService getLicenseFactoryService() {
 		return(licenseFactoryService);
 	}
 
 	@Override
-	public ICFIntMajorVersionFactoryService getMajorVersionFactoryService() {
+	public ICFIntMajorVersionFactory getFactoryMajorVersion() {
+		return(majorversionFactoryService);
+	}
+
+	public CFIntJpaMajorVersionFactoryService getMajorVersionFactoryService() {
 		return(majorversionFactoryService);
 	}
 
 	@Override
-	public ICFIntMimeTypeFactoryService getMimeTypeFactoryService() {
+	public ICFIntMimeTypeFactory getFactoryMimeType() {
+		return(mimetypeFactoryService);
+	}
+
+	public CFIntJpaMimeTypeFactoryService getMimeTypeFactoryService() {
 		return(mimetypeFactoryService);
 	}
 
 	@Override
-	public ICFIntMinorVersionFactoryService getMinorVersionFactoryService() {
+	public ICFIntMinorVersionFactory getFactoryMinorVersion() {
+		return(minorversionFactoryService);
+	}
+
+	public CFIntJpaMinorVersionFactoryService getMinorVersionFactoryService() {
 		return(minorversionFactoryService);
 	}
 
 	@Override
-	public ICFIntSubProjectFactoryService getSubProjectFactoryService() {
+	public ICFIntSubProjectFactory getFactorySubProject() {
+		return(subprojectFactoryService);
+	}
+
+	public CFIntJpaSubProjectFactoryService getSubProjectFactoryService() {
 		return(subprojectFactoryService);
 	}
 
 	@Override
-	public ICFIntTldFactoryService getTldFactoryService() {
+	public ICFIntTldFactory getFactoryTld() {
+		return(tldFactoryService);
+	}
+
+	public CFIntJpaTldFactoryService getTldFactoryService() {
 		return(tldFactoryService);
 	}
 
 	@Override
-	public ICFIntTopDomainFactoryService getTopDomainFactoryService() {
+	public ICFIntTopDomainFactory getFactoryTopDomain() {
+		return(topdomainFactoryService);
+	}
+
+	public CFIntJpaTopDomainFactoryService getTopDomainFactoryService() {
 		return(topdomainFactoryService);
 	}
 
 	@Override
-	public ICFIntTopProjectFactoryService getTopProjectFactoryService() {
+	public ICFIntTopProjectFactory getFactoryTopProject() {
+		return(topprojectFactoryService);
+	}
+
+	public CFIntJpaTopProjectFactoryService getTopProjectFactoryService() {
 		return(topprojectFactoryService);
 	}
 
 	@Override
-	public ICFIntURLProtocolFactoryService getURLProtocolFactoryService() {
+	public ICFIntURLProtocolFactory getFactoryURLProtocol() {
+		return(urlprotocolFactoryService);
+	}
+
+	public CFIntJpaURLProtocolFactoryService getURLProtocolFactoryService() {
 		return(urlprotocolFactoryService);
 	}
 
