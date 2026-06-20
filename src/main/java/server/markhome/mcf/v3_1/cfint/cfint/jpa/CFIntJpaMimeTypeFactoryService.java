@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for MimeType.
+// Description: Java 25 Factory service implementation for MimeType JPA objects
 
 /*
  *	server.markhome.mcf.CFInt
@@ -34,6 +34,9 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
@@ -41,18 +44,16 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /*
- *	CFIntMimeTypeFactory JPA implementation for MimeType
+ *	Java 25 Factory service implementation for MimeType JPA objects.
  */
-public class CFIntJpaMimeTypeDefaultFactory
+public class CFIntJpaMimeTypeFactoryService
     implements ICFIntMimeTypeFactory
 {
-    public CFIntJpaMimeTypeDefaultFactory() {
-    }
+    public CFIntJpaMimeTypeFactoryService() { }
 
     @Override
     public ICFIntMimeTypeHPKey newHPKey() {
-        ICFIntMimeTypeHPKey hpkey =
-            new CFIntJpaMimeTypeHPKey();
+        ICFIntMimeTypeHPKey hpkey = new CFIntJpaMimeTypeHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFIntJpaMimeTypeDefaultFactory
 
     @Override
     public ICFIntMimeTypeByUNameIdxKey newByUNameIdxKey() {
-	ICFIntMimeTypeByUNameIdxKey key =
-            new CFIntJpaMimeTypeByUNameIdxKey();
+		ICFIntMimeTypeByUNameIdxKey key = new CFIntJpaMimeTypeByUNameIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFIntJpaMimeTypeDefaultFactory
 
     @Override
     public ICFIntMimeType newRec() {
-        ICFIntMimeType rec =
-            new CFIntJpaMimeType();
+        ICFIntMimeType rec = new CFIntJpaMimeType();
         return( rec );
     }
 
@@ -118,8 +117,7 @@ public class CFIntJpaMimeTypeDefaultFactory
 
     @Override
     public ICFIntMimeTypeH newHRec() {
-        ICFIntMimeTypeH hrec =
-            new CFIntJpaMimeTypeH();
+        ICFIntMimeTypeH hrec = new CFIntJpaMimeTypeH();
         return( hrec );
     }
 

@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SubProject.
+// Description: Java 25 Factory service implementation for SubProject JPA objects
 
 /*
  *	server.markhome.mcf.CFInt
@@ -34,6 +34,9 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
@@ -41,18 +44,16 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /*
- *	CFIntSubProjectFactory JPA implementation for SubProject
+ *	Java 25 Factory service implementation for SubProject JPA objects.
  */
-public class CFIntJpaSubProjectDefaultFactory
+public class CFIntJpaSubProjectFactoryService
     implements ICFIntSubProjectFactory
 {
-    public CFIntJpaSubProjectDefaultFactory() {
-    }
+    public CFIntJpaSubProjectFactoryService() { }
 
     @Override
     public ICFIntSubProjectHPKey newHPKey() {
-        ICFIntSubProjectHPKey hpkey =
-            new CFIntJpaSubProjectHPKey();
+        ICFIntSubProjectHPKey hpkey = new CFIntJpaSubProjectHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFIntJpaSubProjectDefaultFactory
 
     @Override
     public ICFIntSubProjectByTenantIdxKey newByTenantIdxKey() {
-	ICFIntSubProjectByTenantIdxKey key =
-            new CFIntJpaSubProjectByTenantIdxKey();
+		ICFIntSubProjectByTenantIdxKey key = new CFIntJpaSubProjectByTenantIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFIntJpaSubProjectDefaultFactory
 
     @Override
     public ICFIntSubProjectByTopProjectIdxKey newByTopProjectIdxKey() {
-	ICFIntSubProjectByTopProjectIdxKey key =
-            new CFIntJpaSubProjectByTopProjectIdxKey();
+		ICFIntSubProjectByTopProjectIdxKey key = new CFIntJpaSubProjectByTopProjectIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFIntJpaSubProjectDefaultFactory
 
     @Override
     public ICFIntSubProjectByNameIdxKey newByNameIdxKey() {
-	ICFIntSubProjectByNameIdxKey key =
-            new CFIntJpaSubProjectByNameIdxKey();
+		ICFIntSubProjectByNameIdxKey key = new CFIntJpaSubProjectByNameIdxKey();
 	return( key );
     }
 
@@ -140,8 +138,7 @@ public class CFIntJpaSubProjectDefaultFactory
 
     @Override
     public ICFIntSubProject newRec() {
-        ICFIntSubProject rec =
-            new CFIntJpaSubProject();
+        ICFIntSubProject rec = new CFIntJpaSubProject();
         return( rec );
     }
 
@@ -161,8 +158,7 @@ public class CFIntJpaSubProjectDefaultFactory
 
     @Override
     public ICFIntSubProjectH newHRec() {
-        ICFIntSubProjectH hrec =
-            new CFIntJpaSubProjectH();
+        ICFIntSubProjectH hrec = new CFIntJpaSubProjectH();
         return( hrec );
     }
 

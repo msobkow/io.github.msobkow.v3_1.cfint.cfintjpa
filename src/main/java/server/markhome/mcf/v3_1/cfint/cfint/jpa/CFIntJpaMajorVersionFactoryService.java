@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for MajorVersion.
+// Description: Java 25 Factory service implementation for MajorVersion JPA objects
 
 /*
  *	server.markhome.mcf.CFInt
@@ -34,6 +34,9 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
@@ -41,18 +44,16 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /*
- *	CFIntMajorVersionFactory JPA implementation for MajorVersion
+ *	Java 25 Factory service implementation for MajorVersion JPA objects.
  */
-public class CFIntJpaMajorVersionDefaultFactory
+public class CFIntJpaMajorVersionFactoryService
     implements ICFIntMajorVersionFactory
 {
-    public CFIntJpaMajorVersionDefaultFactory() {
-    }
+    public CFIntJpaMajorVersionFactoryService() { }
 
     @Override
     public ICFIntMajorVersionHPKey newHPKey() {
-        ICFIntMajorVersionHPKey hpkey =
-            new CFIntJpaMajorVersionHPKey();
+        ICFIntMajorVersionHPKey hpkey = new CFIntJpaMajorVersionHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFIntJpaMajorVersionDefaultFactory
 
     @Override
     public ICFIntMajorVersionByTenantIdxKey newByTenantIdxKey() {
-	ICFIntMajorVersionByTenantIdxKey key =
-            new CFIntJpaMajorVersionByTenantIdxKey();
+		ICFIntMajorVersionByTenantIdxKey key = new CFIntJpaMajorVersionByTenantIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFIntJpaMajorVersionDefaultFactory
 
     @Override
     public ICFIntMajorVersionBySubProjectIdxKey newBySubProjectIdxKey() {
-	ICFIntMajorVersionBySubProjectIdxKey key =
-            new CFIntJpaMajorVersionBySubProjectIdxKey();
+		ICFIntMajorVersionBySubProjectIdxKey key = new CFIntJpaMajorVersionBySubProjectIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFIntJpaMajorVersionDefaultFactory
 
     @Override
     public ICFIntMajorVersionByNameIdxKey newByNameIdxKey() {
-	ICFIntMajorVersionByNameIdxKey key =
-            new CFIntJpaMajorVersionByNameIdxKey();
+		ICFIntMajorVersionByNameIdxKey key = new CFIntJpaMajorVersionByNameIdxKey();
 	return( key );
     }
 
@@ -140,8 +138,7 @@ public class CFIntJpaMajorVersionDefaultFactory
 
     @Override
     public ICFIntMajorVersion newRec() {
-        ICFIntMajorVersion rec =
-            new CFIntJpaMajorVersion();
+        ICFIntMajorVersion rec = new CFIntJpaMajorVersion();
         return( rec );
     }
 
@@ -161,8 +158,7 @@ public class CFIntJpaMajorVersionDefaultFactory
 
     @Override
     public ICFIntMajorVersionH newHRec() {
-        ICFIntMajorVersionH hrec =
-            new CFIntJpaMajorVersionH();
+        ICFIntMajorVersionH hrec = new CFIntJpaMajorVersionH();
         return( hrec );
     }
 

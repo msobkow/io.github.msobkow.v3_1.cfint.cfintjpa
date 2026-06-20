@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for TopDomain.
+// Description: Java 25 Factory service implementation for TopDomain JPA objects
 
 /*
  *	server.markhome.mcf.CFInt
@@ -34,6 +34,9 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
@@ -41,18 +44,16 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /*
- *	CFIntTopDomainFactory JPA implementation for TopDomain
+ *	Java 25 Factory service implementation for TopDomain JPA objects.
  */
-public class CFIntJpaTopDomainDefaultFactory
+public class CFIntJpaTopDomainFactoryService
     implements ICFIntTopDomainFactory
 {
-    public CFIntJpaTopDomainDefaultFactory() {
-    }
+    public CFIntJpaTopDomainFactoryService() { }
 
     @Override
     public ICFIntTopDomainHPKey newHPKey() {
-        ICFIntTopDomainHPKey hpkey =
-            new CFIntJpaTopDomainHPKey();
+        ICFIntTopDomainHPKey hpkey = new CFIntJpaTopDomainHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFIntJpaTopDomainDefaultFactory
 
     @Override
     public ICFIntTopDomainByTenantIdxKey newByTenantIdxKey() {
-	ICFIntTopDomainByTenantIdxKey key =
-            new CFIntJpaTopDomainByTenantIdxKey();
+		ICFIntTopDomainByTenantIdxKey key = new CFIntJpaTopDomainByTenantIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFIntJpaTopDomainDefaultFactory
 
     @Override
     public ICFIntTopDomainByTldIdxKey newByTldIdxKey() {
-	ICFIntTopDomainByTldIdxKey key =
-            new CFIntJpaTopDomainByTldIdxKey();
+		ICFIntTopDomainByTldIdxKey key = new CFIntJpaTopDomainByTldIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFIntJpaTopDomainDefaultFactory
 
     @Override
     public ICFIntTopDomainByNameIdxKey newByNameIdxKey() {
-	ICFIntTopDomainByNameIdxKey key =
-            new CFIntJpaTopDomainByNameIdxKey();
+		ICFIntTopDomainByNameIdxKey key = new CFIntJpaTopDomainByNameIdxKey();
 	return( key );
     }
 
@@ -140,8 +138,7 @@ public class CFIntJpaTopDomainDefaultFactory
 
     @Override
     public ICFIntTopDomain newRec() {
-        ICFIntTopDomain rec =
-            new CFIntJpaTopDomain();
+        ICFIntTopDomain rec = new CFIntJpaTopDomain();
         return( rec );
     }
 
@@ -161,8 +158,7 @@ public class CFIntJpaTopDomainDefaultFactory
 
     @Override
     public ICFIntTopDomainH newHRec() {
-        ICFIntTopDomainH hrec =
-            new CFIntJpaTopDomainH();
+        ICFIntTopDomainH hrec = new CFIntJpaTopDomainH();
         return( hrec );
     }
 

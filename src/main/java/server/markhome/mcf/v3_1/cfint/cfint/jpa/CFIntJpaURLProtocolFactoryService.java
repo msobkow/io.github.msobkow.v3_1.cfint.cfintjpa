@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for URLProtocol.
+// Description: Java 25 Factory service implementation for URLProtocol JPA objects
 
 /*
  *	server.markhome.mcf.CFInt
@@ -34,6 +34,9 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
@@ -41,18 +44,16 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /*
- *	CFIntURLProtocolFactory JPA implementation for URLProtocol
+ *	Java 25 Factory service implementation for URLProtocol JPA objects.
  */
-public class CFIntJpaURLProtocolDefaultFactory
+public class CFIntJpaURLProtocolFactoryService
     implements ICFIntURLProtocolFactory
 {
-    public CFIntJpaURLProtocolDefaultFactory() {
-    }
+    public CFIntJpaURLProtocolFactoryService() { }
 
     @Override
     public ICFIntURLProtocolHPKey newHPKey() {
-        ICFIntURLProtocolHPKey hpkey =
-            new CFIntJpaURLProtocolHPKey();
+        ICFIntURLProtocolHPKey hpkey = new CFIntJpaURLProtocolHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFIntJpaURLProtocolDefaultFactory
 
     @Override
     public ICFIntURLProtocolByUNameIdxKey newByUNameIdxKey() {
-	ICFIntURLProtocolByUNameIdxKey key =
-            new CFIntJpaURLProtocolByUNameIdxKey();
+		ICFIntURLProtocolByUNameIdxKey key = new CFIntJpaURLProtocolByUNameIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFIntJpaURLProtocolDefaultFactory
 
     @Override
     public ICFIntURLProtocolByIsSecureIdxKey newByIsSecureIdxKey() {
-	ICFIntURLProtocolByIsSecureIdxKey key =
-            new CFIntJpaURLProtocolByIsSecureIdxKey();
+		ICFIntURLProtocolByIsSecureIdxKey key = new CFIntJpaURLProtocolByIsSecureIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFIntJpaURLProtocolDefaultFactory
 
     @Override
     public ICFIntURLProtocol newRec() {
-        ICFIntURLProtocol rec =
-            new CFIntJpaURLProtocol();
+        ICFIntURLProtocol rec = new CFIntJpaURLProtocol();
         return( rec );
     }
 
@@ -139,8 +137,7 @@ public class CFIntJpaURLProtocolDefaultFactory
 
     @Override
     public ICFIntURLProtocolH newHRec() {
-        ICFIntURLProtocolH hrec =
-            new CFIntJpaURLProtocolH();
+        ICFIntURLProtocolH hrec = new CFIntJpaURLProtocolH();
         return( hrec );
     }
 

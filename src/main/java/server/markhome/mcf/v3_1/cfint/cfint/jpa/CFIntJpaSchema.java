@@ -53,7 +53,7 @@ public class CFIntJpaSchema
 	implements ICFIntSchema,
 		ICFSecSchema
 {
-	private CFIntJpaHooksSchema cfintJpaHooksSchema = null;
+	private static CFIntJpaHooksSchema cfintJpaHooksSchema = null;
 
 	protected ICFSecClusterTable tableCluster;
 	protected ICFSecISOCcyTable tableISOCcy;
@@ -94,46 +94,6 @@ public class CFIntJpaSchema
 	protected ICFIntTopDomainTable tableTopDomain;
 	protected ICFIntTopProjectTable tableTopProject;
 	protected ICFIntURLProtocolTable tableURLProtocol;
-
-	protected ICFSecClusterFactory factoryCluster;
-	protected ICFSecISOCcyFactory factoryISOCcy;
-	protected ICFSecISOCtryFactory factoryISOCtry;
-	protected ICFSecISOCtryCcyFactory factoryISOCtryCcy;
-	protected ICFSecISOCtryLangFactory factoryISOCtryLang;
-	protected ICFSecISOLangFactory factoryISOLang;
-	protected ICFSecISOTZoneFactory factoryISOTZone;
-	protected ICFIntLicenseFactory factoryLicense;
-	protected ICFIntMajorVersionFactory factoryMajorVersion;
-	protected ICFIntMimeTypeFactory factoryMimeType;
-	protected ICFIntMinorVersionFactory factoryMinorVersion;
-	protected ICFSecSecClusGrpFactory factorySecClusGrp;
-	protected ICFSecSecClusGrpMembFactory factorySecClusGrpMemb;
-	protected ICFSecSecClusRoleFactory factorySecClusRole;
-	protected ICFSecSecClusRoleMembFactory factorySecClusRoleMemb;
-	protected ICFSecSecSessionFactory factorySecSession;
-	protected ICFSecSecSysGrpFactory factorySecSysGrp;
-	protected ICFSecSecSysGrpIncFactory factorySecSysGrpInc;
-	protected ICFSecSecSysGrpMembFactory factorySecSysGrpMemb;
-	protected ICFSecSecSysRoleFactory factorySecSysRole;
-	protected ICFSecSecSysRoleEnablesFactory factorySecSysRoleEnables;
-	protected ICFSecSecSysRoleMembFactory factorySecSysRoleMemb;
-	protected ICFSecSecTentGrpFactory factorySecTentGrp;
-	protected ICFSecSecTentGrpMembFactory factorySecTentGrpMemb;
-	protected ICFSecSecTentRoleFactory factorySecTentRole;
-	protected ICFSecSecTentRoleMembFactory factorySecTentRoleMemb;
-	protected ICFSecSecUserFactory factorySecUser;
-	protected ICFSecSecUserEMConfFactory factorySecUserEMConf;
-	protected ICFSecSecUserPWHistoryFactory factorySecUserPWHistory;
-	protected ICFSecSecUserPWResetFactory factorySecUserPWReset;
-	protected ICFSecSecUserPasswordFactory factorySecUserPassword;
-	protected ICFIntSubProjectFactory factorySubProject;
-	protected ICFSecSysClusterFactory factorySysCluster;
-	protected ICFSecTableInfoFactory factoryTableInfo;
-	protected ICFSecTenantFactory factoryTenant;
-	protected ICFIntTldFactory factoryTld;
-	protected ICFIntTopDomainFactory factoryTopDomain;
-	protected ICFIntTopProjectFactory factoryTopProject;
-	protected ICFIntURLProtocolFactory factoryURLProtocol;
 
 
 	@Override
@@ -325,16 +285,21 @@ public class CFIntJpaSchema
 		schema.wireRecConstructors();
 	}
 
-	public CFIntJpaHooksSchema getJpaHooksSchema() {
+	public static CFIntJpaHooksSchema getJpaHooksSchema() {
 		return( cfintJpaHooksSchema );
 	}
 
-	public void setJpaHooksSchema(CFIntJpaHooksSchema jpaHooksSchema) {
+	public static void setJpaHooksSchema(CFIntJpaHooksSchema jpaHooksSchema) {
 		cfintJpaHooksSchema = jpaHooksSchema;
 	}
 
+	@Override
+	public ICFIntFactory getCFIntFactory() {
+		return(CFIntJpaSchema.getJpaHooksSchema().getFactoryService());
+	}
+
 	public CFIntJpaSchemaService getSchemaService() {
-		return( getJpaHooksSchema().getSchemaService() );
+		return( CFIntJpaSchema.getJpaHooksSchema().getSchemaService() );
 	}
 
 	public CFIntJpaSchema() {
@@ -378,46 +343,7 @@ public class CFIntJpaSchema
 		tableTopDomain = null;
 		tableTopProject = null;
 		tableURLProtocol = null;
-
-		factoryCluster = new CFSecJpaClusterDefaultFactory();
-		factoryISOCcy = new CFSecJpaISOCcyDefaultFactory();
-		factoryISOCtry = new CFSecJpaISOCtryDefaultFactory();
-		factoryISOCtryCcy = new CFSecJpaISOCtryCcyDefaultFactory();
-		factoryISOCtryLang = new CFSecJpaISOCtryLangDefaultFactory();
-		factoryISOLang = new CFSecJpaISOLangDefaultFactory();
-		factoryISOTZone = new CFSecJpaISOTZoneDefaultFactory();
-		factoryLicense = new CFIntJpaLicenseDefaultFactory();
-		factoryMajorVersion = new CFIntJpaMajorVersionDefaultFactory();
-		factoryMimeType = new CFIntJpaMimeTypeDefaultFactory();
-		factoryMinorVersion = new CFIntJpaMinorVersionDefaultFactory();
-		factorySecClusGrp = new CFSecJpaSecClusGrpDefaultFactory();
-		factorySecClusGrpMemb = new CFSecJpaSecClusGrpMembDefaultFactory();
-		factorySecClusRole = new CFSecJpaSecClusRoleDefaultFactory();
-		factorySecClusRoleMemb = new CFSecJpaSecClusRoleMembDefaultFactory();
-		factorySecSession = new CFSecJpaSecSessionDefaultFactory();
-		factorySecSysGrp = new CFSecJpaSecSysGrpDefaultFactory();
-		factorySecSysGrpInc = new CFSecJpaSecSysGrpIncDefaultFactory();
-		factorySecSysGrpMemb = new CFSecJpaSecSysGrpMembDefaultFactory();
-		factorySecSysRole = new CFSecJpaSecSysRoleDefaultFactory();
-		factorySecSysRoleEnables = new CFSecJpaSecSysRoleEnablesDefaultFactory();
-		factorySecSysRoleMemb = new CFSecJpaSecSysRoleMembDefaultFactory();
-		factorySecTentGrp = new CFSecJpaSecTentGrpDefaultFactory();
-		factorySecTentGrpMemb = new CFSecJpaSecTentGrpMembDefaultFactory();
-		factorySecTentRole = new CFSecJpaSecTentRoleDefaultFactory();
-		factorySecTentRoleMemb = new CFSecJpaSecTentRoleMembDefaultFactory();
-		factorySecUser = new CFSecJpaSecUserDefaultFactory();
-		factorySecUserEMConf = new CFSecJpaSecUserEMConfDefaultFactory();
-		factorySecUserPWHistory = new CFSecJpaSecUserPWHistoryDefaultFactory();
-		factorySecUserPWReset = new CFSecJpaSecUserPWResetDefaultFactory();
-		factorySecUserPassword = new CFSecJpaSecUserPasswordDefaultFactory();
-		factorySubProject = new CFIntJpaSubProjectDefaultFactory();
-		factorySysCluster = new CFSecJpaSysClusterDefaultFactory();
-		factoryTableInfo = new CFSecJpaTableInfoDefaultFactory();
-		factoryTenant = new CFSecJpaTenantDefaultFactory();
-		factoryTld = new CFIntJpaTldDefaultFactory();
-		factoryTopDomain = new CFIntJpaTopDomainDefaultFactory();
-		factoryTopProject = new CFIntJpaTopProjectDefaultFactory();
-		factoryURLProtocol = new CFIntJpaURLProtocolDefaultFactory();	}
+	}
 
 	@Override
 	public ICFIntSchema newSchema() {
@@ -563,28 +489,12 @@ public class CFIntJpaSchema
 		tableCluster = value;
 	}
 
-	public ICFSecClusterFactory getFactoryCluster() {
-		return( factoryCluster );
-	}
-
-	public void setFactoryCluster( ICFSecClusterFactory value ) {
-		factoryCluster = value;
-	}
-
 	public ICFSecISOCcyTable getTableISOCcy() {
 		return( tableISOCcy );
 	}
 
 	public void setTableISOCcy( ICFSecISOCcyTable value ) {
 		tableISOCcy = value;
-	}
-
-	public ICFSecISOCcyFactory getFactoryISOCcy() {
-		return( factoryISOCcy );
-	}
-
-	public void setFactoryISOCcy( ICFSecISOCcyFactory value ) {
-		factoryISOCcy = value;
 	}
 
 	public ICFSecISOCtryTable getTableISOCtry() {
@@ -595,28 +505,12 @@ public class CFIntJpaSchema
 		tableISOCtry = value;
 	}
 
-	public ICFSecISOCtryFactory getFactoryISOCtry() {
-		return( factoryISOCtry );
-	}
-
-	public void setFactoryISOCtry( ICFSecISOCtryFactory value ) {
-		factoryISOCtry = value;
-	}
-
 	public ICFSecISOCtryCcyTable getTableISOCtryCcy() {
 		return( tableISOCtryCcy );
 	}
 
 	public void setTableISOCtryCcy( ICFSecISOCtryCcyTable value ) {
 		tableISOCtryCcy = value;
-	}
-
-	public ICFSecISOCtryCcyFactory getFactoryISOCtryCcy() {
-		return( factoryISOCtryCcy );
-	}
-
-	public void setFactoryISOCtryCcy( ICFSecISOCtryCcyFactory value ) {
-		factoryISOCtryCcy = value;
 	}
 
 	public ICFSecISOCtryLangTable getTableISOCtryLang() {
@@ -627,28 +521,12 @@ public class CFIntJpaSchema
 		tableISOCtryLang = value;
 	}
 
-	public ICFSecISOCtryLangFactory getFactoryISOCtryLang() {
-		return( factoryISOCtryLang );
-	}
-
-	public void setFactoryISOCtryLang( ICFSecISOCtryLangFactory value ) {
-		factoryISOCtryLang = value;
-	}
-
 	public ICFSecISOLangTable getTableISOLang() {
 		return( tableISOLang );
 	}
 
 	public void setTableISOLang( ICFSecISOLangTable value ) {
 		tableISOLang = value;
-	}
-
-	public ICFSecISOLangFactory getFactoryISOLang() {
-		return( factoryISOLang );
-	}
-
-	public void setFactoryISOLang( ICFSecISOLangFactory value ) {
-		factoryISOLang = value;
 	}
 
 	public ICFSecISOTZoneTable getTableISOTZone() {
@@ -659,28 +537,12 @@ public class CFIntJpaSchema
 		tableISOTZone = value;
 	}
 
-	public ICFSecISOTZoneFactory getFactoryISOTZone() {
-		return( factoryISOTZone );
-	}
-
-	public void setFactoryISOTZone( ICFSecISOTZoneFactory value ) {
-		factoryISOTZone = value;
-	}
-
 	public ICFIntLicenseTable getTableLicense() {
 		return( tableLicense );
 	}
 
 	public void setTableLicense( ICFIntLicenseTable value ) {
 		tableLicense = value;
-	}
-
-	public ICFIntLicenseFactory getFactoryLicense() {
-		return( factoryLicense );
-	}
-
-	public void setFactoryLicense( ICFIntLicenseFactory value ) {
-		factoryLicense = value;
 	}
 
 	public ICFIntMajorVersionTable getTableMajorVersion() {
@@ -691,28 +553,12 @@ public class CFIntJpaSchema
 		tableMajorVersion = value;
 	}
 
-	public ICFIntMajorVersionFactory getFactoryMajorVersion() {
-		return( factoryMajorVersion );
-	}
-
-	public void setFactoryMajorVersion( ICFIntMajorVersionFactory value ) {
-		factoryMajorVersion = value;
-	}
-
 	public ICFIntMimeTypeTable getTableMimeType() {
 		return( tableMimeType );
 	}
 
 	public void setTableMimeType( ICFIntMimeTypeTable value ) {
 		tableMimeType = value;
-	}
-
-	public ICFIntMimeTypeFactory getFactoryMimeType() {
-		return( factoryMimeType );
-	}
-
-	public void setFactoryMimeType( ICFIntMimeTypeFactory value ) {
-		factoryMimeType = value;
 	}
 
 	public ICFIntMinorVersionTable getTableMinorVersion() {
@@ -723,28 +569,12 @@ public class CFIntJpaSchema
 		tableMinorVersion = value;
 	}
 
-	public ICFIntMinorVersionFactory getFactoryMinorVersion() {
-		return( factoryMinorVersion );
-	}
-
-	public void setFactoryMinorVersion( ICFIntMinorVersionFactory value ) {
-		factoryMinorVersion = value;
-	}
-
 	public ICFSecSecClusGrpTable getTableSecClusGrp() {
 		return( tableSecClusGrp );
 	}
 
 	public void setTableSecClusGrp( ICFSecSecClusGrpTable value ) {
 		tableSecClusGrp = value;
-	}
-
-	public ICFSecSecClusGrpFactory getFactorySecClusGrp() {
-		return( factorySecClusGrp );
-	}
-
-	public void setFactorySecClusGrp( ICFSecSecClusGrpFactory value ) {
-		factorySecClusGrp = value;
 	}
 
 	public ICFSecSecClusGrpMembTable getTableSecClusGrpMemb() {
@@ -755,28 +585,12 @@ public class CFIntJpaSchema
 		tableSecClusGrpMemb = value;
 	}
 
-	public ICFSecSecClusGrpMembFactory getFactorySecClusGrpMemb() {
-		return( factorySecClusGrpMemb );
-	}
-
-	public void setFactorySecClusGrpMemb( ICFSecSecClusGrpMembFactory value ) {
-		factorySecClusGrpMemb = value;
-	}
-
 	public ICFSecSecClusRoleTable getTableSecClusRole() {
 		return( tableSecClusRole );
 	}
 
 	public void setTableSecClusRole( ICFSecSecClusRoleTable value ) {
 		tableSecClusRole = value;
-	}
-
-	public ICFSecSecClusRoleFactory getFactorySecClusRole() {
-		return( factorySecClusRole );
-	}
-
-	public void setFactorySecClusRole( ICFSecSecClusRoleFactory value ) {
-		factorySecClusRole = value;
 	}
 
 	public ICFSecSecClusRoleMembTable getTableSecClusRoleMemb() {
@@ -787,28 +601,12 @@ public class CFIntJpaSchema
 		tableSecClusRoleMemb = value;
 	}
 
-	public ICFSecSecClusRoleMembFactory getFactorySecClusRoleMemb() {
-		return( factorySecClusRoleMemb );
-	}
-
-	public void setFactorySecClusRoleMemb( ICFSecSecClusRoleMembFactory value ) {
-		factorySecClusRoleMemb = value;
-	}
-
 	public ICFSecSecSessionTable getTableSecSession() {
 		return( tableSecSession );
 	}
 
 	public void setTableSecSession( ICFSecSecSessionTable value ) {
 		tableSecSession = value;
-	}
-
-	public ICFSecSecSessionFactory getFactorySecSession() {
-		return( factorySecSession );
-	}
-
-	public void setFactorySecSession( ICFSecSecSessionFactory value ) {
-		factorySecSession = value;
 	}
 
 	public ICFSecSecSysGrpTable getTableSecSysGrp() {
@@ -819,28 +617,12 @@ public class CFIntJpaSchema
 		tableSecSysGrp = value;
 	}
 
-	public ICFSecSecSysGrpFactory getFactorySecSysGrp() {
-		return( factorySecSysGrp );
-	}
-
-	public void setFactorySecSysGrp( ICFSecSecSysGrpFactory value ) {
-		factorySecSysGrp = value;
-	}
-
 	public ICFSecSecSysGrpIncTable getTableSecSysGrpInc() {
 		return( tableSecSysGrpInc );
 	}
 
 	public void setTableSecSysGrpInc( ICFSecSecSysGrpIncTable value ) {
 		tableSecSysGrpInc = value;
-	}
-
-	public ICFSecSecSysGrpIncFactory getFactorySecSysGrpInc() {
-		return( factorySecSysGrpInc );
-	}
-
-	public void setFactorySecSysGrpInc( ICFSecSecSysGrpIncFactory value ) {
-		factorySecSysGrpInc = value;
 	}
 
 	public ICFSecSecSysGrpMembTable getTableSecSysGrpMemb() {
@@ -851,28 +633,12 @@ public class CFIntJpaSchema
 		tableSecSysGrpMemb = value;
 	}
 
-	public ICFSecSecSysGrpMembFactory getFactorySecSysGrpMemb() {
-		return( factorySecSysGrpMemb );
-	}
-
-	public void setFactorySecSysGrpMemb( ICFSecSecSysGrpMembFactory value ) {
-		factorySecSysGrpMemb = value;
-	}
-
 	public ICFSecSecSysRoleTable getTableSecSysRole() {
 		return( tableSecSysRole );
 	}
 
 	public void setTableSecSysRole( ICFSecSecSysRoleTable value ) {
 		tableSecSysRole = value;
-	}
-
-	public ICFSecSecSysRoleFactory getFactorySecSysRole() {
-		return( factorySecSysRole );
-	}
-
-	public void setFactorySecSysRole( ICFSecSecSysRoleFactory value ) {
-		factorySecSysRole = value;
 	}
 
 	public ICFSecSecSysRoleEnablesTable getTableSecSysRoleEnables() {
@@ -883,28 +649,12 @@ public class CFIntJpaSchema
 		tableSecSysRoleEnables = value;
 	}
 
-	public ICFSecSecSysRoleEnablesFactory getFactorySecSysRoleEnables() {
-		return( factorySecSysRoleEnables );
-	}
-
-	public void setFactorySecSysRoleEnables( ICFSecSecSysRoleEnablesFactory value ) {
-		factorySecSysRoleEnables = value;
-	}
-
 	public ICFSecSecSysRoleMembTable getTableSecSysRoleMemb() {
 		return( tableSecSysRoleMemb );
 	}
 
 	public void setTableSecSysRoleMemb( ICFSecSecSysRoleMembTable value ) {
 		tableSecSysRoleMemb = value;
-	}
-
-	public ICFSecSecSysRoleMembFactory getFactorySecSysRoleMemb() {
-		return( factorySecSysRoleMemb );
-	}
-
-	public void setFactorySecSysRoleMemb( ICFSecSecSysRoleMembFactory value ) {
-		factorySecSysRoleMemb = value;
 	}
 
 	public ICFSecSecTentGrpTable getTableSecTentGrp() {
@@ -915,28 +665,12 @@ public class CFIntJpaSchema
 		tableSecTentGrp = value;
 	}
 
-	public ICFSecSecTentGrpFactory getFactorySecTentGrp() {
-		return( factorySecTentGrp );
-	}
-
-	public void setFactorySecTentGrp( ICFSecSecTentGrpFactory value ) {
-		factorySecTentGrp = value;
-	}
-
 	public ICFSecSecTentGrpMembTable getTableSecTentGrpMemb() {
 		return( tableSecTentGrpMemb );
 	}
 
 	public void setTableSecTentGrpMemb( ICFSecSecTentGrpMembTable value ) {
 		tableSecTentGrpMemb = value;
-	}
-
-	public ICFSecSecTentGrpMembFactory getFactorySecTentGrpMemb() {
-		return( factorySecTentGrpMemb );
-	}
-
-	public void setFactorySecTentGrpMemb( ICFSecSecTentGrpMembFactory value ) {
-		factorySecTentGrpMemb = value;
 	}
 
 	public ICFSecSecTentRoleTable getTableSecTentRole() {
@@ -947,28 +681,12 @@ public class CFIntJpaSchema
 		tableSecTentRole = value;
 	}
 
-	public ICFSecSecTentRoleFactory getFactorySecTentRole() {
-		return( factorySecTentRole );
-	}
-
-	public void setFactorySecTentRole( ICFSecSecTentRoleFactory value ) {
-		factorySecTentRole = value;
-	}
-
 	public ICFSecSecTentRoleMembTable getTableSecTentRoleMemb() {
 		return( tableSecTentRoleMemb );
 	}
 
 	public void setTableSecTentRoleMemb( ICFSecSecTentRoleMembTable value ) {
 		tableSecTentRoleMemb = value;
-	}
-
-	public ICFSecSecTentRoleMembFactory getFactorySecTentRoleMemb() {
-		return( factorySecTentRoleMemb );
-	}
-
-	public void setFactorySecTentRoleMemb( ICFSecSecTentRoleMembFactory value ) {
-		factorySecTentRoleMemb = value;
 	}
 
 	public ICFSecSecUserTable getTableSecUser() {
@@ -979,28 +697,12 @@ public class CFIntJpaSchema
 		tableSecUser = value;
 	}
 
-	public ICFSecSecUserFactory getFactorySecUser() {
-		return( factorySecUser );
-	}
-
-	public void setFactorySecUser( ICFSecSecUserFactory value ) {
-		factorySecUser = value;
-	}
-
 	public ICFSecSecUserEMConfTable getTableSecUserEMConf() {
 		return( tableSecUserEMConf );
 	}
 
 	public void setTableSecUserEMConf( ICFSecSecUserEMConfTable value ) {
 		tableSecUserEMConf = value;
-	}
-
-	public ICFSecSecUserEMConfFactory getFactorySecUserEMConf() {
-		return( factorySecUserEMConf );
-	}
-
-	public void setFactorySecUserEMConf( ICFSecSecUserEMConfFactory value ) {
-		factorySecUserEMConf = value;
 	}
 
 	public ICFSecSecUserPWHistoryTable getTableSecUserPWHistory() {
@@ -1011,28 +713,12 @@ public class CFIntJpaSchema
 		tableSecUserPWHistory = value;
 	}
 
-	public ICFSecSecUserPWHistoryFactory getFactorySecUserPWHistory() {
-		return( factorySecUserPWHistory );
-	}
-
-	public void setFactorySecUserPWHistory( ICFSecSecUserPWHistoryFactory value ) {
-		factorySecUserPWHistory = value;
-	}
-
 	public ICFSecSecUserPWResetTable getTableSecUserPWReset() {
 		return( tableSecUserPWReset );
 	}
 
 	public void setTableSecUserPWReset( ICFSecSecUserPWResetTable value ) {
 		tableSecUserPWReset = value;
-	}
-
-	public ICFSecSecUserPWResetFactory getFactorySecUserPWReset() {
-		return( factorySecUserPWReset );
-	}
-
-	public void setFactorySecUserPWReset( ICFSecSecUserPWResetFactory value ) {
-		factorySecUserPWReset = value;
 	}
 
 	public ICFSecSecUserPasswordTable getTableSecUserPassword() {
@@ -1043,28 +729,12 @@ public class CFIntJpaSchema
 		tableSecUserPassword = value;
 	}
 
-	public ICFSecSecUserPasswordFactory getFactorySecUserPassword() {
-		return( factorySecUserPassword );
-	}
-
-	public void setFactorySecUserPassword( ICFSecSecUserPasswordFactory value ) {
-		factorySecUserPassword = value;
-	}
-
 	public ICFIntSubProjectTable getTableSubProject() {
 		return( tableSubProject );
 	}
 
 	public void setTableSubProject( ICFIntSubProjectTable value ) {
 		tableSubProject = value;
-	}
-
-	public ICFIntSubProjectFactory getFactorySubProject() {
-		return( factorySubProject );
-	}
-
-	public void setFactorySubProject( ICFIntSubProjectFactory value ) {
-		factorySubProject = value;
 	}
 
 	public ICFSecSysClusterTable getTableSysCluster() {
@@ -1075,28 +745,12 @@ public class CFIntJpaSchema
 		tableSysCluster = value;
 	}
 
-	public ICFSecSysClusterFactory getFactorySysCluster() {
-		return( factorySysCluster );
-	}
-
-	public void setFactorySysCluster( ICFSecSysClusterFactory value ) {
-		factorySysCluster = value;
-	}
-
 	public ICFSecTableInfoTable getTableTableInfo() {
 		return( tableTableInfo );
 	}
 
 	public void setTableTableInfo( ICFSecTableInfoTable value ) {
 		tableTableInfo = value;
-	}
-
-	public ICFSecTableInfoFactory getFactoryTableInfo() {
-		return( factoryTableInfo );
-	}
-
-	public void setFactoryTableInfo( ICFSecTableInfoFactory value ) {
-		factoryTableInfo = value;
 	}
 
 	public ICFSecTenantTable getTableTenant() {
@@ -1107,28 +761,12 @@ public class CFIntJpaSchema
 		tableTenant = value;
 	}
 
-	public ICFSecTenantFactory getFactoryTenant() {
-		return( factoryTenant );
-	}
-
-	public void setFactoryTenant( ICFSecTenantFactory value ) {
-		factoryTenant = value;
-	}
-
 	public ICFIntTldTable getTableTld() {
 		return( tableTld );
 	}
 
 	public void setTableTld( ICFIntTldTable value ) {
 		tableTld = value;
-	}
-
-	public ICFIntTldFactory getFactoryTld() {
-		return( factoryTld );
-	}
-
-	public void setFactoryTld( ICFIntTldFactory value ) {
-		factoryTld = value;
 	}
 
 	public ICFIntTopDomainTable getTableTopDomain() {
@@ -1139,14 +777,6 @@ public class CFIntJpaSchema
 		tableTopDomain = value;
 	}
 
-	public ICFIntTopDomainFactory getFactoryTopDomain() {
-		return( factoryTopDomain );
-	}
-
-	public void setFactoryTopDomain( ICFIntTopDomainFactory value ) {
-		factoryTopDomain = value;
-	}
-
 	public ICFIntTopProjectTable getTableTopProject() {
 		return( tableTopProject );
 	}
@@ -1155,28 +785,12 @@ public class CFIntJpaSchema
 		tableTopProject = value;
 	}
 
-	public ICFIntTopProjectFactory getFactoryTopProject() {
-		return( factoryTopProject );
-	}
-
-	public void setFactoryTopProject( ICFIntTopProjectFactory value ) {
-		factoryTopProject = value;
-	}
-
 	public ICFIntURLProtocolTable getTableURLProtocol() {
 		return( tableURLProtocol );
 	}
 
 	public void setTableURLProtocol( ICFIntURLProtocolTable value ) {
 		tableURLProtocol = value;
-	}
-
-	public ICFIntURLProtocolFactory getFactoryURLProtocol() {
-		return( factoryURLProtocol );
-	}
-
-	public void setFactoryURLProtocol( ICFIntURLProtocolFactory value ) {
-		factoryURLProtocol = value;
 	}
 
 	public void bootstrapSchema(CFSecTableData tableData[]) {

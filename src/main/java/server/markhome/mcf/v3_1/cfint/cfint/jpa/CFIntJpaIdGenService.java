@@ -48,7 +48,7 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 /**
  *	Service for the CFIntId generation methods defined in server.markhome.mcf.v3_1.cfint.cfint application model.
  */
-@Service("CFIntJpaIdGenService")
+@Service("CFInt31JpaIdGenService")
 public class CFIntJpaIdGenService {
 
     @Autowired
@@ -58,7 +58,7 @@ public class CFIntJpaIdGenService {
 	/**
 	 *	Generate a MajorVersionIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateMajorVersionIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -78,7 +78,7 @@ public class CFIntJpaIdGenService {
 	/**
 	 *	Generate a MinorVersionIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateMinorVersionIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -87,7 +87,7 @@ public class CFIntJpaIdGenService {
 	/**
 	 *	Generate a SubProjectIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateSubProjectIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -96,7 +96,7 @@ public class CFIntJpaIdGenService {
 	/**
 	 *	Generate a TldIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateTldIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -105,7 +105,7 @@ public class CFIntJpaIdGenService {
 	/**
 	 *	Generate a TopDomainIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateTopDomainIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -114,7 +114,7 @@ public class CFIntJpaIdGenService {
 	/**
 	 *	Generate a TopProjectIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateTopProjectIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -134,7 +134,7 @@ public class CFIntJpaIdGenService {
 	/**
 	 *	Generate a LicenseIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateLicenseIdGen() {
 		return( new CFLibDbKeyHash256(0) );

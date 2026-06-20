@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for TopProject.
+// Description: Java 25 Factory service implementation for TopProject JPA objects
 
 /*
  *	server.markhome.mcf.CFInt
@@ -34,6 +34,9 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
@@ -41,18 +44,16 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /*
- *	CFIntTopProjectFactory JPA implementation for TopProject
+ *	Java 25 Factory service implementation for TopProject JPA objects.
  */
-public class CFIntJpaTopProjectDefaultFactory
+public class CFIntJpaTopProjectFactoryService
     implements ICFIntTopProjectFactory
 {
-    public CFIntJpaTopProjectDefaultFactory() {
-    }
+    public CFIntJpaTopProjectFactoryService() { }
 
     @Override
     public ICFIntTopProjectHPKey newHPKey() {
-        ICFIntTopProjectHPKey hpkey =
-            new CFIntJpaTopProjectHPKey();
+        ICFIntTopProjectHPKey hpkey = new CFIntJpaTopProjectHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFIntJpaTopProjectDefaultFactory
 
     @Override
     public ICFIntTopProjectByTenantIdxKey newByTenantIdxKey() {
-	ICFIntTopProjectByTenantIdxKey key =
-            new CFIntJpaTopProjectByTenantIdxKey();
+		ICFIntTopProjectByTenantIdxKey key = new CFIntJpaTopProjectByTenantIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFIntJpaTopProjectDefaultFactory
 
     @Override
     public ICFIntTopProjectByTopDomainIdxKey newByTopDomainIdxKey() {
-	ICFIntTopProjectByTopDomainIdxKey key =
-            new CFIntJpaTopProjectByTopDomainIdxKey();
+		ICFIntTopProjectByTopDomainIdxKey key = new CFIntJpaTopProjectByTopDomainIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFIntJpaTopProjectDefaultFactory
 
     @Override
     public ICFIntTopProjectByNameIdxKey newByNameIdxKey() {
-	ICFIntTopProjectByNameIdxKey key =
-            new CFIntJpaTopProjectByNameIdxKey();
+		ICFIntTopProjectByNameIdxKey key = new CFIntJpaTopProjectByNameIdxKey();
 	return( key );
     }
 
@@ -140,8 +138,7 @@ public class CFIntJpaTopProjectDefaultFactory
 
     @Override
     public ICFIntTopProject newRec() {
-        ICFIntTopProject rec =
-            new CFIntJpaTopProject();
+        ICFIntTopProject rec = new CFIntJpaTopProject();
         return( rec );
     }
 
@@ -161,8 +158,7 @@ public class CFIntJpaTopProjectDefaultFactory
 
     @Override
     public ICFIntTopProjectH newHRec() {
-        ICFIntTopProjectH hrec =
-            new CFIntJpaTopProjectH();
+        ICFIntTopProjectH hrec = new CFIntJpaTopProjectH();
         return( hrec );
     }
 

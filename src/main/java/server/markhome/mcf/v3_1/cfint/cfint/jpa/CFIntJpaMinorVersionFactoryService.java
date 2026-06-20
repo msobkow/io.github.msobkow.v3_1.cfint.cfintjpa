@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for MinorVersion.
+// Description: Java 25 Factory service implementation for MinorVersion JPA objects
 
 /*
  *	server.markhome.mcf.CFInt
@@ -34,6 +34,9 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
@@ -41,18 +44,16 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /*
- *	CFIntMinorVersionFactory JPA implementation for MinorVersion
+ *	Java 25 Factory service implementation for MinorVersion JPA objects.
  */
-public class CFIntJpaMinorVersionDefaultFactory
+public class CFIntJpaMinorVersionFactoryService
     implements ICFIntMinorVersionFactory
 {
-    public CFIntJpaMinorVersionDefaultFactory() {
-    }
+    public CFIntJpaMinorVersionFactoryService() { }
 
     @Override
     public ICFIntMinorVersionHPKey newHPKey() {
-        ICFIntMinorVersionHPKey hpkey =
-            new CFIntJpaMinorVersionHPKey();
+        ICFIntMinorVersionHPKey hpkey = new CFIntJpaMinorVersionHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFIntJpaMinorVersionDefaultFactory
 
     @Override
     public ICFIntMinorVersionByTenantIdxKey newByTenantIdxKey() {
-	ICFIntMinorVersionByTenantIdxKey key =
-            new CFIntJpaMinorVersionByTenantIdxKey();
+		ICFIntMinorVersionByTenantIdxKey key = new CFIntJpaMinorVersionByTenantIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFIntJpaMinorVersionDefaultFactory
 
     @Override
     public ICFIntMinorVersionByMajorVerIdxKey newByMajorVerIdxKey() {
-	ICFIntMinorVersionByMajorVerIdxKey key =
-            new CFIntJpaMinorVersionByMajorVerIdxKey();
+		ICFIntMinorVersionByMajorVerIdxKey key = new CFIntJpaMinorVersionByMajorVerIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFIntJpaMinorVersionDefaultFactory
 
     @Override
     public ICFIntMinorVersionByNameIdxKey newByNameIdxKey() {
-	ICFIntMinorVersionByNameIdxKey key =
-            new CFIntJpaMinorVersionByNameIdxKey();
+		ICFIntMinorVersionByNameIdxKey key = new CFIntJpaMinorVersionByNameIdxKey();
 	return( key );
     }
 
@@ -140,8 +138,7 @@ public class CFIntJpaMinorVersionDefaultFactory
 
     @Override
     public ICFIntMinorVersion newRec() {
-        ICFIntMinorVersion rec =
-            new CFIntJpaMinorVersion();
+        ICFIntMinorVersion rec = new CFIntJpaMinorVersion();
         return( rec );
     }
 
@@ -161,8 +158,7 @@ public class CFIntJpaMinorVersionDefaultFactory
 
     @Override
     public ICFIntMinorVersionH newHRec() {
-        ICFIntMinorVersionH hrec =
-            new CFIntJpaMinorVersionH();
+        ICFIntMinorVersionH hrec = new CFIntJpaMinorVersionH();
         return( hrec );
     }
 

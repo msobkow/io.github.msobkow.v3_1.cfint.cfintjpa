@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for Tld.
+// Description: Java 25 Factory service implementation for Tld JPA objects
 
 /*
  *	server.markhome.mcf.CFInt
@@ -34,6 +34,9 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
@@ -41,18 +44,16 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /*
- *	CFIntTldFactory JPA implementation for Tld
+ *	Java 25 Factory service implementation for Tld JPA objects.
  */
-public class CFIntJpaTldDefaultFactory
+public class CFIntJpaTldFactoryService
     implements ICFIntTldFactory
 {
-    public CFIntJpaTldDefaultFactory() {
-    }
+    public CFIntJpaTldFactoryService() { }
 
     @Override
     public ICFIntTldHPKey newHPKey() {
-        ICFIntTldHPKey hpkey =
-            new CFIntJpaTldHPKey();
+        ICFIntTldHPKey hpkey = new CFIntJpaTldHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFIntJpaTldDefaultFactory
 
     @Override
     public ICFIntTldByTenantIdxKey newByTenantIdxKey() {
-	ICFIntTldByTenantIdxKey key =
-            new CFIntJpaTldByTenantIdxKey();
+		ICFIntTldByTenantIdxKey key = new CFIntJpaTldByTenantIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFIntJpaTldDefaultFactory
 
     @Override
     public ICFIntTldByNameIdxKey newByNameIdxKey() {
-	ICFIntTldByNameIdxKey key =
-            new CFIntJpaTldByNameIdxKey();
+		ICFIntTldByNameIdxKey key = new CFIntJpaTldByNameIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFIntJpaTldDefaultFactory
 
     @Override
     public ICFIntTld newRec() {
-        ICFIntTld rec =
-            new CFIntJpaTld();
+        ICFIntTld rec = new CFIntJpaTld();
         return( rec );
     }
 
@@ -139,8 +137,7 @@ public class CFIntJpaTldDefaultFactory
 
     @Override
     public ICFIntTldH newHRec() {
-        ICFIntTldH hrec =
-            new CFIntJpaTldH();
+        ICFIntTldH hrec = new CFIntJpaTldH();
         return( hrec );
     }
 

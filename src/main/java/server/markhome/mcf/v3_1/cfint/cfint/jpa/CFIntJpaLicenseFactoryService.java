@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for License.
+// Description: Java 25 Factory service implementation for License JPA objects
 
 /*
  *	server.markhome.mcf.CFInt
@@ -34,6 +34,9 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
@@ -41,18 +44,16 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /*
- *	CFIntLicenseFactory JPA implementation for License
+ *	Java 25 Factory service implementation for License JPA objects.
  */
-public class CFIntJpaLicenseDefaultFactory
+public class CFIntJpaLicenseFactoryService
     implements ICFIntLicenseFactory
 {
-    public CFIntJpaLicenseDefaultFactory() {
-    }
+    public CFIntJpaLicenseFactoryService() { }
 
     @Override
     public ICFIntLicenseByLicnTenantIdxKey newByLicnTenantIdxKey() {
-	ICFIntLicenseByLicnTenantIdxKey key =
-            new CFIntJpaLicenseByLicnTenantIdxKey();
+		ICFIntLicenseByLicnTenantIdxKey key = new CFIntJpaLicenseByLicnTenantIdxKey();
 	return( key );
     }
 
@@ -72,8 +73,7 @@ public class CFIntJpaLicenseDefaultFactory
 
     @Override
     public ICFIntLicenseByDomainIdxKey newByDomainIdxKey() {
-	ICFIntLicenseByDomainIdxKey key =
-            new CFIntJpaLicenseByDomainIdxKey();
+		ICFIntLicenseByDomainIdxKey key = new CFIntJpaLicenseByDomainIdxKey();
 	return( key );
     }
 
@@ -93,8 +93,7 @@ public class CFIntJpaLicenseDefaultFactory
 
     @Override
     public ICFIntLicenseByUNameIdxKey newByUNameIdxKey() {
-	ICFIntLicenseByUNameIdxKey key =
-            new CFIntJpaLicenseByUNameIdxKey();
+		ICFIntLicenseByUNameIdxKey key = new CFIntJpaLicenseByUNameIdxKey();
 	return( key );
     }
 
@@ -115,8 +114,7 @@ public class CFIntJpaLicenseDefaultFactory
 
     @Override
     public ICFIntLicense newRec() {
-        ICFIntLicense rec =
-            new CFIntJpaLicense();
+        ICFIntLicense rec = new CFIntJpaLicense();
         return( rec );
     }
 
