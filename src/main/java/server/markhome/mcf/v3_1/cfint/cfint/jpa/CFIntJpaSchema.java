@@ -311,7 +311,7 @@ public class CFIntJpaSchema
 	
 	@Override
 	public CFSecBuffFactoryService getCFSecBuffFactory() {
-		return(CFSecBuffSchema.getBuffHooksSchema().getCFSecFactory());
+		return(CFSecBuffSchema.getBuffHooksSchema().getFactoryService());
 	}
 
 	@Override
