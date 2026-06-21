@@ -49,6 +49,11 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 import server.markhome.mcf.v3_1.cfint.cfint.jpa.CFIntJpaHooksSchema;
 
+import server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSchema;
+import server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffFactoryService;
+import server.markhome.mcf.v3_1.cfint.cfint.buff.CFIntBuffSchema;
+import server.markhome.mcf.v3_1.cfint.cfint.buff.CFIntBuffFactoryService;
+
 public class CFIntJpaSchema
 	implements ICFIntSchema,
 		ICFSecSchema
@@ -303,10 +308,20 @@ public class CFIntJpaSchema
 			return(sch.getCFSecFactory());
 		}
 	}
+	
+	@Override
+	public CFSecBuffFactoryService getCFSecBuffFactory() {
+		return(CFSecBuffSchema.getBuffHooksSchema().getCFSecFactory());
+	}
 
 	@Override
 	public ICFIntFactory getCFIntFactory() {
 		return(CFIntJpaSchema.getJpaHooksSchema().getFactoryService());
+	}
+
+	@Override
+	public CFIntBuffFactoryService getCFIntBuffFactory() {
+		return((CFIntBuffFactoryService)(CFIntBuffSchema.getBuffHooksSchema().getFactoryService()));
 	}
 
 	public CFIntJpaSchemaService getSchemaService() {

@@ -494,7 +494,7 @@ public class CFIntJpaSubProjectHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntSubProjectPKey, ICFIntSubProject, ICFIntSubProjectHPKey, ICFIntSubProjectH" );
+				"ICFIntSubProjectPKey, ICFIntSubProject$emitHPKeyHistoryClassNames$" );
 		}
 	}
 

@@ -107,6 +107,25 @@ public class CFIntJpaLicenseByDomainIdxKey
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFIntLicenseH) {
+			ICFIntLicenseH rhs = (ICFIntLicenseH)obj;
+			if( getRequiredTopDomainId() != null ) {
+				if( rhs.getRequiredTopDomainId() != null ) {
+					if( ! getRequiredTopDomainId().equals( rhs.getRequiredTopDomainId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredTopDomainId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else {
 			return( false );
 		}
@@ -161,12 +180,30 @@ public class CFIntJpaLicenseByDomainIdxKey
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFIntLicenseH) {
+			ICFIntLicenseH rhs = (ICFIntLicenseH)obj;
+			if (getRequiredTopDomainId() != null) {
+				if (rhs.getRequiredTopDomainId() != null) {
+					cmp = getRequiredTopDomainId().compareTo( rhs.getRequiredTopDomainId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredTopDomainId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntLicenseByDomainIdxKey, ICFIntLicense");
+				"ICFIntLicenseByDomainIdxKey, ICFIntLicense$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

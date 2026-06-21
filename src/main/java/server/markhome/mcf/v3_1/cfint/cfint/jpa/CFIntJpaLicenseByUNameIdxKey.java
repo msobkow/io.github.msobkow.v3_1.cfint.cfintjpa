@@ -163,6 +163,40 @@ public class CFIntJpaLicenseByUNameIdxKey
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFIntLicenseH) {
+			ICFIntLicenseH rhs = (ICFIntLicenseH)obj;
+			if( getRequiredTopDomainId() != null ) {
+				if( rhs.getRequiredTopDomainId() != null ) {
+					if( ! getRequiredTopDomainId().equals( rhs.getRequiredTopDomainId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredTopDomainId() != null ) {
+					return( false );
+				}
+			}
+			if( getRequiredName() != null ) {
+				if( rhs.getRequiredName() != null ) {
+					if( ! getRequiredName().equals( rhs.getRequiredName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredName() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else {
 			return( false );
 		}
@@ -248,12 +282,44 @@ public class CFIntJpaLicenseByUNameIdxKey
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFIntLicenseH) {
+			ICFIntLicenseH rhs = (ICFIntLicenseH)obj;
+			if (getRequiredTopDomainId() != null) {
+				if (rhs.getRequiredTopDomainId() != null) {
+					cmp = getRequiredTopDomainId().compareTo( rhs.getRequiredTopDomainId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredTopDomainId() != null) {
+				return( -1 );
+			}
+			if (getRequiredName() != null) {
+				if (rhs.getRequiredName() != null) {
+					cmp = getRequiredName().compareTo( rhs.getRequiredName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredName() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntLicenseByUNameIdxKey, ICFIntLicense");
+				"ICFIntLicenseByUNameIdxKey, ICFIntLicense$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

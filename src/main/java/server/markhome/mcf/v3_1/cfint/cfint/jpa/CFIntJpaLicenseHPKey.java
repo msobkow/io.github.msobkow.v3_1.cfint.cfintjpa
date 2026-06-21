@@ -1,4 +1,4 @@
-// Description: Java 25 JPA implementation of a Tld history primary key object.
+// Description: Java 25 JPA implementation of a License history primary key object.
 
 /*
  *	server.markhome.mcf.CFInt
@@ -41,43 +41,31 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
 /**
- *	CFIntJpaTldHPKey History Primary Key for Tld
+ *	CFIntJpaLicenseHPKey History Primary Key for License
  *		requiredId	Required object attribute Id.
  */
-public class CFIntJpaTldHPKey
-	implements ICFIntTldHPKey, Comparable<Object>, Serializable
+public class CFIntJpaLicenseHPKey
+	implements ICFIntLicenseHPKey, Comparable<Object>, Serializable
 {
-	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column=@Column(name="auditClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH) )
-	})
 	protected CFLibDbKeyHash256 auditClusterId;
 
-	@Column(name="auditStamp", nullable=false)
 	protected LocalDateTime auditStamp;
 
-	@Column(name="auditAction", nullable=false)
 	protected short auditActionId;
 
-	@Column(name="requiredRevision", nullable=false)
 	protected int requiredRevision;
 
-	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column=@Column(name="auditSessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH) )
-	})
 	protected CFLibDbKeyHash256 auditSessionId;
 
-	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
-	})
 	protected CFLibDbKeyHash256 requiredId;
 
-	public CFIntJpaTldHPKey() {
+	public CFIntJpaLicenseHPKey() {
 		auditClusterId = ICFSecCluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredId = CFLibDbKeyHash256.fromHex( ICFIntTld.ID_INIT_VALUE.toString() );
+		requiredId = CFLibDbKeyHash256.fromHex( ICFIntLicense.ID_INIT_VALUE.toString() );
 	}
 
 	@Override
@@ -151,8 +139,8 @@ public class CFIntJpaTldHPKey
 		if (obj == null) {
 			return( false );
 		}
-		else if (obj instanceof ICFIntTld) {
-			ICFIntTld rhs = (ICFIntTld)obj;
+		else if (obj instanceof ICFIntLicense) {
+			ICFIntLicense rhs = (ICFIntLicense)obj;
 			if( getRequiredId() != null ) {
 				if( rhs.getRequiredId() != null ) {
 					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
@@ -170,8 +158,8 @@ public class CFIntJpaTldHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFIntTldHPKey) {
-			ICFIntTldHPKey rhs = (ICFIntTldHPKey)obj;
+		else if (obj instanceof ICFIntLicenseHPKey) {
+			ICFIntLicenseHPKey rhs = (ICFIntLicenseHPKey)obj;
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
 					if ( ! getAuditClusterId().equals(rhs.getAuditClusterId())) {
@@ -234,8 +222,8 @@ public class CFIntJpaTldHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFIntTldH) {
-			ICFIntTldH rhs = (ICFIntTldH)obj;
+		else if (obj instanceof ICFIntLicenseH) {
+			ICFIntLicenseH rhs = (ICFIntLicenseH)obj;
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
 					if ( ! getAuditClusterId().equals(rhs.getAuditClusterId())) {
@@ -327,8 +315,8 @@ public class CFIntJpaTldHPKey
 		if (obj == null) {
 			return( 1 );
 		}
-		else if (obj instanceof ICFIntTld) {
-			ICFIntTld rhs = (ICFIntTld)obj;
+		else if (obj instanceof ICFIntLicense) {
+			ICFIntLicense rhs = (ICFIntLicense)obj;
 			if (getRequiredId() != null) {
 				if (rhs.getRequiredId() != null) {
 					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
@@ -345,8 +333,8 @@ public class CFIntJpaTldHPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFIntTldHPKey) {
-			ICFIntTldHPKey rhs = (ICFIntTldHPKey)obj;
+		else if (obj instanceof ICFIntLicenseHPKey) {
+			ICFIntLicenseHPKey rhs = (ICFIntLicenseHPKey)obj;
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {
 					return( -1 );
@@ -417,8 +405,8 @@ public class CFIntJpaTldHPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFIntTldH) {
-			ICFIntTldH rhs = (ICFIntTldH)obj;
+		else if (obj instanceof ICFIntLicenseH) {
+			ICFIntLicenseH rhs = (ICFIntLicenseH)obj;
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {
 					return( -1 );
@@ -494,7 +482,7 @@ public class CFIntJpaTldHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntTldPKey, ICFIntTld$emitHPKeyHistoryClassNames$" );
+				"ICFIntLicensePKey, ICFIntLicense$emitHPKeyHistoryClassNames$" );
 		}
 	}
 
@@ -511,7 +499,7 @@ public class CFIntJpaTldHPKey
 
 	@Override
 	public String toString() {
-		String ret = "<CFIntJpaTldHPKey" + getXmlAttrFragment() + "/>";
+		String ret = "<CFIntJpaLicenseHPKey" + getXmlAttrFragment() + "/>";
 		return( ret );
 	}
 }

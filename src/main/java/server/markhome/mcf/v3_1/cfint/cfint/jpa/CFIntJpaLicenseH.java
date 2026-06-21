@@ -1,4 +1,4 @@
-// Description: Java 25 JPA implementation of a License entity definition object.
+// Description: Java 25 JPA implementation of License history objects
 
 /*
  *	server.markhome.mcf.CFInt
@@ -40,167 +40,121 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 import server.markhome.mcf.v3_1.cfint.cfint.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 
-@Entity
-@Table(
-	name = "licn", schema = "CFInt31",
-	indexes = {
-		@Index(name = "LicenseIdIdx", columnList = "Id", unique = true),
-		@Index(name = "LicenseTenantIdx", columnList = "TenantId", unique = false),
-		@Index(name = "LicenseTopDomainIdx", columnList = "TopDomainId", unique = false),
-		@Index(name = "LicenseUNameIdx", columnList = "TopDomainId, safe_name", unique = true),
-		@Index(name = "LicenseTopDomainIdxTopDomain", columnList = "TopDomainIdTopDomain", unique = false)
-	}
-)
-@Transactional(Transactional.TxType.SUPPORTS)
-@PersistenceContext(unitName = "CFIntPU")
-public class CFIntJpaLicense
-	implements Comparable<Object>,
-		ICFIntLicense,
-		Serializable
+/**
+ *  CFIntJpaLicenseH provides history objects matching the CFIntLicense change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
+ */
+public class CFIntJpaLicenseH
+    implements ICFIntLicenseH, Comparable<Object>, Serializable
 {
-	@Id
 	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+		@AttributeOverride(name="auditClusterId", column = @Column( name="auditClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) ),
+		@AttributeOverride(name="auditStamp", column = @Column( name="auditStamp", nullable=false ) ),
+		@AttributeOverride(name="auditAction", column = @Column( name="auditAction", nullable=false ) ),
+		@AttributeOverride(name="requiredRevision", column = @Column( name="requiredRevision", nullable=false ) ),
+		@AttributeOverride(name="auditSessionId", column = @Column( name="auditSessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) ),
+		@AttributeOverride(name="Id", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredId;
-	protected int requiredRevision;
-
-	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="TopDomainIdTopDomain", referencedColumnName="Id" )
-	protected CFIntJpaTopDomain requiredContainerTopDomain;
-
-	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
-	})
+    protected CFIntJpaLicenseHPKey pkey;
 	protected CFLibDbKeyHash256 requiredTenantId;
-	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column = @Column( name="TopDomainId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
-	})
 	protected CFLibDbKeyHash256 requiredTopDomainId;
-	@Column( name="safe_name", nullable=false, length=64 )
 	protected String requiredName;
-	@Column( name="descr", nullable=true, length=1024 )
 	protected String optionalDescription;
-	@Column( name="EmbeddedText", nullable=true, length=8000 )
 	protected String optionalEmbeddedText;
-	@Column( name="FullTxt", nullable=true, length=8000 )
 	protected String optionalFullText;
 
-	public CFIntJpaLicense() {
-		requiredId = CFLibDbKeyHash256.fromHex( ICFIntLicense.ID_INIT_VALUE.toString() );
+    public CFIntJpaLicenseH() {
+            // The primary key member attributes are initialized on construction
+            pkey = new CFIntJpaLicenseHPKey();
 		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntLicense.TENANTID_INIT_VALUE.toString() );
 		requiredTopDomainId = CFLibDbKeyHash256.fromHex( ICFIntLicense.TOPDOMAINID_INIT_VALUE.toString() );
 		requiredName = ICFIntLicense.NAME_INIT_VALUE;
 		optionalDescription = null;
 		optionalEmbeddedText = null;
 		optionalFullText = null;
-	}
+    }
 
-	@Override
-	public int getClassCode() {
-		return( ICFIntLicense.CLASS_CODE );
-	}
+    @Override
+    public int getClassCode() {
+            return( ICFIntLicense.CLASS_CODE );
+    }
 
-	@Override
-	public ICFSecTenant getRequiredOwnerTenant() {
-		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
-		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec()");
-		}
-		ICFSecTenantTable targetTable = targetBackingSchema.getTableTenant();
-		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
-		}
-		ICFSecTenant targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), getRequiredTenantId());
-		return(targetRec);
-	}
-	@Override
-	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
-		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setOwnerTenant", 1, "argObj");
-		}
-		else {
-			requiredTenantId = argObj.getRequiredId();
-		}
-	}
+    @Override
+    public ICFIntLicenseHPKey getPKey() {
+        return( pkey );
+    }
 
-	@Override
-	public void setRequiredOwnerTenant(CFLibDbKeyHash256 argTenantId) {
-		requiredTenantId = argTenantId;
-	}
+    @Override
+    public void setPKey( ICFIntLicenseHPKey pkey ) {
+        if (pkey != null) {
+            if (pkey instanceof CFIntJpaLicenseHPKey) {
+                this.pkey = (CFIntJpaLicenseHPKey)pkey;
+            }
+            else {
+                throw new CFLibUnsupportedClassException(getClass(), "setPKey", "pkey", pkey, "CFIntJpaLicenseHPKey");
+            }
+        }
+    }
 
-	@Override
-	public ICFIntTopDomain getRequiredContainerTopDomain() {
-		return(requiredContainerTopDomain);
-	}
-	@Override
-	public void setRequiredContainerTopDomain(ICFIntTopDomain argObj) {
-		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setContainerTopDomain", 1, "argObj");
-		}
-		else if (argObj instanceof CFIntJpaTopDomain) {
-			requiredContainerTopDomain = (CFIntJpaTopDomain)argObj;
-			if (requiredContainerTopDomain != null) {
-				requiredTopDomainId = requiredContainerTopDomain.getRequiredId();
-			}
-			else {
-			}
-		}
-		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setContainerTopDomain", "argObj", argObj, "CFIntJpaTopDomain");
-		}
-	}
+    @Override
+    public CFLibDbKeyHash256 getAuditClusterId() {
+        return pkey.getAuditClusterId();
+    }
 
-	@Override
-	public void setRequiredContainerTopDomain(CFLibDbKeyHash256 argTopDomainId) {
-		ICFIntSchema targetBackingSchema = ICFIntSchema.getBackingCFInt();
-		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerTopDomain", 0, "ICFIntSchema.getBackingCFInt()");
-		}
-		ICFIntTopDomainTable targetTable = targetBackingSchema.getTableTopDomain();
-		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerTopDomain", 0, "ICFIntSchema.getBackingCFInt().getTableTopDomain()");
-		}
-		ICFIntTopDomain targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argTopDomainId);
-		setRequiredContainerTopDomain(targetRec);
-	}
+    @Override
+    public void setAuditClusterId(CFLibDbKeyHash256 auditClusterId) {
+        pkey.setAuditClusterId(auditClusterId);
+    }
 
-	@Override
-	public CFLibDbKeyHash256 getPKey() {
-		return getRequiredId();
-	}
+    @Override
+    public LocalDateTime getAuditStamp() {
+        return pkey.getAuditStamp();
+    }
 
-	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredId) {
-		this.requiredId = requiredId;
-	}
-	
-	@Override
-	public CFLibDbKeyHash256 getRequiredId() {
-		return( requiredId );
-	}
+    @Override
+    public void setAuditStamp(LocalDateTime auditStamp) {
+        pkey.setAuditStamp(auditStamp);
+    }
 
-	@Override
-	public void setRequiredId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredId",
-				1,
-				"value" );
-		}
-		requiredId = value;
-	}
+    @Override
+    public short getAuditActionId() {
+        return pkey.getAuditActionId();
+    }
 
-	
-	@Override
-	public int getRequiredRevision() {
-		return( requiredRevision );
-	}
+    @Override
+    public void setAuditActionId(short auditActionId) {
+        pkey.setAuditActionId(auditActionId);
+    }
 
-	@Override
-	public void setRequiredRevision( int value ) {
-		requiredRevision = value;
-	}
+    @Override
+    public int getRequiredRevision() {
+        return pkey.getRequiredRevision();
+    }
+
+    @Override
+    public void setRequiredRevision(int revision) {
+        pkey.setRequiredRevision(revision);
+    }
+
+    @Override
+    public CFLibDbKeyHash256 getAuditSessionId() {
+        return pkey.getAuditSessionId();
+    }
+
+    @Override
+    public void setAuditSessionId(CFLibDbKeyHash256 auditSessionId) {
+        pkey.setAuditSessionId(auditSessionId);
+    }
+
+    @Override
+    public CFLibDbKeyHash256 getRequiredId() {
+        return( pkey.getRequiredId() );
+    }
+
+    @Override
+    public void setRequiredId( CFLibDbKeyHash256 requiredId ) {
+        pkey.setRequiredId( requiredId );
+    }
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
@@ -208,8 +162,30 @@ public class CFIntJpaLicense
 	}
 
 	@Override
+	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTenantId",
+				1,
+				"value" );
+		}
+		requiredTenantId = value;
+	}
+
+	@Override
 	public CFLibDbKeyHash256 getRequiredTopDomainId() {
 		return( requiredTopDomainId );
+	}
+
+	@Override
+	public void setRequiredTopDomainId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTopDomainId",
+				1,
+				"value" );
+		}
+		requiredTopDomainId = value;
 	}
 
 	@Override
@@ -290,28 +266,27 @@ public class CFIntJpaLicense
 		optionalFullText = value;
 	}
 
-	@Override
-	public boolean equals( Object obj ) {
-		if (obj == null) {
-			return( false );
-		}
-		else if (obj instanceof ICFIntLicense) {
-			ICFIntLicense rhs = (ICFIntLicense)obj;
-			if( getRequiredId() != null ) {
-				if( rhs.getRequiredId() != null ) {
-					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
-						return( false );
-					}
-				}
-				else {
+    @Override
+    public boolean equals( Object obj ) {
+        if (obj == null) {
+            return( false );
+        }
+        else if (obj instanceof ICFIntLicense) {
+            ICFIntLicense rhs = (ICFIntLicense)obj;
+		if (getPKey() != null) {
+			if (rhs.getPKey() != null) {
+				if (!getPKey().equals(rhs.getPKey())) {
 					return( false );
 				}
 			}
 			else {
-				if( rhs.getRequiredId() != null ) {
-					return( false );
-				}
+				return( false );
 			}
+		}
+		else if (rhs.getPKey() != null) {
+			return( false );
+		}
+
 			if( getRequiredTenantId() != null ) {
 				if( rhs.getRequiredTenantId() != null ) {
 					if( ! getRequiredTenantId().equals( rhs.getRequiredTenantId() ) ) {
@@ -402,25 +377,24 @@ public class CFIntJpaLicense
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else if (obj instanceof ICFIntLicenseH) {
-			ICFIntLicenseH rhs = (ICFIntLicenseH)obj;
-			if( getRequiredId() != null ) {
-				if( rhs.getRequiredId() != null ) {
-					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
-						return( false );
-					}
-				}
-				else {
+            return( true );
+        }
+        else if (obj instanceof ICFIntLicenseH) {
+            ICFIntLicenseH rhs = (ICFIntLicenseH)obj;
+		if (getPKey() != null) {
+			if (rhs.getPKey() != null) {
+				if (!getPKey().equals(rhs.getPKey())) {
 					return( false );
 				}
 			}
 			else {
-				if( rhs.getRequiredId() != null ) {
-					return( false );
-				}
+				return( false );
 			}
+		}
+		else if (rhs.getPKey() != null) {
+			return( false );
+		}
+
 			if( getRequiredTenantId() != null ) {
 				if( rhs.getRequiredTenantId() != null ) {
 					if( ! getRequiredTenantId().equals( rhs.getRequiredTenantId() ) ) {
@@ -511,10 +485,10 @@ public class CFIntJpaLicense
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else if (obj instanceof ICFIntLicenseHPKey) {
-			ICFIntLicenseHPKey rhs = (ICFIntLicenseHPKey)obj;
+            return( true );
+        }
+        else if (obj instanceof ICFIntLicenseHPKey) {
+		ICFIntLicenseHPKey rhs = (ICFIntLicenseHPKey)obj;
 			if( getRequiredId() != null ) {
 				if( rhs.getRequiredId() != null ) {
 					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
@@ -530,10 +504,10 @@ public class CFIntJpaLicense
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else if (obj instanceof ICFIntLicenseByLicnTenantIdxKey) {
-			ICFIntLicenseByLicnTenantIdxKey rhs = (ICFIntLicenseByLicnTenantIdxKey)obj;
+		return( true );
+        }
+        else if (obj instanceof ICFIntLicenseByLicnTenantIdxKey) {
+            ICFIntLicenseByLicnTenantIdxKey rhs = (ICFIntLicenseByLicnTenantIdxKey)obj;
 			if( getRequiredTenantId() != null ) {
 				if( rhs.getRequiredTenantId() != null ) {
 					if( ! getRequiredTenantId().equals( rhs.getRequiredTenantId() ) ) {
@@ -549,10 +523,10 @@ public class CFIntJpaLicense
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else if (obj instanceof ICFIntLicenseByDomainIdxKey) {
-			ICFIntLicenseByDomainIdxKey rhs = (ICFIntLicenseByDomainIdxKey)obj;
+            return( true );
+        }
+        else if (obj instanceof ICFIntLicenseByDomainIdxKey) {
+            ICFIntLicenseByDomainIdxKey rhs = (ICFIntLicenseByDomainIdxKey)obj;
 			if( getRequiredTopDomainId() != null ) {
 				if( rhs.getRequiredTopDomainId() != null ) {
 					if( ! getRequiredTopDomainId().equals( rhs.getRequiredTopDomainId() ) ) {
@@ -568,10 +542,10 @@ public class CFIntJpaLicense
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else if (obj instanceof ICFIntLicenseByUNameIdxKey) {
-			ICFIntLicenseByUNameIdxKey rhs = (ICFIntLicenseByUNameIdxKey)obj;
+            return( true );
+        }
+        else if (obj instanceof ICFIntLicenseByUNameIdxKey) {
+            ICFIntLicenseByUNameIdxKey rhs = (ICFIntLicenseByUNameIdxKey)obj;
 			if( getRequiredTopDomainId() != null ) {
 				if( rhs.getRequiredTopDomainId() != null ) {
 					if( ! getRequiredTopDomainId().equals( rhs.getRequiredTopDomainId() ) ) {
@@ -602,17 +576,16 @@ public class CFIntJpaLicense
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else {
+            return( true );
+        }
+        else {
 			return( false );
-		}
-	}
-	
-	@Override
-	public int hashCode() {
-		int hashCode = getPKey().hashCode();
-		hashCode = hashCode + getRequiredId().hashCode();
+        }
+    }
+    
+    @Override
+    public int hashCode() {
+        int hashCode = pkey.hashCode();
 		hashCode = hashCode + getRequiredTenantId().hashCode();
 		hashCode = hashCode + getRequiredTopDomainId().hashCode();
 		if( getRequiredName() != null ) {
@@ -627,379 +600,367 @@ public class CFIntJpaLicense
 		if( getOptionalFullText() != null ) {
 			hashCode = hashCode + getOptionalFullText().hashCode();
 		}
-		return( hashCode & 0x7fffffff );
-	}
+        return( hashCode & 0x7fffffff );
+    }
 
-	@Override
-	public int compareTo( Object obj ) {
-		int cmp;
-		if (obj == null) {
-			return( 1 );
-		}
-		else if (obj instanceof ICFIntLicense) {
-			ICFIntLicense rhs = (ICFIntLicense)obj;
-			if (getPKey() == null) {
-				if (rhs.getPKey() != null) {
-					return( -1 );
-				}
+    @Override
+    public int compareTo( Object obj ) {
+        int cmp;
+        if (obj == null) {
+            return( 1 );
+        }
+        else if (obj instanceof ICFIntLicense) {
+		ICFIntLicense rhs = (ICFIntLicense)obj;
+		if (getPKey() != null) {
+			if (rhs.getPKey() == null) {
+				return( 1 );
 			}
 			else {
-				if (rhs.getPKey() == null) {
-					return( 1 );
-				}
-				else {
-					cmp = getPKey().compareTo(rhs.getPKey());
-					if (cmp != 0) {
-						return( cmp );
-					}
+				cmp = getPKey().compareTo(rhs.getPKey());
+				if (cmp != 0) {
+					return( cmp );
 				}
 			}
-			if (getRequiredTenantId() != null) {
-				if (rhs.getRequiredTenantId() != null) {
-					cmp = getRequiredTenantId().compareTo( rhs.getRequiredTenantId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredTenantId() != null) {
-				return( -1 );
-			}
-			if (getRequiredTopDomainId() != null) {
-				if (rhs.getRequiredTopDomainId() != null) {
-					cmp = getRequiredTopDomainId().compareTo( rhs.getRequiredTopDomainId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredTopDomainId() != null) {
-				return( -1 );
-			}
-			if (getRequiredName() != null) {
-				if (rhs.getRequiredName() != null) {
-					cmp = getRequiredName().compareTo( rhs.getRequiredName() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredName() != null) {
-				return( -1 );
-			}
-			if( getOptionalDescription() != null ) {
-				if( rhs.getOptionalDescription() != null ) {
-					cmp = getOptionalDescription().compareTo( rhs.getOptionalDescription() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else {
-				if( rhs.getOptionalDescription() != null ) {
-					return( -1 );
-				}
-			}
-			if( getOptionalEmbeddedText() != null ) {
-				if( rhs.getOptionalEmbeddedText() != null ) {
-					cmp = getOptionalEmbeddedText().compareTo( rhs.getOptionalEmbeddedText() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else {
-				if( rhs.getOptionalEmbeddedText() != null ) {
-					return( -1 );
-				}
-			}
-			if( getOptionalFullText() != null ) {
-				if( rhs.getOptionalFullText() != null ) {
-					cmp = getOptionalFullText().compareTo( rhs.getOptionalFullText() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else {
-				if( rhs.getOptionalFullText() != null ) {
-					return( -1 );
-				}
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFIntLicenseHPKey) {
-			ICFIntLicenseHPKey rhs = (ICFIntLicenseHPKey)obj;
-			if (getRequiredId() != null) {
-				if (rhs.getRequiredId() != null) {
-					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if( obj instanceof ICFIntLicenseH ) {
-			ICFIntLicenseH rhs = (ICFIntLicenseH)obj;
-			if (getRequiredId() != null) {
-				if (rhs.getRequiredId() != null) {
-					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredId() != null) {
-				return( -1 );
-			}
-			if (getRequiredTenantId() != null) {
-				if (rhs.getRequiredTenantId() != null) {
-					cmp = getRequiredTenantId().compareTo( rhs.getRequiredTenantId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredTenantId() != null) {
-				return( -1 );
-			}
-			if (getRequiredTopDomainId() != null) {
-				if (rhs.getRequiredTopDomainId() != null) {
-					cmp = getRequiredTopDomainId().compareTo( rhs.getRequiredTopDomainId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredTopDomainId() != null) {
-				return( -1 );
-			}
-			if (getRequiredName() != null) {
-				if (rhs.getRequiredName() != null) {
-					cmp = getRequiredName().compareTo( rhs.getRequiredName() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredName() != null) {
-				return( -1 );
-			}
-			if( getOptionalDescription() != null ) {
-				if( rhs.getOptionalDescription() != null ) {
-					cmp = getOptionalDescription().compareTo( rhs.getOptionalDescription() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else {
-				if( rhs.getOptionalDescription() != null ) {
-					return( -1 );
-				}
-			}
-			if( getOptionalEmbeddedText() != null ) {
-				if( rhs.getOptionalEmbeddedText() != null ) {
-					cmp = getOptionalEmbeddedText().compareTo( rhs.getOptionalEmbeddedText() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else {
-				if( rhs.getOptionalEmbeddedText() != null ) {
-					return( -1 );
-				}
-			}
-			if( getOptionalFullText() != null ) {
-				if( rhs.getOptionalFullText() != null ) {
-					cmp = getOptionalFullText().compareTo( rhs.getOptionalFullText() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else {
-				if( rhs.getOptionalFullText() != null ) {
-					return( -1 );
-				}
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFIntLicenseByLicnTenantIdxKey) {
-			ICFIntLicenseByLicnTenantIdxKey rhs = (ICFIntLicenseByLicnTenantIdxKey)obj;
-			if (getRequiredTenantId() != null) {
-				if (rhs.getRequiredTenantId() != null) {
-					cmp = getRequiredTenantId().compareTo( rhs.getRequiredTenantId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredTenantId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFIntLicenseByDomainIdxKey) {
-			ICFIntLicenseByDomainIdxKey rhs = (ICFIntLicenseByDomainIdxKey)obj;
-			if (getRequiredTopDomainId() != null) {
-				if (rhs.getRequiredTopDomainId() != null) {
-					cmp = getRequiredTopDomainId().compareTo( rhs.getRequiredTopDomainId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredTopDomainId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFIntLicenseByUNameIdxKey) {
-			ICFIntLicenseByUNameIdxKey rhs = (ICFIntLicenseByUNameIdxKey)obj;
-			if (getRequiredTopDomainId() != null) {
-				if (rhs.getRequiredTopDomainId() != null) {
-					cmp = getRequiredTopDomainId().compareTo( rhs.getRequiredTopDomainId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredTopDomainId() != null) {
-				return( -1 );
-			}
-			if (getRequiredName() != null) {
-				if (rhs.getRequiredName() != null) {
-					cmp = getRequiredName().compareTo( rhs.getRequiredName() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredName() != null) {
-				return( -1 );
-			}
-			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
-				"compareTo",
-				"obj",
-				obj,
-				null );
+			if (rhs.getPKey() != null) {
+				return( -1 );
+			}
 		}
-	}
-
+			if (getRequiredTenantId() != null) {
+				if (rhs.getRequiredTenantId() != null) {
+					cmp = getRequiredTenantId().compareTo( rhs.getRequiredTenantId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredTenantId() != null) {
+				return( -1 );
+			}
+			if (getRequiredTopDomainId() != null) {
+				if (rhs.getRequiredTopDomainId() != null) {
+					cmp = getRequiredTopDomainId().compareTo( rhs.getRequiredTopDomainId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredTopDomainId() != null) {
+				return( -1 );
+			}
+			if (getRequiredName() != null) {
+				if (rhs.getRequiredName() != null) {
+					cmp = getRequiredName().compareTo( rhs.getRequiredName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredName() != null) {
+				return( -1 );
+			}
+			if( getOptionalDescription() != null ) {
+				if( rhs.getOptionalDescription() != null ) {
+					cmp = getOptionalDescription().compareTo( rhs.getOptionalDescription() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDescription() != null ) {
+					return( -1 );
+				}
+			}
+			if( getOptionalEmbeddedText() != null ) {
+				if( rhs.getOptionalEmbeddedText() != null ) {
+					cmp = getOptionalEmbeddedText().compareTo( rhs.getOptionalEmbeddedText() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalEmbeddedText() != null ) {
+					return( -1 );
+				}
+			}
+			if( getOptionalFullText() != null ) {
+				if( rhs.getOptionalFullText() != null ) {
+					cmp = getOptionalFullText().compareTo( rhs.getOptionalFullText() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalFullText() != null ) {
+					return( -1 );
+				}
+			}
+            return( 0 );
+        }
+        else if (obj instanceof ICFIntLicenseHPKey) {
+        if (getPKey() != null) {
+            return( getPKey().compareTo( obj ));
+        }
+        else {
+            return( -1 );
+        }
+        }
+        else if (obj instanceof ICFIntLicenseH) {
+		ICFIntLicenseH rhs = (ICFIntLicenseH)obj;
+		if (getPKey() != null) {
+			if (rhs.getPKey() == null) {
+				return( 1 );
+			}
+			else {
+				cmp = getPKey().compareTo(rhs.getPKey());
+				if (cmp != 0) {
+					return( cmp );
+				}
+			}
+		}
+		else {
+			if (rhs.getPKey() != null) {
+				return( -1 );
+			}
+		}
+			if (getRequiredTenantId() != null) {
+				if (rhs.getRequiredTenantId() != null) {
+					cmp = getRequiredTenantId().compareTo( rhs.getRequiredTenantId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredTenantId() != null) {
+				return( -1 );
+			}
+			if (getRequiredTopDomainId() != null) {
+				if (rhs.getRequiredTopDomainId() != null) {
+					cmp = getRequiredTopDomainId().compareTo( rhs.getRequiredTopDomainId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredTopDomainId() != null) {
+				return( -1 );
+			}
+			if (getRequiredName() != null) {
+				if (rhs.getRequiredName() != null) {
+					cmp = getRequiredName().compareTo( rhs.getRequiredName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredName() != null) {
+				return( -1 );
+			}
+			if( getOptionalDescription() != null ) {
+				if( rhs.getOptionalDescription() != null ) {
+					cmp = getOptionalDescription().compareTo( rhs.getOptionalDescription() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalDescription() != null ) {
+					return( -1 );
+				}
+			}
+			if( getOptionalEmbeddedText() != null ) {
+				if( rhs.getOptionalEmbeddedText() != null ) {
+					cmp = getOptionalEmbeddedText().compareTo( rhs.getOptionalEmbeddedText() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalEmbeddedText() != null ) {
+					return( -1 );
+				}
+			}
+			if( getOptionalFullText() != null ) {
+				if( rhs.getOptionalFullText() != null ) {
+					cmp = getOptionalFullText().compareTo( rhs.getOptionalFullText() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalFullText() != null ) {
+					return( -1 );
+				}
+			}
+            return( 0 );
+        }
+        else if (obj instanceof ICFIntLicenseByLicnTenantIdxKey ) {
+            ICFIntLicenseByLicnTenantIdxKey rhs = (ICFIntLicenseByLicnTenantIdxKey)obj;
+			if (getRequiredTenantId() != null) {
+				if (rhs.getRequiredTenantId() != null) {
+					cmp = getRequiredTenantId().compareTo( rhs.getRequiredTenantId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredTenantId() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else if (obj instanceof ICFIntLicenseByDomainIdxKey ) {
+            ICFIntLicenseByDomainIdxKey rhs = (ICFIntLicenseByDomainIdxKey)obj;
+			if (getRequiredTopDomainId() != null) {
+				if (rhs.getRequiredTopDomainId() != null) {
+					cmp = getRequiredTopDomainId().compareTo( rhs.getRequiredTopDomainId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredTopDomainId() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else if (obj instanceof ICFIntLicenseByUNameIdxKey ) {
+            ICFIntLicenseByUNameIdxKey rhs = (ICFIntLicenseByUNameIdxKey)obj;
+			if (getRequiredTopDomainId() != null) {
+				if (rhs.getRequiredTopDomainId() != null) {
+					cmp = getRequiredTopDomainId().compareTo( rhs.getRequiredTopDomainId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredTopDomainId() != null) {
+				return( -1 );
+			}
+			if (getRequiredName() != null) {
+				if (rhs.getRequiredName() != null) {
+					cmp = getRequiredName().compareTo( rhs.getRequiredName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredName() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else {
+            throw new CFLibUnsupportedClassException( getClass(),
+                "compareTo",
+                "obj",
+                obj,
+                null );
+        }
+    }
 	@Override
-	public void set( ICFIntLicense src ) {
+    public void set( ICFIntLicense src ) {
 		setLicense( src );
-	}
+    }
 
 	@Override
-	public void setLicense( ICFIntLicense src ) {
-		setRequiredId(src.getRequiredId());
+    public void setLicense( ICFIntLicense src ) {
+		setRequiredId( src.getRequiredId() );
+		setRequiredTenantId( src.getRequiredTenantId() );
+		setRequiredTopDomainId( src.getRequiredTopDomainId() );
+		setRequiredName( src.getRequiredName() );
+		setOptionalDescription( src.getOptionalDescription() );
+		setOptionalEmbeddedText( src.getOptionalEmbeddedText() );
+		setOptionalFullText( src.getOptionalFullText() );
 		setRequiredRevision( src.getRequiredRevision() );
-		setRequiredOwnerTenant(src.getRequiredTenantId());
-		setRequiredContainerTopDomain(src.getRequiredContainerTopDomain());
-		setRequiredName(src.getRequiredName());
-		setOptionalDescription(src.getOptionalDescription());
-		setOptionalEmbeddedText(src.getOptionalEmbeddedText());
-		setOptionalFullText(src.getOptionalFullText());
-	}
+    }
 
 	@Override
-	public void set( ICFIntLicenseH src ) {
+    public void set( ICFIntLicenseH src ) {
 		setLicense( src );
-	}
+    }
 
 	@Override
-	public void setLicense( ICFIntLicenseH src ) {
-		setRequiredId(src.getRequiredId());
-		setRequiredOwnerTenant(src.getRequiredTenantId());
-		setRequiredContainerTopDomain(src.getRequiredTopDomainId());
-		setRequiredName(src.getRequiredName());
-		setOptionalDescription(src.getOptionalDescription());
-		setOptionalEmbeddedText(src.getOptionalEmbeddedText());
-		setOptionalFullText(src.getOptionalFullText());
-	}
+    public void setLicense( ICFIntLicenseH src ) {
+		setRequiredId( src.getRequiredId() );
+		setRequiredTenantId( src.getRequiredTenantId() );
+		setRequiredTopDomainId( src.getRequiredTopDomainId() );
+		setRequiredName( src.getRequiredName() );
+		setOptionalDescription( src.getOptionalDescription() );
+		setOptionalEmbeddedText( src.getOptionalEmbeddedText() );
+		setOptionalFullText( src.getOptionalFullText() );
+		setRequiredRevision( src.getRequiredRevision() );
+    }
 
-	@Override
-	public String getXmlAttrFragment() {
-		String ret = ""
-			+ " RequiredId=" + "\"" + getRequiredId().toString() + "\""
+    public String getXmlAttrFragment() {
+        String ret = pkey.getXmlAttrFragment() 
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
-			+ " RequiredId=" + "\"" + getRequiredId().toString() + "\""
 			+ " RequiredTenantId=" + "\"" + getRequiredTenantId().toString() + "\""
 			+ " RequiredTopDomainId=" + "\"" + getRequiredTopDomainId().toString() + "\""
 			+ " RequiredName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredName() ) + "\""
 			+ " OptionalDescription=" + ( ( getOptionalDescription() == null ) ? "null" : "\"" + StringEscapeUtils.escapeXml11( getOptionalDescription() ) + "\"" )
 			+ " OptionalEmbeddedText=" + ( ( getOptionalEmbeddedText() == null ) ? "null" : "\"" + StringEscapeUtils.escapeXml11( getOptionalEmbeddedText() ) + "\"" )
 			+ " OptionalFullText=" + ( ( getOptionalFullText() == null ) ? "null" : "\"" + StringEscapeUtils.escapeXml11( getOptionalFullText() ) + "\"" );
-		return( ret );
-	}
+        return( ret );
+    }
 
-	@Override
-	public String toString() {
-		String ret = "<CFIntJpaLicense" + getXmlAttrFragment() + "/>";
-		return( ret );
-	}
+    public String toString() {
+        String ret = "<CFIntJpaLicenseH" + getXmlAttrFragment() + "/>";
+        return( ret );
+    }
 }

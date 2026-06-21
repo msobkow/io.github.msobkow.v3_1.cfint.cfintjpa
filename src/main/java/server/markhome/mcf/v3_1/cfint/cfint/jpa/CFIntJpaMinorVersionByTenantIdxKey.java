@@ -203,7 +203,7 @@ public class CFIntJpaMinorVersionByTenantIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntMinorVersionByTenantIdxKey, ICFIntMinorVersion, ICFIntMinorVersionH");
+				"ICFIntMinorVersionByTenantIdxKey, ICFIntMinorVersion$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

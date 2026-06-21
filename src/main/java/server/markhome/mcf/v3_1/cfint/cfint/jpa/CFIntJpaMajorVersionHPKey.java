@@ -494,7 +494,7 @@ public class CFIntJpaMajorVersionHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntMajorVersionPKey, ICFIntMajorVersion, ICFIntMajorVersionHPKey, ICFIntMajorVersionH" );
+				"ICFIntMajorVersionPKey, ICFIntMajorVersion$emitHPKeyHistoryClassNames$" );
 		}
 	}
 

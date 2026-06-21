@@ -154,7 +154,7 @@ public class CFIntJpaURLProtocolByIsSecureIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntURLProtocolByIsSecureIdxKey, ICFIntURLProtocol, ICFIntURLProtocolH");
+				"ICFIntURLProtocolByIsSecureIdxKey, ICFIntURLProtocol$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

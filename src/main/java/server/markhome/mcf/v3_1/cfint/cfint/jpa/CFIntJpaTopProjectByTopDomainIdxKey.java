@@ -203,7 +203,7 @@ public class CFIntJpaTopProjectByTopDomainIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntTopProjectByTopDomainIdxKey, ICFIntTopProject, ICFIntTopProjectH");
+				"ICFIntTopProjectByTopDomainIdxKey, ICFIntTopProject$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

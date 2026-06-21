@@ -213,7 +213,7 @@ public class CFIntJpaMimeTypeByUNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntMimeTypeByUNameIdxKey, ICFIntMimeType, ICFIntMimeTypeH");
+				"ICFIntMimeTypeByUNameIdxKey, ICFIntMimeType$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

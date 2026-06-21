@@ -203,7 +203,7 @@ public class CFIntJpaTopDomainByTenantIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntTopDomainByTenantIdxKey, ICFIntTopDomain, ICFIntTopDomainH");
+				"ICFIntTopDomainByTenantIdxKey, ICFIntTopDomain$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

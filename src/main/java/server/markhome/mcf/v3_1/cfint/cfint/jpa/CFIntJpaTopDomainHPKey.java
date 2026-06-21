@@ -494,7 +494,7 @@ public class CFIntJpaTopDomainHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntTopDomainPKey, ICFIntTopDomain, ICFIntTopDomainHPKey, ICFIntTopDomainH" );
+				"ICFIntTopDomainPKey, ICFIntTopDomain$emitHPKeyHistoryClassNames$" );
 		}
 	}
 
