@@ -129,9 +129,16 @@ public class CFIntJpaTldFactoryService
 			return( (CFIntJpaTld)rec );
 		}
 		else {
-			CFIntJpaTld mapped = new CFIntJpaTld();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFIntTld.CLASS_CODE: {
+					CFIntJpaTld mapped = new CFIntJpaTld();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntTld",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntTld");
+			}
 		}
 	}
 
@@ -142,16 +149,23 @@ public class CFIntJpaTldFactoryService
     }
 
 	public CFIntJpaTldH ensureHRec(ICFIntTldH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFIntJpaTldH) {
+		else if (hrec instanceof CFIntJpaTldH) {
 			return( (CFIntJpaTldH)hrec );
 		}
 		else {
-			CFIntJpaTldH mapped = new CFIntJpaTldH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFIntTld.CLASS_CODE: {
+					CFIntJpaTldH mapped = new CFIntJpaTldH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFIntTld",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFIntTld");
+			}
 		}
 	}
 }

@@ -150,9 +150,16 @@ public class CFIntJpaMinorVersionFactoryService
 			return( (CFIntJpaMinorVersion)rec );
 		}
 		else {
-			CFIntJpaMinorVersion mapped = new CFIntJpaMinorVersion();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFIntMinorVersion.CLASS_CODE: {
+					CFIntJpaMinorVersion mapped = new CFIntJpaMinorVersion();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntMinorVersion",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntMinorVersion");
+			}
 		}
 	}
 
@@ -163,16 +170,23 @@ public class CFIntJpaMinorVersionFactoryService
     }
 
 	public CFIntJpaMinorVersionH ensureHRec(ICFIntMinorVersionH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFIntJpaMinorVersionH) {
+		else if (hrec instanceof CFIntJpaMinorVersionH) {
 			return( (CFIntJpaMinorVersionH)hrec );
 		}
 		else {
-			CFIntJpaMinorVersionH mapped = new CFIntJpaMinorVersionH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFIntMinorVersion.CLASS_CODE: {
+					CFIntJpaMinorVersionH mapped = new CFIntJpaMinorVersionH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFIntMinorVersion",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFIntMinorVersion");
+			}
 		}
 	}
 }

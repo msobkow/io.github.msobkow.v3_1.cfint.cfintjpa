@@ -126,9 +126,16 @@ public class CFIntJpaLicenseFactoryService
 			return( (CFIntJpaLicense)rec );
 		}
 		else {
-			CFIntJpaLicense mapped = new CFIntJpaLicense();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFIntLicense.CLASS_CODE: {
+					CFIntJpaLicense mapped = new CFIntJpaLicense();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntLicense",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntLicense");
+			}
 		}
 	}
 }

@@ -150,9 +150,16 @@ public class CFIntJpaTopDomainFactoryService
 			return( (CFIntJpaTopDomain)rec );
 		}
 		else {
-			CFIntJpaTopDomain mapped = new CFIntJpaTopDomain();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFIntTopDomain.CLASS_CODE: {
+					CFIntJpaTopDomain mapped = new CFIntJpaTopDomain();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntTopDomain",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntTopDomain");
+			}
 		}
 	}
 
@@ -163,16 +170,23 @@ public class CFIntJpaTopDomainFactoryService
     }
 
 	public CFIntJpaTopDomainH ensureHRec(ICFIntTopDomainH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFIntJpaTopDomainH) {
+		else if (hrec instanceof CFIntJpaTopDomainH) {
 			return( (CFIntJpaTopDomainH)hrec );
 		}
 		else {
-			CFIntJpaTopDomainH mapped = new CFIntJpaTopDomainH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFIntTopDomain.CLASS_CODE: {
+					CFIntJpaTopDomainH mapped = new CFIntJpaTopDomainH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFIntTopDomain",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFIntTopDomain");
+			}
 		}
 	}
 }

@@ -109,9 +109,16 @@ public class CFIntJpaMimeTypeFactoryService
 			return( (CFIntJpaMimeType)rec );
 		}
 		else {
-			CFIntJpaMimeType mapped = new CFIntJpaMimeType();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFIntMimeType.CLASS_CODE: {
+					CFIntJpaMimeType mapped = new CFIntJpaMimeType();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntMimeType",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntMimeType");
+			}
 		}
 	}
 
@@ -122,16 +129,23 @@ public class CFIntJpaMimeTypeFactoryService
     }
 
 	public CFIntJpaMimeTypeH ensureHRec(ICFIntMimeTypeH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFIntJpaMimeTypeH) {
+		else if (hrec instanceof CFIntJpaMimeTypeH) {
 			return( (CFIntJpaMimeTypeH)hrec );
 		}
 		else {
-			CFIntJpaMimeTypeH mapped = new CFIntJpaMimeTypeH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFIntMimeType.CLASS_CODE: {
+					CFIntJpaMimeTypeH mapped = new CFIntJpaMimeTypeH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFIntMimeType",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFIntMimeType");
+			}
 		}
 	}
 }

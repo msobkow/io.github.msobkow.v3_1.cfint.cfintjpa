@@ -150,9 +150,16 @@ public class CFIntJpaSubProjectFactoryService
 			return( (CFIntJpaSubProject)rec );
 		}
 		else {
-			CFIntJpaSubProject mapped = new CFIntJpaSubProject();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFIntSubProject.CLASS_CODE: {
+					CFIntJpaSubProject mapped = new CFIntJpaSubProject();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntSubProject",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFIntSubProject");
+			}
 		}
 	}
 
@@ -163,16 +170,23 @@ public class CFIntJpaSubProjectFactoryService
     }
 
 	public CFIntJpaSubProjectH ensureHRec(ICFIntSubProjectH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFIntJpaSubProjectH) {
+		else if (hrec instanceof CFIntJpaSubProjectH) {
 			return( (CFIntJpaSubProjectH)hrec );
 		}
 		else {
-			CFIntJpaSubProjectH mapped = new CFIntJpaSubProjectH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFIntSubProject.CLASS_CODE: {
+					CFIntJpaSubProjectH mapped = new CFIntJpaSubProjectH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFIntSubProject",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFIntSubProject");
+			}
 		}
 	}
 }
