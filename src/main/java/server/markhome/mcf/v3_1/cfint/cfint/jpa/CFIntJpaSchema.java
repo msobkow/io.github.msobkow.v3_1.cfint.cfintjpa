@@ -44,9 +44,15 @@ import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cflib.inz.Inz;
 import server.markhome.mcf.v3_1.cflib.xml.CFLibXmlUtil;
+
+import server.markhome.mcf.v3_1.cfsec.cfsecpub.*;
+import server.markhome.mcf.v3_1.cfint.cfintpub.*;
+import server.markhome.mcf.v3_1.cfsec.cfsecpubobj.*;
+import server.markhome.mcf.v3_1.cfint.cfintpubobj.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
-import server.markhome.mcf.v3_1.cfint.cfint.*;
-import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
+import server.markhome.mcf.v3_1.cfint.cfint.*;$importJavaJpaPackageSchemaName$
+import server.markhome.mcf.v3_1.cfsec.cfsecpubobj.*;
+import server.markhome.mcf.v3_1.cfint.cfintpubobj.*;
 import server.markhome.mcf.v3_1.cfint.cfint.jpa.CFIntJpaHooksSchema;
 
 import server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSchema;
@@ -819,11 +825,11 @@ public class CFIntJpaSchema
 		tableURLProtocol = value;
 	}
 
-	public void bootstrapSchema(CFSecTableData tableData[]) {
+	public void bootstrapSchema(CFSecPubTableData tableData[]) {
 		ICFSecSchema.getBackingCFSec().bootstrapSchema(tableData);
 	}
 
-	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecTableData tableData[]) {
+	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecPubTableData tableData[]) {
 		ICFSecSchema.getBackingCFSec().bootstrapAllTablesSecurity(clusterId, tenantId, tableData);
 	}
 }
