@@ -168,6 +168,16 @@ public class CFIntJpaTopProject
 	}
 
 	@Override
+	public void setRequiredContainerParentSDom(ICFIntProtTopDomain argObj) {
+		setRequiredContainerParentSDom(argObj.getRequiredId());
+	}
+
+	@Override
+	public void setRequiredContainerParentSDom(ICFIntPubTopDomain argObj) {
+		setRequiredContainerParentSDom(argObj.getRequiredId());
+	}
+
+	@Override
 	public void setRequiredContainerParentSDom(CFLibDbKeyHash256 argTopDomainId) {
 		ICFIntSchema targetBackingSchema = ICFIntSchema.getBackingCFInt();
 		if (targetBackingSchema == null) {

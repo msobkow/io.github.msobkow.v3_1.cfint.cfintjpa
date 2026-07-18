@@ -152,6 +152,16 @@ public class CFIntJpaLicense
 	}
 
 	@Override
+	public void setRequiredContainerTopDomain(ICFIntProtTopDomain argObj) {
+		setRequiredContainerTopDomain(argObj.getRequiredId());
+	}
+
+	@Override
+	public void setRequiredContainerTopDomain(ICFIntPubTopDomain argObj) {
+		setRequiredContainerTopDomain(argObj.getRequiredId());
+	}
+
+	@Override
 	public void setRequiredContainerTopDomain(CFLibDbKeyHash256 argTopDomainId) {
 		ICFIntSchema targetBackingSchema = ICFIntSchema.getBackingCFInt();
 		if (targetBackingSchema == null) {

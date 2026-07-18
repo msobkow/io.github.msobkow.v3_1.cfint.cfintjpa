@@ -161,6 +161,16 @@ public class CFIntJpaMinorVersion
 	}
 
 	@Override
+	public void setRequiredContainerParentMajVer(ICFIntProtMajorVersion argObj) {
+		setRequiredContainerParentMajVer(argObj.getRequiredId());
+	}
+
+	@Override
+	public void setRequiredContainerParentMajVer(ICFIntPubMajorVersion argObj) {
+		setRequiredContainerParentMajVer(argObj.getRequiredId());
+	}
+
+	@Override
 	public void setRequiredContainerParentMajVer(CFLibDbKeyHash256 argMajorVersionId) {
 		ICFIntSchema targetBackingSchema = ICFIntSchema.getBackingCFInt();
 		if (targetBackingSchema == null) {

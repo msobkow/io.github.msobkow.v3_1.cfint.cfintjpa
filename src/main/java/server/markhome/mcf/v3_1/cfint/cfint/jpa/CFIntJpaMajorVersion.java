@@ -168,6 +168,16 @@ public class CFIntJpaMajorVersion
 	}
 
 	@Override
+	public void setRequiredContainerParentSPrj(ICFIntProtSubProject argObj) {
+		setRequiredContainerParentSPrj(argObj.getRequiredId());
+	}
+
+	@Override
+	public void setRequiredContainerParentSPrj(ICFIntPubSubProject argObj) {
+		setRequiredContainerParentSPrj(argObj.getRequiredId());
+	}
+
+	@Override
 	public void setRequiredContainerParentSPrj(CFLibDbKeyHash256 argSubProjectId) {
 		ICFIntSchema targetBackingSchema = ICFIntSchema.getBackingCFInt();
 		if (targetBackingSchema == null) {

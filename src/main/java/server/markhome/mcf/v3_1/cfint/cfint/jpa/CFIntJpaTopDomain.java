@@ -175,6 +175,16 @@ public class CFIntJpaTopDomain
 	}
 
 	@Override
+	public void setRequiredContainerParentTld(ICFIntProtTld argObj) {
+		setRequiredContainerParentTld(argObj.getRequiredId());
+	}
+
+	@Override
+	public void setRequiredContainerParentTld(ICFIntPubTld argObj) {
+		setRequiredContainerParentTld(argObj.getRequiredId());
+	}
+
+	@Override
 	public void setRequiredContainerParentTld(CFLibDbKeyHash256 argTldId) {
 		ICFIntSchema targetBackingSchema = ICFIntSchema.getBackingCFInt();
 		if (targetBackingSchema == null) {
