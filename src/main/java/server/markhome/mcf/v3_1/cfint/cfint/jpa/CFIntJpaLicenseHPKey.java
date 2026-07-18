@@ -205,24 +205,6 @@ public class CFIntJpaLicenseHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFIntLicensePKey rhs) {
-			if( getRequiredId() != null ) {
-				if( rhs.getRequiredId() != null ) {
-					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFIntLicenseH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -367,24 +349,6 @@ public class CFIntJpaLicenseHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFIntProtLicensePKey rhs) {
-			if( getRequiredId() != null ) {
-				if( rhs.getRequiredId() != null ) {
-					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFIntProtLicenseH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -512,24 +476,6 @@ public class CFIntJpaLicenseHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredId() != null ) {
-				if( rhs.getRequiredId() != null ) {
-					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
-		else if (obj instanceof ICFIntPubLicensePKey rhs) {
 			if( getRequiredId() != null ) {
 				if( rhs.getRequiredId() != null ) {
 					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
@@ -715,23 +661,6 @@ public class CFIntJpaLicenseHPKey
 					return( cmp );
 				}
 			}
-			if (getRequiredId() != null) {
-				if (rhs.getRequiredId() != null) {
-					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFIntLicensePKey rhs) {
 			if (getRequiredId() != null) {
 				if (rhs.getRequiredId() != null) {
 					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
@@ -1068,23 +997,6 @@ public class CFIntJpaLicenseHPKey
 					return( cmp );
 				}
 			}
-			if (getRequiredId() != null) {
-				if (rhs.getRequiredId() != null) {
-					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFIntPubLicensePKey rhs) {
 			if (getRequiredId() != null) {
 				if (rhs.getRequiredId() != null) {
 					cmp = getRequiredId().compareTo( rhs.getRequiredId() );

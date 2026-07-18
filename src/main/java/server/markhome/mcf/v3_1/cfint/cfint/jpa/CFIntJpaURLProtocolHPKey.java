@@ -205,12 +205,6 @@ public class CFIntJpaURLProtocolHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFIntURLProtocolPKey rhs) {
-			if( getRequiredURLProtocolId() != rhs.getRequiredURLProtocolId() ) {
-				return( false );
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFIntURLProtocolH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -319,12 +313,6 @@ public class CFIntJpaURLProtocolHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFIntProtURLProtocolPKey rhs) {
-			if( getRequiredURLProtocolId() != rhs.getRequiredURLProtocolId() ) {
-				return( false );
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFIntProtURLProtocolH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -428,12 +416,6 @@ public class CFIntJpaURLProtocolHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredURLProtocolId() != rhs.getRequiredURLProtocolId() ) {
-				return( false );
-			}
-			return( true );
-		}
-		else if (obj instanceof ICFIntPubURLProtocolPKey rhs) {
 			if( getRequiredURLProtocolId() != rhs.getRequiredURLProtocolId() ) {
 				return( false );
 			}
@@ -583,15 +565,6 @@ public class CFIntJpaURLProtocolHPKey
 					return( cmp );
 				}
 			}
-			if( getRequiredURLProtocolId() < rhs.getRequiredURLProtocolId() ) {
-				return( -1 );
-			}
-			else if( getRequiredURLProtocolId() > rhs.getRequiredURLProtocolId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFIntURLProtocolPKey rhs) {
 			if( getRequiredURLProtocolId() < rhs.getRequiredURLProtocolId() ) {
 				return( -1 );
 			}
@@ -872,15 +845,6 @@ public class CFIntJpaURLProtocolHPKey
 					return( cmp );
 				}
 			}
-			if( getRequiredURLProtocolId() < rhs.getRequiredURLProtocolId() ) {
-				return( -1 );
-			}
-			else if( getRequiredURLProtocolId() > rhs.getRequiredURLProtocolId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFIntPubURLProtocolPKey rhs) {
 			if( getRequiredURLProtocolId() < rhs.getRequiredURLProtocolId() ) {
 				return( -1 );
 			}
