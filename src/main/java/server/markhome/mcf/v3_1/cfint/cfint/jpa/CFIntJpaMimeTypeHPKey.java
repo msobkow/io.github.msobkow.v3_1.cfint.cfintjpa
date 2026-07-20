@@ -709,15 +709,6 @@ public class CFIntJpaMimeTypeHPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFIntProtMimeTypePKey rhs) {
-			if( getRequiredMimeTypeId() < rhs.getRequiredMimeTypeId() ) {
-				return( -1 );
-			}
-			else if( getRequiredMimeTypeId() > rhs.getRequiredMimeTypeId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
 		else if (obj instanceof ICFIntProtMimeTypeH rhs) {
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {
