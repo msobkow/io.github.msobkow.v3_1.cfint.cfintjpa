@@ -104,11 +104,11 @@ public class CFIntJpaTld
 
 	@Override
 	public List<ICFIntTopDomain> getOptionalComponentsTopDomain() {
-		List<ICFIntTopDomain> retlist = (optionalComponentsTopDomain != null) ? new ArrayList<>(optionalComponentsTopDomain) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsTopDomain != null) ? new ArrayList<>(optionalComponentsTopDomain) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
-	public ICFSecTenant getRequiredContainerTenant() {
+	public ICFSecPubTenant getRequiredContainerTenant() {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerTenant", 0, "ICFSecSchema.getBackingCFSec()");
@@ -121,13 +121,18 @@ public class CFIntJpaTld
 		return(targetRec);
 	}
 	@Override
-	public void setRequiredContainerTenant(ICFSecTenant argObj) {
+	public void setRequiredContainerTenant(ICFSecPubTenant argObj) {
 		if(argObj == null) {
 			throw new CFLibNullArgumentException(getClass(), "setContainerTenant", 1, "argObj");
 		}
 		else {
 			requiredTenantId = argObj.getRequiredId();
 		}
+	}
+
+	@Override
+	public void setRequiredContainerTenant(ICFSecPubTenant argObj) {
+		setRequiredContainerTenant(argObj.getRequiredId());
 	}
 
 	@Override

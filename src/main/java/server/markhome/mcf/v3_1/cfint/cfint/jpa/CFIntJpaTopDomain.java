@@ -116,16 +116,16 @@ public class CFIntJpaTopDomain
 
 	@Override
 	public List<ICFIntTopProject> getOptionalComponentsTopProject() {
-		List<ICFIntTopProject> retlist = (optionalComponentsTopProject != null) ? new ArrayList<>(optionalComponentsTopProject) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsTopProject != null) ? new ArrayList<>(optionalComponentsTopProject) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFIntLicense> getOptionalComponentsLicense() {
-		List<ICFIntLicense> retlist = (optionalComponentsLicense != null) ? new ArrayList<>(optionalComponentsLicense) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsLicense != null) ? new ArrayList<>(optionalComponentsLicense) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
-	public ICFSecTenant getRequiredOwnerTenant() {
+	public ICFSecPubTenant getRequiredOwnerTenant() {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec()");
@@ -138,13 +138,18 @@ public class CFIntJpaTopDomain
 		return(targetRec);
 	}
 	@Override
-	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
+	public void setRequiredOwnerTenant(ICFSecPubTenant argObj) {
 		if(argObj == null) {
 			throw new CFLibNullArgumentException(getClass(), "setOwnerTenant", 1, "argObj");
 		}
 		else {
 			requiredTenantId = argObj.getRequiredId();
 		}
+	}
+
+	@Override
+	public void setRequiredOwnerTenant(ICFSecPubTenant argObj) {
+		setRequiredOwnerTenant(argObj.getRequiredId());
 	}
 
 	@Override

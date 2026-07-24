@@ -111,7 +111,7 @@ public class CFIntJpaMinorVersion
 	}
 
 	@Override
-	public ICFSecTenant getRequiredOwnerTenant() {
+	public ICFSecPubTenant getRequiredOwnerTenant() {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec()");
@@ -124,13 +124,18 @@ public class CFIntJpaMinorVersion
 		return(targetRec);
 	}
 	@Override
-	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
+	public void setRequiredOwnerTenant(ICFSecPubTenant argObj) {
 		if(argObj == null) {
 			throw new CFLibNullArgumentException(getClass(), "setOwnerTenant", 1, "argObj");
 		}
 		else {
 			requiredTenantId = argObj.getRequiredId();
 		}
+	}
+
+	@Override
+	public void setRequiredOwnerTenant(ICFSecPubTenant argObj) {
+		setRequiredOwnerTenant(argObj.getRequiredId());
 	}
 
 	@Override
