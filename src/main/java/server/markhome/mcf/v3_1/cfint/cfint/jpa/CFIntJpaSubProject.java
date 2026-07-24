@@ -114,11 +114,11 @@ public class CFIntJpaSubProject
 
 	@Override
 	public List<ICFIntMajorVersion> getOptionalComponentsMajorVer() {
-		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsMajorVer != null) ? new ArrayList<>(optionalComponentsMajorVer) : new ArrayList<>();
+		List<ICFIntMajorVersion> retlist = (optionalComponentsMajorVer != null) ? new ArrayList<>(optionalComponentsMajorVer) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
-	public ICFSecPubTenant getRequiredOwnerTenant() {
+	public ICFSecTenant getRequiredOwnerTenant() {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec()");
@@ -131,18 +131,13 @@ public class CFIntJpaSubProject
 		return(targetRec);
 	}
 	@Override
-	public void setRequiredOwnerTenant(ICFSecPubTenant argObj) {
+	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
 		if(argObj == null) {
 			throw new CFLibNullArgumentException(getClass(), "setOwnerTenant", 1, "argObj");
 		}
 		else {
 			requiredTenantId = argObj.getRequiredId();
 		}
-	}
-
-	@Override
-	public void setRequiredOwnerTenant(ICFSecPubTenant argObj) {
-		setRequiredOwnerTenant(argObj.getRequiredId());
 	}
 
 	@Override
