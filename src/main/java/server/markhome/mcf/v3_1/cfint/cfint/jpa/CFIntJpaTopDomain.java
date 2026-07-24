@@ -119,11 +119,13 @@ public class CFIntJpaTopDomain
 		List<ICFIntTopProject> retlist = (optionalComponentsTopProject != null) ? new ArrayList<>(optionalComponentsTopProject) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFIntLicense> getOptionalComponentsLicense() {
 		List<ICFIntLicense> retlist = (optionalComponentsLicense != null) ? new ArrayList<>(optionalComponentsLicense) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public ICFSecTenant getRequiredOwnerTenant() {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
@@ -137,6 +139,7 @@ public class CFIntJpaTopDomain
 		ICFSecTenant targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), getRequiredTenantId());
 		return(targetRec);
 	}
+
 	@Override
 	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
 		if(argObj == null) {
@@ -156,6 +159,7 @@ public class CFIntJpaTopDomain
 	public ICFIntTld getRequiredContainerParentTld() {
 		return(requiredContainerParentTld);
 	}
+
 	@Override
 	public void setRequiredContainerParentTld(ICFIntTld argObj) {
 		if(argObj == null) {
@@ -259,7 +263,7 @@ public class CFIntJpaTopDomain
 	public void setPKey(CFLibDbKeyHash256 requiredId) {
 		this.requiredId = requiredId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
 		return( requiredId );
@@ -276,7 +280,6 @@ public class CFIntJpaTopDomain
 		requiredId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -621,7 +624,7 @@ public class CFIntJpaTopDomain
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

@@ -159,7 +159,7 @@ public class CFIntJpaURLProtocol
 	public void setPKey(Integer requiredURLProtocolId) {
 		this.requiredURLProtocolId = requiredURLProtocolId;
 	}
-	
+
 	@Override
 	public int getRequiredURLProtocolId() {
 		return( requiredURLProtocolId );
@@ -178,7 +178,6 @@ public class CFIntJpaURLProtocol
 		requiredURLProtocolId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -393,7 +392,7 @@ public class CFIntJpaURLProtocol
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

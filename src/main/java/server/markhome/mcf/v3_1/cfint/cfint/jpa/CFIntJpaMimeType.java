@@ -155,7 +155,7 @@ public class CFIntJpaMimeType
 	public void setPKey(Integer requiredMimeTypeId) {
 		this.requiredMimeTypeId = requiredMimeTypeId;
 	}
-	
+
 	@Override
 	public int getRequiredMimeTypeId() {
 		return( requiredMimeTypeId );
@@ -174,7 +174,6 @@ public class CFIntJpaMimeType
 		requiredMimeTypeId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -360,7 +359,7 @@ public class CFIntJpaMimeType
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

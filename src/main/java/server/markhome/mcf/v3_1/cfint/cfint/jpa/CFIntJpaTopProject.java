@@ -117,6 +117,7 @@ public class CFIntJpaTopProject
 		List<ICFIntSubProject> retlist = (optionalComponentsSubProject != null) ? new ArrayList<>(optionalComponentsSubProject) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public ICFSecTenant getRequiredOwnerTenant() {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
@@ -130,6 +131,7 @@ public class CFIntJpaTopProject
 		ICFSecTenant targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), getRequiredTenantId());
 		return(targetRec);
 	}
+
 	@Override
 	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
 		if(argObj == null) {
@@ -149,6 +151,7 @@ public class CFIntJpaTopProject
 	public ICFIntTopDomain getRequiredContainerParentSDom() {
 		return(requiredContainerParentSDom);
 	}
+
 	@Override
 	public void setRequiredContainerParentSDom(ICFIntTopDomain argObj) {
 		if(argObj == null) {
@@ -252,7 +255,7 @@ public class CFIntJpaTopProject
 	public void setPKey(CFLibDbKeyHash256 requiredId) {
 		this.requiredId = requiredId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
 		return( requiredId );
@@ -269,7 +272,6 @@ public class CFIntJpaTopProject
 		requiredId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -614,7 +616,7 @@ public class CFIntJpaTopProject
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

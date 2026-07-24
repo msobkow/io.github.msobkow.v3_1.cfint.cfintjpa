@@ -107,6 +107,7 @@ public class CFIntJpaTld
 		List<ICFIntTopDomain> retlist = (optionalComponentsTopDomain != null) ? new ArrayList<>(optionalComponentsTopDomain) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public ICFSecTenant getRequiredContainerTenant() {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
@@ -120,6 +121,7 @@ public class CFIntJpaTld
 		ICFSecTenant targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), getRequiredTenantId());
 		return(targetRec);
 	}
+
 	@Override
 	public void setRequiredContainerTenant(ICFSecTenant argObj) {
 		if(argObj == null) {
@@ -196,7 +198,7 @@ public class CFIntJpaTld
 	public void setPKey(CFLibDbKeyHash256 requiredId) {
 		this.requiredId = requiredId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
 		return( requiredId );
@@ -213,7 +215,6 @@ public class CFIntJpaTld
 		requiredId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -489,7 +490,7 @@ public class CFIntJpaTld
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

@@ -123,6 +123,7 @@ public class CFIntJpaMinorVersion
 		ICFSecTenant targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), getRequiredTenantId());
 		return(targetRec);
 	}
+
 	@Override
 	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
 		if(argObj == null) {
@@ -142,6 +143,7 @@ public class CFIntJpaMinorVersion
 	public ICFIntMajorVersion getRequiredContainerParentMajVer() {
 		return(requiredContainerParentMajVer);
 	}
+
 	@Override
 	public void setRequiredContainerParentMajVer(ICFIntMajorVersion argObj) {
 		if(argObj == null) {
@@ -245,7 +247,7 @@ public class CFIntJpaMinorVersion
 	public void setPKey(CFLibDbKeyHash256 requiredId) {
 		this.requiredId = requiredId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
 		return( requiredId );
@@ -262,7 +264,6 @@ public class CFIntJpaMinorVersion
 		requiredId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -607,7 +608,7 @@ public class CFIntJpaMinorVersion
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

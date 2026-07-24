@@ -114,6 +114,7 @@ public class CFIntJpaLicense
 		ICFSecTenant targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), getRequiredTenantId());
 		return(targetRec);
 	}
+
 	@Override
 	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
 		if(argObj == null) {
@@ -133,6 +134,7 @@ public class CFIntJpaLicense
 	public ICFIntTopDomain getRequiredContainerTopDomain() {
 		return(requiredContainerTopDomain);
 	}
+
 	@Override
 	public void setRequiredContainerTopDomain(ICFIntTopDomain argObj) {
 		if(argObj == null) {
@@ -184,7 +186,7 @@ public class CFIntJpaLicense
 	public void setPKey(CFLibDbKeyHash256 requiredId) {
 		this.requiredId = requiredId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
 		return( requiredId );
@@ -201,7 +203,6 @@ public class CFIntJpaLicense
 		requiredId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -618,7 +619,7 @@ public class CFIntJpaLicense
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();
