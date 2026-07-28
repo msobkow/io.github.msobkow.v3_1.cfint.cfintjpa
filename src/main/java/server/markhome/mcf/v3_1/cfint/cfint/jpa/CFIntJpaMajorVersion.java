@@ -258,7 +258,7 @@ public class CFIntJpaMajorVersion
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( requiredId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -269,7 +269,7 @@ public class CFIntJpaMajorVersion
 				1,
 				"value" );
 		}
-		requiredId = value;
+		setPKey( value );
 	}
 
 	@Override

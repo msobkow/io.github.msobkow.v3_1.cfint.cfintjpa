@@ -162,7 +162,7 @@ public class CFIntJpaURLProtocol
 
 	@Override
 	public int getRequiredURLProtocolId() {
-		return( requiredURLProtocolId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -175,7 +175,7 @@ public class CFIntJpaURLProtocol
 				value,
 				ICFIntURLProtocol.URLPROTOCOLID_MIN_VALUE );
 		}
-		requiredURLProtocolId = value;
+		setPKey( value );
 	}
 
 	@Override

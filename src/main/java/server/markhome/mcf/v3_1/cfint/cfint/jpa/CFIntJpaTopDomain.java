@@ -266,7 +266,7 @@ public class CFIntJpaTopDomain
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( requiredId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -277,7 +277,7 @@ public class CFIntJpaTopDomain
 				1,
 				"value" );
 		}
-		requiredId = value;
+		setPKey( value );
 	}
 
 	@Override
