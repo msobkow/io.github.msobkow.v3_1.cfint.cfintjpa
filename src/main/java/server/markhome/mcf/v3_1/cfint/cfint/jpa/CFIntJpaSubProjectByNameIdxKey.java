@@ -56,17 +56,6 @@ public class CFIntJpaSubProjectByNameIdxKey
 	}
 
 	@Override
-	public void setRequiredTopProjectId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredTopProjectId",
-				1,
-				"value" );
-		}
-		requiredTopProjectId = value;
-	}
-
-	@Override
 	public String getRequiredName() {
 		return( requiredName );
 	}

@@ -56,17 +56,6 @@ public class CFIntJpaTopProjectByNameIdxKey
 	}
 
 	@Override
-	public void setRequiredTopDomainId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredTopDomainId",
-				1,
-				"value" );
-		}
-		requiredTopDomainId = value;
-	}
-
-	@Override
 	public String getRequiredName() {
 		return( requiredName );
 	}
