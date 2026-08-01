@@ -245,9 +245,29 @@ public class CFIntJpaMajorVersionH
 		return( requiredTenantId );
 	}
 
+	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTenantId",
+				1,
+				"value" );
+		}
+		requiredTenantId = value;
+	}
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredSubProjectId() {
 		return( requiredSubProjectId );
+	}
+
+	public void setRequiredSubProjectId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSubProjectId",
+				1,
+				"value" );
+		}
+		requiredSubProjectId = value;
 	}
 
 	@Override
@@ -255,7 +275,6 @@ public class CFIntJpaMajorVersionH
 		return( requiredName );
 	}
 
-	@Override
 	public void setRequiredName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -279,7 +298,6 @@ public class CFIntJpaMajorVersionH
 		return( optionalDescription );
 	}
 
-	@Override
 	public void setOptionalDescription( String value ) {
 		if( value != null && value.length() > 1024 ) {
 			throw new CFLibArgumentOverflowException( getClass(),

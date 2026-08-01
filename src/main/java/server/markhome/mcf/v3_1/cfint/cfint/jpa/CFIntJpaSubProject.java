@@ -261,7 +261,6 @@ public class CFIntJpaSubProject
 		return( getPKey() );
 	}
 
-	@Override
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -287,9 +286,29 @@ public class CFIntJpaSubProject
 		return( requiredTenantId );
 	}
 
+	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTenantId",
+				1,
+				"value" );
+		}
+		requiredTenantId = value;
+	}
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredTopProjectId() {
 		return( requiredTopProjectId );
+	}
+
+	public void setRequiredTopProjectId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTopProjectId",
+				1,
+				"value" );
+		}
+		requiredTopProjectId = value;
 	}
 
 	@Override
@@ -297,7 +316,6 @@ public class CFIntJpaSubProject
 		return( requiredName );
 	}
 
-	@Override
 	public void setRequiredName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -321,7 +339,6 @@ public class CFIntJpaSubProject
 		return( optionalDescription );
 	}
 
-	@Override
 	public void setOptionalDescription( String value ) {
 		if( value != null && value.length() > 1024 ) {
 			throw new CFLibArgumentOverflowException( getClass(),

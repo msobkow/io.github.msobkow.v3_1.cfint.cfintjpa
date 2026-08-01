@@ -233,7 +233,6 @@ public class CFIntJpaMimeTypeH
 		return( requiredName );
 	}
 
-	@Override
 	public void setRequiredName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -257,7 +256,6 @@ public class CFIntJpaMimeTypeH
 		return( optionalFileTypes );
 	}
 
-	@Override
 	public void setOptionalFileTypes( String value ) {
 		if( value != null && value.length() > 128 ) {
 			throw new CFLibArgumentOverflowException( getClass(),

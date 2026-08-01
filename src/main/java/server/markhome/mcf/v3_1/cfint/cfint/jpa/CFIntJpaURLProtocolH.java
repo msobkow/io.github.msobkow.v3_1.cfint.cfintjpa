@@ -237,7 +237,6 @@ public class CFIntJpaURLProtocolH
 		return( requiredName );
 	}
 
-	@Override
 	public void setRequiredName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -261,7 +260,6 @@ public class CFIntJpaURLProtocolH
 		return( requiredDescription );
 	}
 
-	@Override
 	public void setRequiredDescription( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -285,7 +283,6 @@ public class CFIntJpaURLProtocolH
 		return( requiredIsSecure );
 	}
 
-	@Override
 	public void setRequiredIsSecure( boolean value ) {
 		requiredIsSecure = value;
 	}

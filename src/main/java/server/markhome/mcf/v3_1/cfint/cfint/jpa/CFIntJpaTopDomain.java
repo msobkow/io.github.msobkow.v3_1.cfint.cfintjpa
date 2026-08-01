@@ -269,7 +269,6 @@ public class CFIntJpaTopDomain
 		return( getPKey() );
 	}
 
-	@Override
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -295,9 +294,29 @@ public class CFIntJpaTopDomain
 		return( requiredTenantId );
 	}
 
+	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTenantId",
+				1,
+				"value" );
+		}
+		requiredTenantId = value;
+	}
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredTldId() {
 		return( requiredTldId );
+	}
+
+	public void setRequiredTldId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTldId",
+				1,
+				"value" );
+		}
+		requiredTldId = value;
 	}
 
 	@Override
@@ -305,7 +324,6 @@ public class CFIntJpaTopDomain
 		return( requiredName );
 	}
 
-	@Override
 	public void setRequiredName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -329,7 +347,6 @@ public class CFIntJpaTopDomain
 		return( optionalDescription );
 	}
 
-	@Override
 	public void setOptionalDescription( String value ) {
 		if( value != null && value.length() > 1024 ) {
 			throw new CFLibArgumentOverflowException( getClass(),

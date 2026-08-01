@@ -53,7 +53,6 @@ public class CFIntJpaURLProtocolByIsSecureIdxKey
 		return( requiredIsSecure );
 	}
 
-	@Override
 	public void setRequiredIsSecure( boolean value ) {
 		requiredIsSecure = value;
 	}
