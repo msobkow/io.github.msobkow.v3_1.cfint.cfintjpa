@@ -142,6 +142,7 @@ public class CFIntJpaMajorVersionHPKey
 				1,
 				"value" );
 		}
+		
 		requiredId = value;
 	}
 

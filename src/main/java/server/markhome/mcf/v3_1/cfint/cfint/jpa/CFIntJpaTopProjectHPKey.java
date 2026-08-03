@@ -142,6 +142,7 @@ public class CFIntJpaTopProjectHPKey
 				1,
 				"value" );
 		}
+		
 		requiredId = value;
 	}
 

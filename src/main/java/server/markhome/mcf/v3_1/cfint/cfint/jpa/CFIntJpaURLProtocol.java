@@ -167,15 +167,24 @@ public class CFIntJpaURLProtocol
 
 	@Override
 	public void setRequiredURLProtocolId( int value ) {
-		if( value < ICFIntURLProtocol.URLPROTOCOLID_MIN_VALUE ) {
+		if( value < ICFIntPubURLProtocol.URLPROTOCOLID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredURLProtocolId",
 				1,
 				"value",
 				value,
-				ICFIntURLProtocol.URLPROTOCOLID_MIN_VALUE );
+				ICFIntPubURLProtocol.URLPROTOCOLID_MIN_VALUE );
 		}
-		setPKey( value );
+		
+		if( value < ICFIntPubURLProtocol.URLPROTOCOLID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredURLProtocolId",
+				1,
+				"value",
+				value,
+				ICFIntPubURLProtocol.URLPROTOCOLID_MIN_VALUE );
+		}
+		setPKey(value);
 	}
 
 	@Override
@@ -208,6 +217,7 @@ public class CFIntJpaURLProtocol
 				value.length(),
 				16 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -231,6 +241,7 @@ public class CFIntJpaURLProtocol
 				value.length(),
 				50 );
 		}
+		
 		requiredDescription = value;
 	}
 
@@ -240,6 +251,7 @@ public class CFIntJpaURLProtocol
 	}
 
 	public void setRequiredIsSecure( boolean value ) {
+		
 		requiredIsSecure = value;
 	}
 

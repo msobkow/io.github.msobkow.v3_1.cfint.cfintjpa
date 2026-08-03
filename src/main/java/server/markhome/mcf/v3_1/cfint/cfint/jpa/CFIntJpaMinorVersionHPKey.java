@@ -142,6 +142,7 @@ public class CFIntJpaMinorVersionHPKey
 				1,
 				"value" );
 		}
+		
 		requiredId = value;
 	}
 

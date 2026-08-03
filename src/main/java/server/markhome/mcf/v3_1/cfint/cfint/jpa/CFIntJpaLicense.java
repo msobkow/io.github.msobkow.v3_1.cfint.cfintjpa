@@ -199,7 +199,8 @@ public class CFIntJpaLicense
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -224,6 +225,7 @@ public class CFIntJpaLicense
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 
@@ -239,6 +241,7 @@ public class CFIntJpaLicense
 				1,
 				"value" );
 		}
+		
 		requiredTopDomainId = value;
 	}
 
@@ -262,6 +265,7 @@ public class CFIntJpaLicense
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -279,6 +283,7 @@ public class CFIntJpaLicense
 				value.length(),
 				1024 );
 		}
+		
 		optionalDescription = value;
 	}
 
@@ -296,6 +301,7 @@ public class CFIntJpaLicense
 				value.length(),
 				8000 );
 		}
+		
 		optionalEmbeddedText = value;
 	}
 
@@ -313,6 +319,7 @@ public class CFIntJpaLicense
 				value.length(),
 				8000 );
 		}
+		
 		optionalFullText = value;
 	}
 

@@ -60,6 +60,7 @@ public class CFIntJpaMinorVersionByMajorVerIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredMajorVersionId = value;
 	}
 

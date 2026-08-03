@@ -260,7 +260,8 @@ public class CFIntJpaMinorVersion
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -285,6 +286,7 @@ public class CFIntJpaMinorVersion
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 
@@ -300,6 +302,7 @@ public class CFIntJpaMinorVersion
 				1,
 				"value" );
 		}
+		
 		requiredMajorVersionId = value;
 	}
 
@@ -323,6 +326,7 @@ public class CFIntJpaMinorVersion
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -340,6 +344,7 @@ public class CFIntJpaMinorVersion
 				value.length(),
 				1024 );
 		}
+		
 		optionalDescription = value;
 	}
 

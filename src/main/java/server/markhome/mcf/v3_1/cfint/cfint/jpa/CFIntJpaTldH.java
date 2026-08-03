@@ -246,6 +246,7 @@ public class CFIntJpaTldH
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 
@@ -269,6 +270,7 @@ public class CFIntJpaTldH
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -286,6 +288,7 @@ public class CFIntJpaTldH
 				value.length(),
 				1024 );
 		}
+		
 		optionalDescription = value;
 	}
 

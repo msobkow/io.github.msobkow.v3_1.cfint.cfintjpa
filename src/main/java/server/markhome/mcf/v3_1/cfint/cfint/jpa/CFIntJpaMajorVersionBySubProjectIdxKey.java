@@ -60,6 +60,7 @@ public class CFIntJpaMajorVersionBySubProjectIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredSubProjectId = value;
 	}
 

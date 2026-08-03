@@ -68,6 +68,7 @@ public class CFIntJpaTldByNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

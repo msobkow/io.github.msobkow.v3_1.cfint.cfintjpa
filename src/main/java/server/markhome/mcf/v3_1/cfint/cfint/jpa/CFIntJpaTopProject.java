@@ -268,7 +268,8 @@ public class CFIntJpaTopProject
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -293,6 +294,7 @@ public class CFIntJpaTopProject
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 
@@ -308,6 +310,7 @@ public class CFIntJpaTopProject
 				1,
 				"value" );
 		}
+		
 		requiredTopDomainId = value;
 	}
 
@@ -331,6 +334,7 @@ public class CFIntJpaTopProject
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -348,6 +352,7 @@ public class CFIntJpaTopProject
 				value.length(),
 				1024 );
 		}
+		
 		optionalDescription = value;
 	}
 

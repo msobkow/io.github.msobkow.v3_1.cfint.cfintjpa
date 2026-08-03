@@ -62,6 +62,7 @@ public class CFIntJpaSubProjectByNameIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTopProjectId = value;
 	}
 
@@ -85,6 +86,7 @@ public class CFIntJpaSubProjectByNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

@@ -60,6 +60,7 @@ public class CFIntJpaSubProjectByTenantIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 

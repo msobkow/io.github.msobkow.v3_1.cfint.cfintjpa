@@ -68,6 +68,7 @@ public class CFIntJpaURLProtocolByUNameIdxKey
 				value.length(),
 				16 );
 		}
+		
 		requiredName = value;
 	}
 

@@ -248,6 +248,7 @@ public class CFIntJpaMimeTypeH
 				value.length(),
 				128 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -265,6 +266,7 @@ public class CFIntJpaMimeTypeH
 				value.length(),
 				128 );
 		}
+		
 		optionalFileTypes = value;
 	}
 

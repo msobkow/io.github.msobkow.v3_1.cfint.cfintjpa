@@ -68,6 +68,7 @@ public class CFIntJpaMimeTypeByUNameIdxKey
 				value.length(),
 				128 );
 		}
+		
 		requiredName = value;
 	}
 

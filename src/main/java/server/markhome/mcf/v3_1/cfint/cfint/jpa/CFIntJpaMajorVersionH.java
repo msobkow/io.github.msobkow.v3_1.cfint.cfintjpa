@@ -252,6 +252,7 @@ public class CFIntJpaMajorVersionH
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 
@@ -267,6 +268,7 @@ public class CFIntJpaMajorVersionH
 				1,
 				"value" );
 		}
+		
 		requiredSubProjectId = value;
 	}
 
@@ -290,6 +292,7 @@ public class CFIntJpaMajorVersionH
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -307,6 +310,7 @@ public class CFIntJpaMajorVersionH
 				value.length(),
 				1024 );
 		}
+		
 		optionalDescription = value;
 	}
 

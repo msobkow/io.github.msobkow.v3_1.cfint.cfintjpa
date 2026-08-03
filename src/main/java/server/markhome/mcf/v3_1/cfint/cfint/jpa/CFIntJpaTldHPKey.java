@@ -142,6 +142,7 @@ public class CFIntJpaTldHPKey
 				1,
 				"value" );
 		}
+		
 		requiredId = value;
 	}
 

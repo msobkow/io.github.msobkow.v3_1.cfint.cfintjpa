@@ -130,6 +130,7 @@ public class CFIntJpaLicenseHPKey
 				1,
 				"value" );
 		}
+		
 		requiredId = value;
 	}
 

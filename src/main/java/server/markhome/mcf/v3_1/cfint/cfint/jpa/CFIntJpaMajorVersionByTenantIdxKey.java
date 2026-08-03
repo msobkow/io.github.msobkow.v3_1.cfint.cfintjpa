@@ -60,6 +60,7 @@ public class CFIntJpaMajorVersionByTenantIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 

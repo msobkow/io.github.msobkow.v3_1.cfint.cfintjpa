@@ -60,6 +60,7 @@ public class CFIntJpaLicenseByLicnTenantIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 

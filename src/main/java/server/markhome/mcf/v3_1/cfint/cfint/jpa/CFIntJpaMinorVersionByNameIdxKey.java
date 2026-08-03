@@ -62,6 +62,7 @@ public class CFIntJpaMinorVersionByNameIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredMajorVersionId = value;
 	}
 
@@ -85,6 +86,7 @@ public class CFIntJpaMinorVersionByNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

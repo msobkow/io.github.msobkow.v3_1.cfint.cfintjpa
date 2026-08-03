@@ -142,6 +142,7 @@ public class CFIntJpaTopDomainHPKey
 				1,
 				"value" );
 		}
+		
 		requiredId = value;
 	}
 

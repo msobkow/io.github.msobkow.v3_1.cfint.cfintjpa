@@ -60,6 +60,7 @@ public class CFIntJpaTopDomainByTldIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTldId = value;
 	}
 

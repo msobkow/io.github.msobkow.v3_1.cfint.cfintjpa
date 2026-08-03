@@ -60,6 +60,7 @@ public class CFIntJpaLicenseByDomainIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTopDomainId = value;
 	}
 

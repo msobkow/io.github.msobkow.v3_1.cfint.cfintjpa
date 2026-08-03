@@ -252,6 +252,7 @@ public class CFIntJpaTopDomainH
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 
@@ -267,6 +268,7 @@ public class CFIntJpaTopDomainH
 				1,
 				"value" );
 		}
+		
 		requiredTldId = value;
 	}
 
@@ -290,6 +292,7 @@ public class CFIntJpaTopDomainH
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -307,6 +310,7 @@ public class CFIntJpaTopDomainH
 				value.length(),
 				1024 );
 		}
+		
 		optionalDescription = value;
 	}
 

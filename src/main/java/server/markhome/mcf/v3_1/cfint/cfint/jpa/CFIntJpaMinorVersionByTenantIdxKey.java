@@ -60,6 +60,7 @@ public class CFIntJpaMinorVersionByTenantIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 

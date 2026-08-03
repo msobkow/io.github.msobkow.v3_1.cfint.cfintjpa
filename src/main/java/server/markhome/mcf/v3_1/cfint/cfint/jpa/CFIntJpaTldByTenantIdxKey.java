@@ -60,6 +60,7 @@ public class CFIntJpaTldByTenantIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 

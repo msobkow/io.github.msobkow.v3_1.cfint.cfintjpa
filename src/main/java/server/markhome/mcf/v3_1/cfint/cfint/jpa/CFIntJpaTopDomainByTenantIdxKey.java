@@ -60,6 +60,7 @@ public class CFIntJpaTopDomainByTenantIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 

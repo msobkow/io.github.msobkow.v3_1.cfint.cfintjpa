@@ -252,6 +252,7 @@ public class CFIntJpaURLProtocolH
 				value.length(),
 				16 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -275,6 +276,7 @@ public class CFIntJpaURLProtocolH
 				value.length(),
 				50 );
 		}
+		
 		requiredDescription = value;
 	}
 
@@ -284,6 +286,7 @@ public class CFIntJpaURLProtocolH
 	}
 
 	public void setRequiredIsSecure( boolean value ) {
+		
 		requiredIsSecure = value;
 	}
 

@@ -62,6 +62,7 @@ public class CFIntJpaTopDomainByNameIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTldId = value;
 	}
 
@@ -85,6 +86,7 @@ public class CFIntJpaTopDomainByNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

@@ -60,6 +60,7 @@ public class CFIntJpaSubProjectByTopProjectIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredTopProjectId = value;
 	}
 

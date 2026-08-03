@@ -276,7 +276,8 @@ public class CFIntJpaTopDomain
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -301,6 +302,7 @@ public class CFIntJpaTopDomain
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 
@@ -316,6 +318,7 @@ public class CFIntJpaTopDomain
 				1,
 				"value" );
 		}
+		
 		requiredTldId = value;
 	}
 
@@ -339,6 +342,7 @@ public class CFIntJpaTopDomain
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -356,6 +360,7 @@ public class CFIntJpaTopDomain
 				value.length(),
 				1024 );
 		}
+		
 		optionalDescription = value;
 	}
 
