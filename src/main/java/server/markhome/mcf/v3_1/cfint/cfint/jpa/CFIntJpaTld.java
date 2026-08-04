@@ -201,7 +201,7 @@ public class CFIntJpaTld
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( getPKey() );
+		return( requiredId );
 	}
 
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
@@ -212,7 +212,7 @@ public class CFIntJpaTld
 				"value" );
 		}
 		
-		setPKey(value);
+		requiredId = value;
 	}
 
 	@Override

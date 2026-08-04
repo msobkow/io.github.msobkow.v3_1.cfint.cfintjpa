@@ -250,7 +250,7 @@ public class CFIntJpaMinorVersion
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( getPKey() );
+		return( requiredId );
 	}
 
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
@@ -261,7 +261,7 @@ public class CFIntJpaMinorVersion
 				"value" );
 		}
 		
-		setPKey(value);
+		requiredId = value;
 	}
 
 	@Override
