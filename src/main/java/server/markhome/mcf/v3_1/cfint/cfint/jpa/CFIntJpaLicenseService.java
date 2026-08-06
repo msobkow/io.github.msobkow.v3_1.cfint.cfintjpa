@@ -206,6 +206,8 @@ public class CFIntJpaLicenseService {
 		existing.setRequiredOwnerTenant(data.getRequiredTenantId());
 		existing.setRequiredContainerTopDomain(data.getRequiredContainerTopDomain());
 		// Apply data columns of CFIntLicense to existing object
+		existing.setRequiredTenantId(data.getRequiredTenantId());
+		existing.setRequiredTopDomainId(data.getRequiredTopDomainId());
 		existing.setRequiredName(data.getRequiredName());
 		existing.setOptionalDescription(data.getOptionalDescription());
 		existing.setOptionalEmbeddedText(data.getOptionalEmbeddedText());

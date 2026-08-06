@@ -130,20 +130,11 @@ public class CFIntJpaURLProtocolHPKey
 
 	@Override
 	public int getRequiredURLProtocolId() {
-		return( requiredURLProtocolId );
+		return(requiredURLProtocolId);
 	}
 
 	@Override
 	public void setRequiredURLProtocolId( int value ) {
-		if( value < ICFIntPubURLProtocol.URLPROTOCOLID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredURLProtocolId",
-				1,
-				"value",
-				value,
-				ICFIntPubURLProtocol.URLPROTOCOLID_MIN_VALUE );
-		}
-		
 		if( value < ICFIntPubURLProtocol.URLPROTOCOLID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredURLProtocolId",

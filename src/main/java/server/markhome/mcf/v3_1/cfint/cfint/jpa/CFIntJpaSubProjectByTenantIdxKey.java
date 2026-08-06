@@ -50,7 +50,7 @@ public class CFIntJpaSubProjectByTenantIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(requiredTenantId);
 	}
 
 	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,6 @@ public class CFIntJpaSubProjectByTenantIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredTenantId = value;
 	}
 

@@ -50,11 +50,10 @@ public class CFIntJpaURLProtocolByIsSecureIdxKey
 
 	@Override
 	public boolean getRequiredIsSecure() {
-		return( requiredIsSecure );
+		return(requiredIsSecure);
 	}
 
 	public void setRequiredIsSecure( boolean value ) {
-		
 		requiredIsSecure = value;
 	}
 

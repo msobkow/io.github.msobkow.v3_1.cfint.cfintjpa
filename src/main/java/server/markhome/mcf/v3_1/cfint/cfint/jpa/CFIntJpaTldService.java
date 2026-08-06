@@ -174,6 +174,7 @@ public class CFIntJpaTldService {
 		// Apply superior data relationships of CFIntTld to existing object
 		existing.setRequiredContainerTenant(data.getRequiredTenantId());
 		// Apply data columns of CFIntTld to existing object
+		existing.setRequiredTenantId(data.getRequiredTenantId());
 		existing.setRequiredName(data.getRequiredName());
 		existing.setOptionalDescription(data.getOptionalDescription());
 		// Update the audit columns

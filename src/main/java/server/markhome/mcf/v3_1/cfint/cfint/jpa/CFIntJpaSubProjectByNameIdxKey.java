@@ -52,7 +52,7 @@ public class CFIntJpaSubProjectByNameIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTopProjectId() {
-		return( requiredTopProjectId );
+		return(requiredTopProjectId);
 	}
 
 	public void setRequiredTopProjectId( CFLibDbKeyHash256 value ) {
@@ -62,13 +62,12 @@ public class CFIntJpaSubProjectByNameIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredTopProjectId = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -86,7 +85,6 @@ public class CFIntJpaSubProjectByNameIdxKey
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 

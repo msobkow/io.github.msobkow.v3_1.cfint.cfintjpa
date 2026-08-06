@@ -242,7 +242,7 @@ public class CFIntJpaMajorVersionH
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(requiredTenantId);
 	}
 
 	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
@@ -252,13 +252,12 @@ public class CFIntJpaMajorVersionH
 				1,
 				"value" );
 		}
-		
 		requiredTenantId = value;
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSubProjectId() {
-		return( requiredSubProjectId );
+		return(requiredSubProjectId);
 	}
 
 	public void setRequiredSubProjectId( CFLibDbKeyHash256 value ) {
@@ -268,13 +267,12 @@ public class CFIntJpaMajorVersionH
 				1,
 				"value" );
 		}
-		
 		requiredSubProjectId = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -292,13 +290,12 @@ public class CFIntJpaMajorVersionH
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 
 	@Override
 	public String getOptionalDescription() {
-		return( optionalDescription );
+		return(optionalDescription);
 	}
 
 	public void setOptionalDescription( String value ) {
@@ -310,7 +307,6 @@ public class CFIntJpaMajorVersionH
 				value.length(),
 				1024 );
 		}
-		
 		optionalDescription = value;
 	}
 

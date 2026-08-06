@@ -201,7 +201,7 @@ public class CFIntJpaTld
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( requiredId );
+		return(requiredId);
 	}
 
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
@@ -211,7 +211,6 @@ public class CFIntJpaTld
 				1,
 				"value" );
 		}
-		
 		requiredId = value;
 	}
 
@@ -227,7 +226,7 @@ public class CFIntJpaTld
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(requiredTenantId);
 	}
 
 	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
@@ -237,13 +236,12 @@ public class CFIntJpaTld
 				1,
 				"value" );
 		}
-		
 		requiredTenantId = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -261,13 +259,12 @@ public class CFIntJpaTld
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 
 	@Override
 	public String getOptionalDescription() {
-		return( optionalDescription );
+		return(optionalDescription);
 	}
 
 	public void setOptionalDescription( String value ) {
@@ -279,7 +276,6 @@ public class CFIntJpaTld
 				value.length(),
 				1024 );
 		}
-		
 		optionalDescription = value;
 	}
 
@@ -761,6 +757,7 @@ public class CFIntJpaTld
 		setUpdatedByUserId( src.getUpdatedByUserId() );
 		setUpdatedAt( src.getUpdatedAt() );
 		setRequiredContainerTenant(src.getRequiredTenantId());
+		setRequiredTenantId(src.getRequiredTenantId());
 		setRequiredName(src.getRequiredName());
 		setOptionalDescription(src.getOptionalDescription());
 	}
@@ -774,6 +771,7 @@ public class CFIntJpaTld
 	public void setTld( ICFIntTldH src ) {
 		setRequiredId(src.getRequiredId());
 		setRequiredContainerTenant(src.getRequiredTenantId());
+		setRequiredTenantId(src.getRequiredTenantId());
 		setRequiredName(src.getRequiredName());
 		setOptionalDescription(src.getOptionalDescription());
 	}

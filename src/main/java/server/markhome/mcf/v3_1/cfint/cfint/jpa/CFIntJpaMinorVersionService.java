@@ -209,6 +209,8 @@ public class CFIntJpaMinorVersionService {
 		existing.setRequiredOwnerTenant(data.getRequiredTenantId());
 		existing.setRequiredContainerParentMajVer(data.getRequiredContainerParentMajVer());
 		// Apply data columns of CFIntMinorVersion to existing object
+		existing.setRequiredTenantId(data.getRequiredTenantId());
+		existing.setRequiredMajorVersionId(data.getRequiredMajorVersionId());
 		existing.setRequiredName(data.getRequiredName());
 		existing.setOptionalDescription(data.getOptionalDescription());
 		// Update the audit columns

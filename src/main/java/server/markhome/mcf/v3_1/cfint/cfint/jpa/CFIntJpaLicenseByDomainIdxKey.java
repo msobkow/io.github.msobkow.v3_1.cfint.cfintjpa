@@ -50,7 +50,7 @@ public class CFIntJpaLicenseByDomainIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTopDomainId() {
-		return( requiredTopDomainId );
+		return(requiredTopDomainId);
 	}
 
 	public void setRequiredTopDomainId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,6 @@ public class CFIntJpaLicenseByDomainIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredTopDomainId = value;
 	}
 

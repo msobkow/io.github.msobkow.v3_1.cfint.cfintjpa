@@ -209,6 +209,8 @@ public class CFIntJpaMajorVersionService {
 		existing.setRequiredOwnerTenant(data.getRequiredTenantId());
 		existing.setRequiredContainerParentSPrj(data.getRequiredContainerParentSPrj());
 		// Apply data columns of CFIntMajorVersion to existing object
+		existing.setRequiredTenantId(data.getRequiredTenantId());
+		existing.setRequiredSubProjectId(data.getRequiredSubProjectId());
 		existing.setRequiredName(data.getRequiredName());
 		existing.setOptionalDescription(data.getOptionalDescription());
 		// Update the audit columns

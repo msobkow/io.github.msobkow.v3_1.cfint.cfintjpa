@@ -258,7 +258,7 @@ public class CFIntJpaTopProject
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( requiredId );
+		return(requiredId);
 	}
 
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
@@ -268,7 +268,6 @@ public class CFIntJpaTopProject
 				1,
 				"value" );
 		}
-		
 		requiredId = value;
 	}
 
@@ -284,7 +283,7 @@ public class CFIntJpaTopProject
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(requiredTenantId);
 	}
 
 	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
@@ -294,13 +293,12 @@ public class CFIntJpaTopProject
 				1,
 				"value" );
 		}
-		
 		requiredTenantId = value;
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTopDomainId() {
-		return( requiredTopDomainId );
+		return(requiredTopDomainId);
 	}
 
 	public void setRequiredTopDomainId( CFLibDbKeyHash256 value ) {
@@ -310,13 +308,12 @@ public class CFIntJpaTopProject
 				1,
 				"value" );
 		}
-		
 		requiredTopDomainId = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -334,13 +331,12 @@ public class CFIntJpaTopProject
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 
 	@Override
 	public String getOptionalDescription() {
-		return( optionalDescription );
+		return(optionalDescription);
 	}
 
 	public void setOptionalDescription( String value ) {
@@ -352,7 +348,6 @@ public class CFIntJpaTopProject
 				value.length(),
 				1024 );
 		}
-		
 		optionalDescription = value;
 	}
 
@@ -960,6 +955,8 @@ public class CFIntJpaTopProject
 		setUpdatedAt( src.getUpdatedAt() );
 		setRequiredOwnerTenant(src.getRequiredTenantId());
 		setRequiredContainerParentSDom(src.getRequiredContainerParentSDom());
+		setRequiredTenantId(src.getRequiredTenantId());
+		setRequiredTopDomainId(src.getRequiredTopDomainId());
 		setRequiredName(src.getRequiredName());
 		setOptionalDescription(src.getOptionalDescription());
 	}
@@ -974,6 +971,8 @@ public class CFIntJpaTopProject
 		setRequiredId(src.getRequiredId());
 		setRequiredOwnerTenant(src.getRequiredTenantId());
 		setRequiredContainerParentSDom(src.getRequiredTopDomainId());
+		setRequiredTenantId(src.getRequiredTenantId());
+		setRequiredTopDomainId(src.getRequiredTopDomainId());
 		setRequiredName(src.getRequiredName());
 		setOptionalDescription(src.getOptionalDescription());
 	}

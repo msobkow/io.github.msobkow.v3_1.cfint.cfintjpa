@@ -234,7 +234,7 @@ public class CFIntJpaURLProtocolH
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -252,13 +252,12 @@ public class CFIntJpaURLProtocolH
 				value.length(),
 				16 );
 		}
-		
 		requiredName = value;
 	}
 
 	@Override
 	public String getRequiredDescription() {
-		return( requiredDescription );
+		return(requiredDescription);
 	}
 
 	public void setRequiredDescription( String value ) {
@@ -276,17 +275,15 @@ public class CFIntJpaURLProtocolH
 				value.length(),
 				50 );
 		}
-		
 		requiredDescription = value;
 	}
 
 	@Override
 	public boolean getRequiredIsSecure() {
-		return( requiredIsSecure );
+		return(requiredIsSecure);
 	}
 
 	public void setRequiredIsSecure( boolean value ) {
-		
 		requiredIsSecure = value;
 	}
 

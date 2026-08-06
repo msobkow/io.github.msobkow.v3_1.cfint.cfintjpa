@@ -50,7 +50,7 @@ public class CFIntJpaLicenseByLicnTenantIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(requiredTenantId);
 	}
 
 	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,6 @@ public class CFIntJpaLicenseByLicnTenantIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredTenantId = value;
 	}
 

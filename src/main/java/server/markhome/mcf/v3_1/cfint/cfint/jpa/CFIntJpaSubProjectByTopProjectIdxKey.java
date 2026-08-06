@@ -50,7 +50,7 @@ public class CFIntJpaSubProjectByTopProjectIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTopProjectId() {
-		return( requiredTopProjectId );
+		return(requiredTopProjectId);
 	}
 
 	public void setRequiredTopProjectId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,6 @@ public class CFIntJpaSubProjectByTopProjectIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredTopProjectId = value;
 	}
 

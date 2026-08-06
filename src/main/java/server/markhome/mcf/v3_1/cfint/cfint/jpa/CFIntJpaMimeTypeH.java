@@ -230,7 +230,7 @@ public class CFIntJpaMimeTypeH
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -248,13 +248,12 @@ public class CFIntJpaMimeTypeH
 				value.length(),
 				128 );
 		}
-		
 		requiredName = value;
 	}
 
 	@Override
 	public String getOptionalFileTypes() {
-		return( optionalFileTypes );
+		return(optionalFileTypes);
 	}
 
 	public void setOptionalFileTypes( String value ) {
@@ -266,7 +265,6 @@ public class CFIntJpaMimeTypeH
 				value.length(),
 				128 );
 		}
-		
 		optionalFileTypes = value;
 	}
 

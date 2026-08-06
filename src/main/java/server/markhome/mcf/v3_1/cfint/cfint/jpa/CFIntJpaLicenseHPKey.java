@@ -120,7 +120,7 @@ public class CFIntJpaLicenseHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( requiredId );
+		return(requiredId);
 	}
 
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
@@ -130,7 +130,6 @@ public class CFIntJpaLicenseHPKey
 				1,
 				"value" );
 		}
-		
 		requiredId = value;
 	}
 

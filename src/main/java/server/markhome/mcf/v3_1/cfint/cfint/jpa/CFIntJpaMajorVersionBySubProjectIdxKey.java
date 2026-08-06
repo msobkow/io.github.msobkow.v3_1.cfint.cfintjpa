@@ -50,7 +50,7 @@ public class CFIntJpaMajorVersionBySubProjectIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSubProjectId() {
-		return( requiredSubProjectId );
+		return(requiredSubProjectId);
 	}
 
 	public void setRequiredSubProjectId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,6 @@ public class CFIntJpaMajorVersionBySubProjectIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredSubProjectId = value;
 	}
 

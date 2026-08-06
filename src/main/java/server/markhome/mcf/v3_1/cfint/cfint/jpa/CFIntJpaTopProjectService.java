@@ -209,6 +209,8 @@ public class CFIntJpaTopProjectService {
 		existing.setRequiredOwnerTenant(data.getRequiredTenantId());
 		existing.setRequiredContainerParentSDom(data.getRequiredContainerParentSDom());
 		// Apply data columns of CFIntTopProject to existing object
+		existing.setRequiredTenantId(data.getRequiredTenantId());
+		existing.setRequiredTopDomainId(data.getRequiredTopDomainId());
 		existing.setRequiredName(data.getRequiredName());
 		existing.setOptionalDescription(data.getOptionalDescription());
 		// Update the audit columns

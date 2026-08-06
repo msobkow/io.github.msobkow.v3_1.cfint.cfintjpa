@@ -52,7 +52,7 @@ public class CFIntJpaMinorVersionByNameIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredMajorVersionId() {
-		return( requiredMajorVersionId );
+		return(requiredMajorVersionId);
 	}
 
 	public void setRequiredMajorVersionId( CFLibDbKeyHash256 value ) {
@@ -62,13 +62,12 @@ public class CFIntJpaMinorVersionByNameIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredMajorVersionId = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -86,7 +85,6 @@ public class CFIntJpaMinorVersionByNameIdxKey
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 

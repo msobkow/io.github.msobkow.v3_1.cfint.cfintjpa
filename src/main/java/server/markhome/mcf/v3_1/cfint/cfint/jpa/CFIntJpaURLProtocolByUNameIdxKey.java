@@ -50,7 +50,7 @@ public class CFIntJpaURLProtocolByUNameIdxKey
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -68,7 +68,6 @@ public class CFIntJpaURLProtocolByUNameIdxKey
 				value.length(),
 				16 );
 		}
-		
 		requiredName = value;
 	}
 

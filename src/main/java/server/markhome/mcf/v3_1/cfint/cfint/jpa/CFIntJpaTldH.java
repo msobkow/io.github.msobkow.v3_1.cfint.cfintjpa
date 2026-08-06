@@ -236,7 +236,7 @@ public class CFIntJpaTldH
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(requiredTenantId);
 	}
 
 	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
@@ -246,13 +246,12 @@ public class CFIntJpaTldH
 				1,
 				"value" );
 		}
-		
 		requiredTenantId = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -270,13 +269,12 @@ public class CFIntJpaTldH
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 
 	@Override
 	public String getOptionalDescription() {
-		return( optionalDescription );
+		return(optionalDescription);
 	}
 
 	public void setOptionalDescription( String value ) {
@@ -288,7 +286,6 @@ public class CFIntJpaTldH
 				value.length(),
 				1024 );
 		}
-		
 		optionalDescription = value;
 	}
 
