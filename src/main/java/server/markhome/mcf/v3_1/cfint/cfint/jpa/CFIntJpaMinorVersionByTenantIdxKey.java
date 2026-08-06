@@ -45,7 +45,7 @@ public class CFIntJpaMinorVersionByTenantIdxKey
 {
 	protected CFLibDbKeyHash256 requiredTenantId;
 	public CFIntJpaMinorVersionByTenantIdxKey() {
-		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntMinorVersion.TENANTID_INIT_VALUE.toString() );
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubMinorVersion.TENANTID_INIT_VALUE.toString() );
 	}
 
 	@Override

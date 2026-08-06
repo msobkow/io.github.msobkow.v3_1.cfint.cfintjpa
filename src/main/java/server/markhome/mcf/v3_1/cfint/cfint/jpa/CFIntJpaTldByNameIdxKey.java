@@ -45,7 +45,7 @@ public class CFIntJpaTldByNameIdxKey
 {
 	protected String requiredName;
 	public CFIntJpaTldByNameIdxKey() {
-		requiredName = ICFIntTld.NAME_INIT_VALUE;
+		requiredName = ICFIntPubTld.NAME_INIT_VALUE;
 	}
 
 	@Override

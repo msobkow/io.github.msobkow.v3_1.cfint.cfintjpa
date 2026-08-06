@@ -45,7 +45,7 @@ public class CFIntJpaMimeTypeByUNameIdxKey
 {
 	protected String requiredName;
 	public CFIntJpaMimeTypeByUNameIdxKey() {
-		requiredName = ICFIntMimeType.NAME_INIT_VALUE;
+		requiredName = ICFIntPubMimeType.NAME_INIT_VALUE;
 	}
 
 	@Override

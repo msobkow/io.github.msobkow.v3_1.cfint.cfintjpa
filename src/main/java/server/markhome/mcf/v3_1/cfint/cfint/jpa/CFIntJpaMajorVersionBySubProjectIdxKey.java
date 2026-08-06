@@ -45,7 +45,7 @@ public class CFIntJpaMajorVersionBySubProjectIdxKey
 {
 	protected CFLibDbKeyHash256 requiredSubProjectId;
 	public CFIntJpaMajorVersionBySubProjectIdxKey() {
-		requiredSubProjectId = CFLibDbKeyHash256.fromHex( ICFIntMajorVersion.SUBPROJECTID_INIT_VALUE.toString() );
+		requiredSubProjectId = CFLibDbKeyHash256.fromHex( ICFIntPubMajorVersion.SUBPROJECTID_INIT_VALUE.toString() );
 	}
 
 	@Override

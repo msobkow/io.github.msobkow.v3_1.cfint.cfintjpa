@@ -45,7 +45,7 @@ public class CFIntJpaLicenseByLicnTenantIdxKey
 {
 	protected CFLibDbKeyHash256 requiredTenantId;
 	public CFIntJpaLicenseByLicnTenantIdxKey() {
-		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntLicense.TENANTID_INIT_VALUE.toString() );
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubLicense.TENANTID_INIT_VALUE.toString() );
 	}
 
 	@Override

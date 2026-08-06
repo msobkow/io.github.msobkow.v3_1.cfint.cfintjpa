@@ -45,7 +45,7 @@ public class CFIntJpaTopDomainByTenantIdxKey
 {
 	protected CFLibDbKeyHash256 requiredTenantId;
 	public CFIntJpaTopDomainByTenantIdxKey() {
-		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntTopDomain.TENANTID_INIT_VALUE.toString() );
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubTopDomain.TENANTID_INIT_VALUE.toString() );
 	}
 
 	@Override

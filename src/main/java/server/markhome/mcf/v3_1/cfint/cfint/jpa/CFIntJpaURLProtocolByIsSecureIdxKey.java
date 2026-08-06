@@ -45,7 +45,7 @@ public class CFIntJpaURLProtocolByIsSecureIdxKey
 {
 	protected boolean requiredIsSecure;
 	public CFIntJpaURLProtocolByIsSecureIdxKey() {
-		requiredIsSecure = ICFIntURLProtocol.ISSECURE_INIT_VALUE;
+		requiredIsSecure = ICFIntPubURLProtocol.ISSECURE_INIT_VALUE;
 	}
 
 	@Override

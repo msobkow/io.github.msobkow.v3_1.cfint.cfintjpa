@@ -46,8 +46,8 @@ public class CFIntJpaMinorVersionByNameIdxKey
 	protected CFLibDbKeyHash256 requiredMajorVersionId;
 	protected String requiredName;
 	public CFIntJpaMinorVersionByNameIdxKey() {
-		requiredMajorVersionId = CFLibDbKeyHash256.fromHex( ICFIntMinorVersion.MAJORVERSIONID_INIT_VALUE.toString() );
-		requiredName = ICFIntMinorVersion.NAME_INIT_VALUE;
+		requiredMajorVersionId = CFLibDbKeyHash256.fromHex( ICFIntPubMinorVersion.MAJORVERSIONID_INIT_VALUE.toString() );
+		requiredName = ICFIntPubMinorVersion.NAME_INIT_VALUE;
 	}
 
 	@Override

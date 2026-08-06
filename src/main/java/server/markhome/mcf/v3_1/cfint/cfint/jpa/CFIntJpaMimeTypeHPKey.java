@@ -75,7 +75,7 @@ public class CFIntJpaMimeTypeHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredMimeTypeId = ICFIntMimeType.MIMETYPEID_INIT_VALUE;
+		requiredMimeTypeId = ICFIntPubMimeType.MIMETYPEID_INIT_VALUE;
 	}
 
 	@Override

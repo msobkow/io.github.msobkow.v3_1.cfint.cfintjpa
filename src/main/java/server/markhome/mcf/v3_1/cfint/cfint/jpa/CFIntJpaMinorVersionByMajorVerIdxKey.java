@@ -45,7 +45,7 @@ public class CFIntJpaMinorVersionByMajorVerIdxKey
 {
 	protected CFLibDbKeyHash256 requiredMajorVersionId;
 	public CFIntJpaMinorVersionByMajorVerIdxKey() {
-		requiredMajorVersionId = CFLibDbKeyHash256.fromHex( ICFIntMinorVersion.MAJORVERSIONID_INIT_VALUE.toString() );
+		requiredMajorVersionId = CFLibDbKeyHash256.fromHex( ICFIntPubMinorVersion.MAJORVERSIONID_INIT_VALUE.toString() );
 	}
 
 	@Override

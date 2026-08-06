@@ -72,7 +72,12 @@ public class CFIntJpaMajorVersionH
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFInt$emitScopingMidfix$MajorVersion.S_INIT_CREATED_BY);
+	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFIntPubSecUser.S_INIT_CREATED_BY);
+
+	@AttributeOverrides({
+		@AttributeOverride( name="bytes", column = @Column( name="CreatedBySessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 createdBySessionId = CFLibDbKeyHash256.fromHex(ICFIntPubSecSession.S_SECSESSIONID_INIT_VALUE);
 
 	@Column(name="CreatedAt", nullable=false)
 	protected LocalDateTime createdAt = LocalDateTime.now();
@@ -80,7 +85,12 @@ public class CFIntJpaMajorVersionH
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column= @Column( name="UpdatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFInt$emitScopingMidfix$MajorVersion.S_INIT_UPDATED_BY);
+	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFIntPubSecUser.S_INIT_UPDATED_BY);
+
+	@AttributeOverrides({
+		@AttributeOverride( name="bytes", column= @Column( name="UpdatedBySessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 updatedBySessionId = CFLibDbKeyHash256.fromHex(ICFIntPubSecSession.S_SECSESSIONID_INIT_VALUE);
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
@@ -100,9 +110,9 @@ public class CFIntJpaMajorVersionH
     public CFIntJpaMajorVersionH() {
             // The primary key member attributes are initialized on construction
             pkey = new CFIntJpaMajorVersionHPKey();
-		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntMajorVersion.TENANTID_INIT_VALUE.toString() );
-		requiredSubProjectId = CFLibDbKeyHash256.fromHex( ICFIntMajorVersion.SUBPROJECTID_INIT_VALUE.toString() );
-		requiredName = ICFIntMajorVersion.NAME_INIT_VALUE;
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubMajorVersion.TENANTID_INIT_VALUE.toString() );
+		requiredSubProjectId = CFLibDbKeyHash256.fromHex( ICFIntPubMajorVersion.SUBPROJECTID_INIT_VALUE.toString() );
+		requiredName = ICFIntPubMajorVersion.NAME_INIT_VALUE;
 		optionalDescription = null;
     }
 

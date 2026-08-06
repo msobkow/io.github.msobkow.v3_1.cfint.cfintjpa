@@ -45,7 +45,7 @@ public class CFIntJpaURLProtocolByUNameIdxKey
 {
 	protected String requiredName;
 	public CFIntJpaURLProtocolByUNameIdxKey() {
-		requiredName = ICFIntURLProtocol.NAME_INIT_VALUE;
+		requiredName = ICFIntPubURLProtocol.NAME_INIT_VALUE;
 	}
 
 	@Override

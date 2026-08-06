@@ -45,7 +45,7 @@ public class CFIntJpaTldByTenantIdxKey
 {
 	protected CFLibDbKeyHash256 requiredTenantId;
 	public CFIntJpaTldByTenantIdxKey() {
-		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntTld.TENANTID_INIT_VALUE.toString() );
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubTld.TENANTID_INIT_VALUE.toString() );
 	}
 
 	@Override

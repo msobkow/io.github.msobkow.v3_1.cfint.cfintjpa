@@ -45,7 +45,7 @@ public class CFIntJpaTopProjectByTenantIdxKey
 {
 	protected CFLibDbKeyHash256 requiredTenantId;
 	public CFIntJpaTopProjectByTenantIdxKey() {
-		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntTopProject.TENANTID_INIT_VALUE.toString() );
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubTopProject.TENANTID_INIT_VALUE.toString() );
 	}
 
 	@Override

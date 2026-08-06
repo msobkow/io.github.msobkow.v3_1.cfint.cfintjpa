@@ -72,7 +72,12 @@ public class CFIntJpaMinorVersion
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFInt$emitScopingMidfix$MinorVersion.S_INIT_CREATED_BY);
+	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFIntPubSecUser.S_INIT_CREATED_BY);
+
+	@AttributeOverrides({
+		@AttributeOverride( name="bytes", column = @Column( name="CreatedBySessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 createdBySessionId = CFLibDbKeyHash256.fromHex(ICFIntPubSecSession.S_SECSESSIONID_INIT_VALUE);
 
 	@Column(name="CreatedAt", nullable=false)
 	protected LocalDateTime createdAt = LocalDateTime.now();
@@ -80,7 +85,12 @@ public class CFIntJpaMinorVersion
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column= @Column( name="UpdatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFInt$emitScopingMidfix$MinorVersion.S_INIT_UPDATED_BY);
+	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFIntPubSecUser.S_INIT_UPDATED_BY);
+
+	@AttributeOverrides({
+		@AttributeOverride( name="bytes", column= @Column( name="UpdatedBySessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 updatedBySessionId = CFLibDbKeyHash256.fromHex(ICFIntPubSecSession.S_SECSESSIONID_INIT_VALUE);
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
@@ -98,10 +108,10 @@ public class CFIntJpaMinorVersion
 	protected String optionalDescription;
 
 	public CFIntJpaMinorVersion() {
-		requiredId = CFLibDbKeyHash256.fromHex( ICFIntMinorVersion.ID_INIT_VALUE.toString() );
-		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntMinorVersion.TENANTID_INIT_VALUE.toString() );
-		requiredMajorVersionId = CFLibDbKeyHash256.fromHex( ICFIntMinorVersion.MAJORVERSIONID_INIT_VALUE.toString() );
-		requiredName = ICFIntMinorVersion.NAME_INIT_VALUE;
+		requiredId = CFLibDbKeyHash256.fromHex( ICFIntPubMinorVersion.ID_INIT_VALUE.toString() );
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubMinorVersion.TENANTID_INIT_VALUE.toString() );
+		requiredMajorVersionId = CFLibDbKeyHash256.fromHex( ICFIntPubMinorVersion.MAJORVERSIONID_INIT_VALUE.toString() );
+		requiredName = ICFIntPubMinorVersion.NAME_INIT_VALUE;
 		optionalDescription = null;
 	}
 

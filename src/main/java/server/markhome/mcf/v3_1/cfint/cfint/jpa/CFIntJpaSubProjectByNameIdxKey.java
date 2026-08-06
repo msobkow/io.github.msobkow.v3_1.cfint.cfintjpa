@@ -46,8 +46,8 @@ public class CFIntJpaSubProjectByNameIdxKey
 	protected CFLibDbKeyHash256 requiredTopProjectId;
 	protected String requiredName;
 	public CFIntJpaSubProjectByNameIdxKey() {
-		requiredTopProjectId = CFLibDbKeyHash256.fromHex( ICFIntSubProject.TOPPROJECTID_INIT_VALUE.toString() );
-		requiredName = ICFIntSubProject.NAME_INIT_VALUE;
+		requiredTopProjectId = CFLibDbKeyHash256.fromHex( ICFIntPubSubProject.TOPPROJECTID_INIT_VALUE.toString() );
+		requiredName = ICFIntPubSubProject.NAME_INIT_VALUE;
 	}
 
 	@Override

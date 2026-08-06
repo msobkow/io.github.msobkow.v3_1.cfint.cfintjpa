@@ -45,7 +45,7 @@ public class CFIntJpaTopProjectByTopDomainIdxKey
 {
 	protected CFLibDbKeyHash256 requiredTopDomainId;
 	public CFIntJpaTopProjectByTopDomainIdxKey() {
-		requiredTopDomainId = CFLibDbKeyHash256.fromHex( ICFIntTopProject.TOPDOMAINID_INIT_VALUE.toString() );
+		requiredTopDomainId = CFLibDbKeyHash256.fromHex( ICFIntPubTopProject.TOPDOMAINID_INIT_VALUE.toString() );
 	}
 
 	@Override

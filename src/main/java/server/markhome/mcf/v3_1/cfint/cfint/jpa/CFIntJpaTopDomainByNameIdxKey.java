@@ -46,8 +46,8 @@ public class CFIntJpaTopDomainByNameIdxKey
 	protected CFLibDbKeyHash256 requiredTldId;
 	protected String requiredName;
 	public CFIntJpaTopDomainByNameIdxKey() {
-		requiredTldId = CFLibDbKeyHash256.fromHex( ICFIntTopDomain.TLDID_INIT_VALUE.toString() );
-		requiredName = ICFIntTopDomain.NAME_INIT_VALUE;
+		requiredTldId = CFLibDbKeyHash256.fromHex( ICFIntPubTopDomain.TLDID_INIT_VALUE.toString() );
+		requiredName = ICFIntPubTopDomain.NAME_INIT_VALUE;
 	}
 
 	@Override
