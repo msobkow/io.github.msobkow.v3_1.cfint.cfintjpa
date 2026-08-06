@@ -199,7 +199,7 @@ public class CFIntJpaLicense
 				1,
 				"value" );
 		}
-		requiredId = value;
+		getPKey().setRequiredId(value);
 	}
 
 	@Override

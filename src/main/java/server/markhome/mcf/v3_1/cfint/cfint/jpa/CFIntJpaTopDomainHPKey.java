@@ -72,7 +72,7 @@ public class CFIntJpaTopDomainHPKey
 	protected CFLibDbKeyHash256 requiredId;
 
 	public CFIntJpaTopDomainHPKey() {
-		auditClusterId = ICFSecCluster.ID_INIT_VALUE;
+		auditClusterId = ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;
