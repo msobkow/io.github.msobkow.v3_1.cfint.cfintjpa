@@ -127,12 +127,7 @@ public class CFIntJpaURLProtocolHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-
-	@Override
-	public int getRequiredURLProtocolId() {
-		return(requiredURLProtocolId);
-	}
-
+$implDirectGetter$
 	@Override
 	public void setRequiredURLProtocolId( int value ) {
 		if( value < ICFIntPubURLProtocol.URLPROTOCOLID_MIN_VALUE ) {
