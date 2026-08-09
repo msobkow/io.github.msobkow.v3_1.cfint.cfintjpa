@@ -286,7 +286,7 @@ public class CFIntJpaTopDomain
 				1,
 				"value" );
 		}
-		getPKey().setRequiredId(value);
+		requiredId = value;
 	}
 
 	@Override

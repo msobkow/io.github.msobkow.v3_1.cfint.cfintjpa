@@ -185,7 +185,7 @@ public class CFIntJpaURLProtocol
 				value,
 				ICFIntPubURLProtocol.URLPROTOCOLID_MIN_VALUE );
 		}
-		getPKey().setRequiredURLProtocolId(value);
+		requiredURLProtocolId = value;
 	}
 
 	@Override
