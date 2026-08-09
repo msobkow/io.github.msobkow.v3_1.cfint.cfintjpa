@@ -242,6 +242,61 @@ public class CFIntJpaURLProtocolH
         pkey.setRequiredURLProtocolId( requiredURLProtocolId );
     }
 
+	@Override
+	public String getRequiredName() {
+		return(requiredName);
+	}
+
+	public void setRequiredName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 16 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredName",
+				1,
+				"value.length()",
+				value.length(),
+				16 );
+		}
+		requiredName = value;
+	}
+
+	@Override
+	public String getRequiredDescription() {
+		return(requiredDescription);
+	}
+
+	public void setRequiredDescription( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredDescription",
+				1,
+				"value" );
+		}
+		else if( value.length() > 50 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredDescription",
+				1,
+				"value.length()",
+				value.length(),
+				50 );
+		}
+		requiredDescription = value;
+	}
+
+	@Override
+	public boolean getRequiredIsSecure() {
+		return(requiredIsSecure);
+	}
+
+	public void setRequiredIsSecure( boolean value ) {
+		requiredIsSecure = value;
+	}
+
     @Override
     public boolean equals( Object obj ) {
         if (obj == null) {

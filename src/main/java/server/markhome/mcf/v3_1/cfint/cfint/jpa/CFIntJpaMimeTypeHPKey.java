@@ -127,7 +127,12 @@ public class CFIntJpaMimeTypeHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-$implDirectGetter$
+
+	@Override
+	public int getRequiredMimeTypeId() {
+		return(requiredMimeTypeId);
+	}
+
 	@Override
 	public void setRequiredMimeTypeId( int value ) {
 		if( value < ICFIntPubMimeType.MIMETYPEID_MIN_VALUE ) {
