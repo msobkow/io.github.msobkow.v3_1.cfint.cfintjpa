@@ -168,7 +168,7 @@ public class CFIntJpaMimeType
 
 	@Override
 	public int getRequiredMimeTypeId() {
-		return(requiredMimeTypeId);
+		return(getPKey().getRequiredMimeTypeId());
 	}
 
 	@Override
@@ -181,7 +181,7 @@ public class CFIntJpaMimeType
 				value,
 				ICFIntPubMimeType.MIMETYPEID_MIN_VALUE );
 		}
-		requiredMimeTypeId = value;
+		getPKey().setRequiredMimeTypeId(value);
 	}
 
 	@Override

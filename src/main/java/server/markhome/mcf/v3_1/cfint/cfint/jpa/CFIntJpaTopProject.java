@@ -268,7 +268,7 @@ public class CFIntJpaTopProject
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return(requiredId);
+		return(getPKey().getRequiredId());
 	}
 
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
@@ -278,7 +278,7 @@ public class CFIntJpaTopProject
 				1,
 				"value" );
 		}
-		requiredId = value;
+		getPKey().setRequiredId(value);
 	}
 
 	@Override
