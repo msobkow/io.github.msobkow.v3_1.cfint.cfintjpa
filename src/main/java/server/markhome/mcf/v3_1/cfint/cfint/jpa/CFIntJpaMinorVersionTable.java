@@ -276,7 +276,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public void deleteMinorVersionByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argKey )
+		ICFLibKeyHash256 argKey )
 	{
 		final String S_ProcName = "deleteMinorVersionByIdIdx";
 		boolean permissionGranted = canDeleteMinorVersion(S_ProcName, Authorization);
@@ -296,7 +296,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public void deleteMinorVersionByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "deleteMinorVersionByTenantIdx";
 		boolean permissionGranted = canDeleteMinorVersion(S_ProcName, Authorization);
@@ -337,7 +337,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public void deleteMinorVersionByMajorVerIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argMajorVersionId )
+		$implJavaAtomType$ argMajorVersionId )
 	{
 		final String S_ProcName = "deleteMinorVersionByMajorVerIdx";
 		boolean permissionGranted = canDeleteMinorVersion(S_ProcName, Authorization);
@@ -380,8 +380,8 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public void deleteMinorVersionByNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argMajorVersionId,
-		String argName )
+		$implJavaAtomType$ argMajorVersionId,
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "deleteMinorVersionByNameIdx";
 		boolean permissionGranted = canDeleteMinorVersion(S_ProcName, Authorization);
@@ -428,7 +428,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadMinorVersion(S_ProcName, Authorization);
@@ -452,7 +452,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion lockDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateMinorVersion(S_ProcName, Authorization);
@@ -500,7 +500,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argId )
+		$implJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -534,7 +534,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion[] readDerivedByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
 		boolean permissionGranted = false;
@@ -564,7 +564,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion[] readDerivedByMajorVerIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argMajorVersionId )
+		$implJavaAtomType$ argMajorVersionId )
 	{
 		final String S_ProcName = "readDerivedByMajorVerIdx";
 		boolean permissionGranted = false;
@@ -597,8 +597,8 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argMajorVersionId,
-		String argName )
+		$implJavaAtomType$ argMajorVersionId,
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -636,7 +636,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadMinorVersion(S_ProcName, Authorization);
@@ -661,7 +661,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion lockRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateMinorVersion(S_ProcName, Authorization);
@@ -705,7 +705,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readRecByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argId )
+		$implJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -731,7 +731,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion[] readRecByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
 		boolean permissionGranted = false;
@@ -757,7 +757,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion[] readRecByMajorVerIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argMajorVersionId )
+		$implJavaAtomType$ argMajorVersionId )
 	{
 		final String S_ProcName = "readRecByMajorVerIdx";
 		boolean permissionGranted = false;
@@ -786,8 +786,8 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readRecByNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argMajorVersionId,
-		String argName )
+		$implJavaAtomType$ argMajorVersionId,
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;

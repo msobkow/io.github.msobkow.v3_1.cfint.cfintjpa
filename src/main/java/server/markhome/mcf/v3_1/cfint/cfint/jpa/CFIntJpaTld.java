@@ -60,7 +60,7 @@ public class CFIntJpaTld
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredId;
+	protected $implJavaAtomType$ requiredId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerParentTld")
 	protected Set<CFIntJpaTopDomain> optionalComponentsTopDomain;
 	protected int requiredRevision;
@@ -94,11 +94,11 @@ public class CFIntJpaTld
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	@Column( name="descr", nullable=true, length=1024 )
-	protected String optionalDescription;
+	protected $implJavaAtomType$ optionalDescription;
 
 	public CFIntJpaTld() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFIntPubTld.ID_INIT_VALUE.toString() );
@@ -143,7 +143,7 @@ public class CFIntJpaTld
 	}
 
 	@Override
-	public void setRequiredContainerTenant(CFLibDbKeyHash256 argTenantId) {
+	public void setRequiredContainerTenant(ICFLibKeyHash256 argTenantId) {
 		requiredTenantId = argTenantId;
 	}
 
@@ -200,12 +200,12 @@ public class CFIntJpaTld
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredId) {
+	public void setPKey($implJavaOptAtomType$ requiredId) {
 		this.requiredId = requiredId;
 	}
 

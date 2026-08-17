@@ -59,7 +59,7 @@ public class CFIntJpaMimeType
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MimeTypeIdGenSeq")
 	@SequenceGenerator(name = "MimeTypeIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFInt31")
 	@Column( name="MimeTypeId", nullable=false )
-	protected int requiredMimeTypeId;
+	protected $implJavaAtomType$ requiredMimeTypeId;
 	protected int requiredRevision;
 
 
@@ -89,9 +89,9 @@ public class CFIntJpaMimeType
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=128 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	@Column( name="FileTypes", nullable=true, length=128 )
-	protected String optionalFileTypes;
+	protected $implJavaAtomType$ optionalFileTypes;
 
 	public CFIntJpaMimeType() {
 		requiredMimeTypeId = ICFIntPubMimeType.MIMETYPEID_INIT_VALUE;
@@ -157,12 +157,12 @@ public class CFIntJpaMimeType
 	}
 
 	@Override
-	public Integer getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredMimeTypeId();
 	}
 
 	@Override
-	public void setPKey(Integer requiredMimeTypeId) {
+	public void setPKey($implJavaOptAtomType$ requiredMimeTypeId) {
 		this.requiredMimeTypeId = requiredMimeTypeId;
 	}
 

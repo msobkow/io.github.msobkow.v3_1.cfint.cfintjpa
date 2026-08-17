@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 public class CFIntJpaTopDomainByTenantIdxKey
 	implements ICFIntTopDomainByTenantIdxKey, Comparable<Object>, Serializable
 {
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	public CFIntJpaTopDomainByTenantIdxKey() {
 		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubTopDomain.TENANTID_INIT_VALUE.toString() );
 	}

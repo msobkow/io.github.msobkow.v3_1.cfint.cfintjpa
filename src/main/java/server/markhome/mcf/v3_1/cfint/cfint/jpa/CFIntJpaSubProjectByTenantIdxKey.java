@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 public class CFIntJpaSubProjectByTenantIdxKey
 	implements ICFIntSubProjectByTenantIdxKey, Comparable<Object>, Serializable
 {
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	public CFIntJpaSubProjectByTenantIdxKey() {
 		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubSubProject.TENANTID_INIT_VALUE.toString() );
 	}

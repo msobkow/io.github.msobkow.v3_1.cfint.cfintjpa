@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 public class CFIntJpaLicenseByLicnTenantIdxKey
 	implements ICFIntLicenseByLicnTenantIdxKey, Comparable<Object>, Serializable
 {
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	public CFIntJpaLicenseByLicnTenantIdxKey() {
 		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubLicense.TENANTID_INIT_VALUE.toString() );
 	}

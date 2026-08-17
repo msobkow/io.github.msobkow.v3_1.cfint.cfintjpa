@@ -296,7 +296,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 	 */
 	@Override
 	public void deleteURLProtocolByUNameIdx( ICFSecAuthorization Authorization,
-		String argName )
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "deleteURLProtocolByUNameIdx";
 		boolean permissionGranted = canDeleteURLProtocol(S_ProcName, Authorization);
@@ -337,7 +337,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 	 */
 	@Override
 	public void deleteURLProtocolByIsSecureIdx( ICFSecAuthorization Authorization,
-		boolean argIsSecure )
+		$implJavaAtomType$ argIsSecure )
 	{
 		final String S_ProcName = "deleteURLProtocolByIsSecureIdx";
 		boolean permissionGranted = canDeleteURLProtocol(S_ProcName, Authorization);
@@ -454,7 +454,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 	 */
 	@Override
 	public ICFIntURLProtocol readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		int argURLProtocolId )
+		$implJavaAtomType$ argURLProtocolId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -480,7 +480,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 	 */
 	@Override
 	public ICFIntURLProtocol readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		String argName )
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
 		boolean permissionGranted = false;
@@ -505,7 +505,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 	 */
 	@Override
 	public ICFIntURLProtocol[] readDerivedByIsSecureIdx( ICFSecAuthorization Authorization,
-		boolean argIsSecure )
+		$implJavaAtomType$ argIsSecure )
 	{
 		final String S_ProcName = "readDerivedByIsSecureIdx";
 		boolean permissionGranted = false;
@@ -607,7 +607,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 	 */
 	@Override
 	public ICFIntURLProtocol readRecByIdIdx( ICFSecAuthorization Authorization,
-		int argURLProtocolId )
+		$implJavaAtomType$ argURLProtocolId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -634,7 +634,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 	 */
 	@Override
 	public ICFIntURLProtocol readRecByUNameIdx( ICFSecAuthorization Authorization,
-		String argName )
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
 		boolean permissionGranted = false;
@@ -660,7 +660,7 @@ public class CFIntJpaURLProtocolTable implements ICFIntURLProtocolTable
 	 */
 	@Override
 	public ICFIntURLProtocol[] readRecByIsSecureIdx( ICFSecAuthorization Authorization,
-		boolean argIsSecure )
+		$implJavaAtomType$ argIsSecure )
 	{
 		final String S_ProcName = "readRecByIsSecureIdx";
 		boolean permissionGranted = false;

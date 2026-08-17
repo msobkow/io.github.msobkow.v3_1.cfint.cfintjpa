@@ -276,7 +276,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public void deleteSubProjectByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argKey )
+		ICFLibKeyHash256 argKey )
 	{
 		final String S_ProcName = "deleteSubProjectByIdIdx";
 		boolean permissionGranted = canDeleteSubProject(S_ProcName, Authorization);
@@ -296,7 +296,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public void deleteSubProjectByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "deleteSubProjectByTenantIdx";
 		boolean permissionGranted = canDeleteSubProject(S_ProcName, Authorization);
@@ -337,7 +337,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public void deleteSubProjectByTopProjectIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTopProjectId )
+		$implJavaAtomType$ argTopProjectId )
 	{
 		final String S_ProcName = "deleteSubProjectByTopProjectIdx";
 		boolean permissionGranted = canDeleteSubProject(S_ProcName, Authorization);
@@ -380,8 +380,8 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public void deleteSubProjectByNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTopProjectId,
-		String argName )
+		$implJavaAtomType$ argTopProjectId,
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "deleteSubProjectByNameIdx";
 		boolean permissionGranted = canDeleteSubProject(S_ProcName, Authorization);
@@ -428,7 +428,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject readDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSubProject(S_ProcName, Authorization);
@@ -452,7 +452,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject lockDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateSubProject(S_ProcName, Authorization);
@@ -500,7 +500,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argId )
+		$implJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -534,7 +534,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject[] readDerivedByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
 		boolean permissionGranted = false;
@@ -564,7 +564,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject[] readDerivedByTopProjectIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTopProjectId )
+		$implJavaAtomType$ argTopProjectId )
 	{
 		final String S_ProcName = "readDerivedByTopProjectIdx";
 		boolean permissionGranted = false;
@@ -597,8 +597,8 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTopProjectId,
-		String argName )
+		$implJavaAtomType$ argTopProjectId,
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -636,7 +636,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject readRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSubProject(S_ProcName, Authorization);
@@ -661,7 +661,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject lockRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateSubProject(S_ProcName, Authorization);
@@ -705,7 +705,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject readRecByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argId )
+		$implJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -731,7 +731,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject[] readRecByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
 		boolean permissionGranted = false;
@@ -757,7 +757,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject[] readRecByTopProjectIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTopProjectId )
+		$implJavaAtomType$ argTopProjectId )
 	{
 		final String S_ProcName = "readRecByTopProjectIdx";
 		boolean permissionGranted = false;
@@ -786,8 +786,8 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject readRecByNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTopProjectId,
-		String argName )
+		$implJavaAtomType$ argTopProjectId,
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;

@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 public class CFIntJpaTopDomainByTldIdxKey
 	implements ICFIntTopDomainByTldIdxKey, Comparable<Object>, Serializable
 {
-	protected CFLibDbKeyHash256 requiredTldId;
+	protected $implJavaAtomType$ requiredTldId;
 	public CFIntJpaTopDomainByTldIdxKey() {
 		requiredTldId = CFLibDbKeyHash256.fromHex( ICFIntPubTopDomain.TLDID_INIT_VALUE.toString() );
 	}

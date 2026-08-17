@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 public class CFIntJpaMinorVersionByTenantIdxKey
 	implements ICFIntMinorVersionByTenantIdxKey, Comparable<Object>, Serializable
 {
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	public CFIntJpaMinorVersionByTenantIdxKey() {
 		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubMinorVersion.TENANTID_INIT_VALUE.toString() );
 	}

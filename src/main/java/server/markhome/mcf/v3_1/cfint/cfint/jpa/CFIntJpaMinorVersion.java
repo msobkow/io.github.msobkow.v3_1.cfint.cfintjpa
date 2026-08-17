@@ -62,7 +62,7 @@ public class CFIntJpaMinorVersion
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredId;
+	protected $implJavaAtomType$ requiredId;
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -97,15 +97,15 @@ public class CFIntJpaMinorVersion
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="MajorVersionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredMajorVersionId;
+	protected $implJavaAtomType$ requiredMajorVersionId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	@Column( name="descr", nullable=true, length=1024 )
-	protected String optionalDescription;
+	protected $implJavaAtomType$ optionalDescription;
 
 	public CFIntJpaMinorVersion() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFIntPubMinorVersion.ID_INIT_VALUE.toString() );
@@ -145,7 +145,7 @@ public class CFIntJpaMinorVersion
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(CFLibDbKeyHash256 argTenantId) {
+	public void setRequiredOwnerTenant(ICFLibKeyHash256 argTenantId) {
 		requiredTenantId = argTenantId;
 	}
 
@@ -183,7 +183,7 @@ public class CFIntJpaMinorVersion
 	}
 
 	@Override
-	public void setRequiredContainerParentMajVer(CFLibDbKeyHash256 argMajorVersionId) {
+	public void setRequiredContainerParentMajVer(ICFLibKeyHash256 argMajorVersionId) {
 		ICFIntSchema targetBackingSchema = ICFIntSchema.getBackingCFInt();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerParentMajVer", 0, "ICFIntSchema.getBackingCFInt()");
@@ -249,12 +249,12 @@ public class CFIntJpaMinorVersion
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredId) {
+	public void setPKey($implJavaOptAtomType$ requiredId) {
 		this.requiredId = requiredId;
 	}
 

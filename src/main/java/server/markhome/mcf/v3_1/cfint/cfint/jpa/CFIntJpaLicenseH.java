@@ -56,12 +56,12 @@ public class CFIntJpaLicenseH
 		@AttributeOverride(name="Id", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
     protected CFIntJpaLicenseHPKey pkey;
-	protected CFLibDbKeyHash256 requiredTenantId;
-	protected CFLibDbKeyHash256 requiredTopDomainId;
-	protected String requiredName;
-	protected String optionalDescription;
-	protected String optionalEmbeddedText;
-	protected String optionalFullText;
+	protected $implJavaAtomType$ requiredTenantId;
+	protected $implJavaAtomType$ requiredTopDomainId;
+	protected $implJavaAtomType$ requiredName;
+	protected $implJavaAtomType$ optionalDescription;
+	protected $implJavaAtomType$ optionalEmbeddedText;
+	protected $implJavaAtomType$ optionalFullText;
 
     public CFIntJpaLicenseH() {
             // The primary key member attributes are initialized on construction
@@ -147,12 +147,12 @@ public class CFIntJpaLicenseH
     }
 
     @Override
-    public CFLibDbKeyHash256 getRequiredId() {
+    public $implJavaAtomType$ getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( CFLibDbKeyHash256 requiredId ) {
+    public void setRequiredId( $implJavaAtomType$ requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 

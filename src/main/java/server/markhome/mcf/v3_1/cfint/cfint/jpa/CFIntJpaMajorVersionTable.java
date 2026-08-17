@@ -276,7 +276,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public void deleteMajorVersionByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argKey )
+		ICFLibKeyHash256 argKey )
 	{
 		final String S_ProcName = "deleteMajorVersionByIdIdx";
 		boolean permissionGranted = canDeleteMajorVersion(S_ProcName, Authorization);
@@ -296,7 +296,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public void deleteMajorVersionByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "deleteMajorVersionByTenantIdx";
 		boolean permissionGranted = canDeleteMajorVersion(S_ProcName, Authorization);
@@ -337,7 +337,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public void deleteMajorVersionBySubProjectIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSubProjectId )
+		$implJavaAtomType$ argSubProjectId )
 	{
 		final String S_ProcName = "deleteMajorVersionBySubProjectIdx";
 		boolean permissionGranted = canDeleteMajorVersion(S_ProcName, Authorization);
@@ -380,8 +380,8 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public void deleteMajorVersionByNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSubProjectId,
-		String argName )
+		$implJavaAtomType$ argSubProjectId,
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "deleteMajorVersionByNameIdx";
 		boolean permissionGranted = canDeleteMajorVersion(S_ProcName, Authorization);
@@ -428,7 +428,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
@@ -452,7 +452,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion lockDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateMajorVersion(S_ProcName, Authorization);
@@ -500,7 +500,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argId )
+		$implJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -534,7 +534,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion[] readDerivedByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
 		boolean permissionGranted = false;
@@ -564,7 +564,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion[] readDerivedBySubProjectIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSubProjectId )
+		$implJavaAtomType$ argSubProjectId )
 	{
 		final String S_ProcName = "readDerivedBySubProjectIdx";
 		boolean permissionGranted = false;
@@ -597,8 +597,8 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSubProjectId,
-		String argName )
+		$implJavaAtomType$ argSubProjectId,
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -636,7 +636,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
@@ -661,7 +661,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion lockRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateMajorVersion(S_ProcName, Authorization);
@@ -705,7 +705,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readRecByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argId )
+		$implJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -731,7 +731,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion[] readRecByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
 		boolean permissionGranted = false;
@@ -757,7 +757,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion[] readRecBySubProjectIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSubProjectId )
+		$implJavaAtomType$ argSubProjectId )
 	{
 		final String S_ProcName = "readRecBySubProjectIdx";
 		boolean permissionGranted = false;
@@ -786,8 +786,8 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readRecByNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSubProjectId,
-		String argName )
+		$implJavaAtomType$ argSubProjectId,
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;

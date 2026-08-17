@@ -62,7 +62,7 @@ public class CFIntJpaSubProject
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredId;
+	protected $implJavaAtomType$ requiredId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerParentSPrj")
 	protected Set<CFIntJpaMajorVersion> optionalComponentsMajorVer;
 	protected int requiredRevision;
@@ -99,15 +99,15 @@ public class CFIntJpaSubProject
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TopProjectId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredTopProjectId;
+	protected $implJavaAtomType$ requiredTopProjectId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	@Column( name="descr", nullable=true, length=1024 )
-	protected String optionalDescription;
+	protected $implJavaAtomType$ optionalDescription;
 
 	public CFIntJpaSubProject() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFIntPubSubProject.ID_INIT_VALUE.toString() );
@@ -153,7 +153,7 @@ public class CFIntJpaSubProject
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(CFLibDbKeyHash256 argTenantId) {
+	public void setRequiredOwnerTenant(ICFLibKeyHash256 argTenantId) {
 		requiredTenantId = argTenantId;
 	}
 
@@ -191,7 +191,7 @@ public class CFIntJpaSubProject
 	}
 
 	@Override
-	public void setRequiredContainerParentTPrj(CFLibDbKeyHash256 argTopProjectId) {
+	public void setRequiredContainerParentTPrj(ICFLibKeyHash256 argTopProjectId) {
 		ICFIntSchema targetBackingSchema = ICFIntSchema.getBackingCFInt();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerParentTPrj", 0, "ICFIntSchema.getBackingCFInt()");
@@ -257,12 +257,12 @@ public class CFIntJpaSubProject
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredId) {
+	public void setPKey($implJavaOptAtomType$ requiredId) {
 		this.requiredId = requiredId;
 	}
 

@@ -62,7 +62,7 @@ public class CFIntJpaLicense
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredId;
+	protected $implJavaAtomType$ requiredId;
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -72,19 +72,19 @@ public class CFIntJpaLicense
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TopDomainId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredTopDomainId;
+	protected $implJavaAtomType$ requiredTopDomainId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	@Column( name="descr", nullable=true, length=1024 )
-	protected String optionalDescription;
+	protected $implJavaAtomType$ optionalDescription;
 	@Column( name="EmbeddedText", nullable=true, length=8000 )
-	protected String optionalEmbeddedText;
+	protected $implJavaAtomType$ optionalEmbeddedText;
 	@Column( name="FullTxt", nullable=true, length=8000 )
-	protected String optionalFullText;
+	protected $implJavaAtomType$ optionalFullText;
 
 	public CFIntJpaLicense() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFIntPubLicense.ID_INIT_VALUE.toString() );
@@ -126,7 +126,7 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(CFLibDbKeyHash256 argTenantId) {
+	public void setRequiredOwnerTenant(ICFLibKeyHash256 argTenantId) {
 		requiredTenantId = argTenantId;
 	}
 
@@ -164,7 +164,7 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public void setRequiredContainerTopDomain(CFLibDbKeyHash256 argTopDomainId) {
+	public void setRequiredContainerTopDomain(ICFLibKeyHash256 argTopDomainId) {
 		ICFIntSchema targetBackingSchema = ICFIntSchema.getBackingCFInt();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerTopDomain", 0, "ICFIntSchema.getBackingCFInt()");
@@ -178,12 +178,12 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredId) {
+	public void setPKey($implJavaOptAtomType$ requiredId) {
 		this.requiredId = requiredId;
 	}
 

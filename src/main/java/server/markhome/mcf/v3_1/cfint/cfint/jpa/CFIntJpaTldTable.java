@@ -276,7 +276,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public void deleteTldByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argKey )
+		ICFLibKeyHash256 argKey )
 	{
 		final String S_ProcName = "deleteTldByIdIdx";
 		boolean permissionGranted = canDeleteTld(S_ProcName, Authorization);
@@ -296,7 +296,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public void deleteTldByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "deleteTldByTenantIdx";
 		boolean permissionGranted = canDeleteTld(S_ProcName, Authorization);
@@ -337,7 +337,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public void deleteTldByNameIdx( ICFSecAuthorization Authorization,
-		String argName )
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "deleteTldByNameIdx";
 		boolean permissionGranted = canDeleteTld(S_ProcName, Authorization);
@@ -382,7 +382,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public ICFIntTld readDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadTld(S_ProcName, Authorization);
@@ -406,7 +406,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public ICFIntTld lockDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateTld(S_ProcName, Authorization);
@@ -454,7 +454,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public ICFIntTld readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argId )
+		$implJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -488,7 +488,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public ICFIntTld[] readDerivedByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
 		boolean permissionGranted = false;
@@ -519,7 +519,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public ICFIntTld readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		String argName )
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -556,7 +556,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public ICFIntTld readRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadTld(S_ProcName, Authorization);
@@ -581,7 +581,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public ICFIntTld lockRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateTld(S_ProcName, Authorization);
@@ -625,7 +625,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public ICFIntTld readRecByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argId )
+		$implJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -651,7 +651,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public ICFIntTld[] readRecByTenantIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argTenantId )
+		$implJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
 		boolean permissionGranted = false;
@@ -678,7 +678,7 @@ public class CFIntJpaTldTable implements ICFIntTldTable
 	 */
 	@Override
 	public ICFIntTld readRecByNameIdx( ICFSecAuthorization Authorization,
-		String argName )
+		$implJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;

@@ -67,7 +67,7 @@ public class CFIntJpaURLProtocolHPKey
 	protected CFLibDbKeyHash256 auditSessionId;
 
 	@Column( name="URLProtocolId", nullable=false )
-	protected int requiredURLProtocolId;
+	protected $implJavaAtomType$ requiredURLProtocolId;
 
 	public CFIntJpaURLProtocolHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;

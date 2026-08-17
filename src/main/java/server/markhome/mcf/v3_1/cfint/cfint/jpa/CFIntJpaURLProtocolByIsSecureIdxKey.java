@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 public class CFIntJpaURLProtocolByIsSecureIdxKey
 	implements ICFIntURLProtocolByIsSecureIdxKey, Comparable<Object>, Serializable
 {
-	protected boolean requiredIsSecure;
+	protected $implJavaAtomType$ requiredIsSecure;
 	public CFIntJpaURLProtocolByIsSecureIdxKey() {
 		requiredIsSecure = ICFIntPubURLProtocol.ISSECURE_INIT_VALUE;
 	}

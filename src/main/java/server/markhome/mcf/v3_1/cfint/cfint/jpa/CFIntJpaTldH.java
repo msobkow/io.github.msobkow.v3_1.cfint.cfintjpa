@@ -96,11 +96,11 @@ public class CFIntJpaTldH
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	@Column( name="descr", nullable=true, length=1024 )
-	protected String optionalDescription;
+	protected $implJavaAtomType$ optionalDescription;
 
     public CFIntJpaTldH() {
             // The primary key member attributes are initialized on construction
@@ -235,12 +235,12 @@ public class CFIntJpaTldH
     }
 
     @Override
-    public CFLibDbKeyHash256 getRequiredId() {
+    public $implJavaAtomType$ getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( CFLibDbKeyHash256 requiredId ) {
+    public void setRequiredId( $implJavaAtomType$ requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 

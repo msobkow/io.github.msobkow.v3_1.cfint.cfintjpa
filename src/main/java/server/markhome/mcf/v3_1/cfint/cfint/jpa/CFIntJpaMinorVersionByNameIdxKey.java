@@ -43,8 +43,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 public class CFIntJpaMinorVersionByNameIdxKey
 	implements ICFIntMinorVersionByNameIdxKey, Comparable<Object>, Serializable
 {
-	protected CFLibDbKeyHash256 requiredMajorVersionId;
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredMajorVersionId;
+	protected $implJavaAtomType$ requiredName;
 	public CFIntJpaMinorVersionByNameIdxKey() {
 		requiredMajorVersionId = CFLibDbKeyHash256.fromHex( ICFIntPubMinorVersion.MAJORVERSIONID_INIT_VALUE.toString() );
 		requiredName = ICFIntPubMinorVersion.NAME_INIT_VALUE;
