@@ -296,7 +296,7 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public void deleteTopDomainByTenantIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTenantId )
+		ICFLibKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "deleteTopDomainByTenantIdx";
 		boolean permissionGranted = canDeleteTopDomain(S_ProcName, Authorization);
@@ -337,7 +337,7 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public void deleteTopDomainByTldIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTldId )
+		ICFLibKeyHash256 argTldId )
 	{
 		final String S_ProcName = "deleteTopDomainByTldIdx";
 		boolean permissionGranted = canDeleteTopDomain(S_ProcName, Authorization);
@@ -380,8 +380,8 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public void deleteTopDomainByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTldId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argTldId,
+		String argName )
 	{
 		final String S_ProcName = "deleteTopDomainByNameIdx";
 		boolean permissionGranted = canDeleteTopDomain(S_ProcName, Authorization);
@@ -500,7 +500,7 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public ICFIntTopDomain readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argId )
+		ICFLibKeyHash256 argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -534,7 +534,7 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public ICFIntTopDomain[] readDerivedByTenantIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTenantId )
+		ICFLibKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
 		boolean permissionGranted = false;
@@ -564,7 +564,7 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public ICFIntTopDomain[] readDerivedByTldIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTldId )
+		ICFLibKeyHash256 argTldId )
 	{
 		final String S_ProcName = "readDerivedByTldIdx";
 		boolean permissionGranted = false;
@@ -597,8 +597,8 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public ICFIntTopDomain readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTldId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argTldId,
+		String argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -705,7 +705,7 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public ICFIntTopDomain readRecByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argId )
+		ICFLibKeyHash256 argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -731,7 +731,7 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public ICFIntTopDomain[] readRecByTenantIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTenantId )
+		ICFLibKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
 		boolean permissionGranted = false;
@@ -757,7 +757,7 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public ICFIntTopDomain[] readRecByTldIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTldId )
+		ICFLibKeyHash256 argTldId )
 	{
 		final String S_ProcName = "readRecByTldIdx";
 		boolean permissionGranted = false;
@@ -786,8 +786,8 @@ public class CFIntJpaTopDomainTable implements ICFIntTopDomainTable
 	 */
 	@Override
 	public ICFIntTopDomain readRecByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTldId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argTldId,
+		String argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;

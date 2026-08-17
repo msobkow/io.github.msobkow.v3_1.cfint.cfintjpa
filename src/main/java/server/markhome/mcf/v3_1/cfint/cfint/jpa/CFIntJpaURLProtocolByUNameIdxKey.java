@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 public class CFIntJpaURLProtocolByUNameIdxKey
 	implements ICFIntURLProtocolByUNameIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 	public CFIntJpaURLProtocolByUNameIdxKey() {
 		requiredName = ICFIntPubURLProtocol.NAME_INIT_VALUE;
 	}

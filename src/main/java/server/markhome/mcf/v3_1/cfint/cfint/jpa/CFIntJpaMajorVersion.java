@@ -62,7 +62,7 @@ public class CFIntJpaMajorVersion
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredId;
+	protected ICFLibKeyHash256 requiredId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerParentMajVer")
 	protected Set<CFIntJpaMinorVersion> optionalComponentsMinorVer;
 	protected int requiredRevision;
@@ -99,15 +99,15 @@ public class CFIntJpaMajorVersion
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredTenantId;
+	protected ICFLibKeyHash256 requiredTenantId;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SubProjectId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSubProjectId;
+	protected ICFLibKeyHash256 requiredSubProjectId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 	@Column( name="descr", nullable=true, length=1024 )
-	protected $implJavaAtomType$ optionalDescription;
+	protected String optionalDescription;
 
 	public CFIntJpaMajorVersion() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFIntPubMajorVersion.ID_INIT_VALUE.toString() );
@@ -257,12 +257,12 @@ public class CFIntJpaMajorVersion
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredId) {
+	public void setPKey(ICFLibKeyHash256 requiredId) {
 		this.requiredId = requiredId;
 	}
 

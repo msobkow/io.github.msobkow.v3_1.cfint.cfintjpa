@@ -93,9 +93,9 @@ public class CFIntJpaMimeTypeH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=128 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 	@Column( name="FileTypes", nullable=true, length=128 )
-	protected $implJavaAtomType$ optionalFileTypes;
+	protected String optionalFileTypes;
 
     public CFIntJpaMimeTypeH() {
             // The primary key member attributes are initialized on construction
@@ -229,12 +229,12 @@ public class CFIntJpaMimeTypeH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredMimeTypeId() {
+    public int getRequiredMimeTypeId() {
         return( pkey.getRequiredMimeTypeId() );
     }
 
     @Override
-    public void setRequiredMimeTypeId( $implJavaAtomType$ requiredMimeTypeId ) {
+    public void setRequiredMimeTypeId( int requiredMimeTypeId ) {
         pkey.setRequiredMimeTypeId( requiredMimeTypeId );
     }
 

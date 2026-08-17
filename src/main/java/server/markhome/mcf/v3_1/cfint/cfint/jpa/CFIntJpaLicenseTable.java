@@ -290,7 +290,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public void deleteLicenseByLicnTenantIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTenantId )
+		ICFLibKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "deleteLicenseByLicnTenantIdx";
 		boolean permissionGranted = canDeleteLicense(S_ProcName, Authorization);
@@ -331,7 +331,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public void deleteLicenseByDomainIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopDomainId )
+		ICFLibKeyHash256 argTopDomainId )
 	{
 		final String S_ProcName = "deleteLicenseByDomainIdx";
 		boolean permissionGranted = canDeleteLicense(S_ProcName, Authorization);
@@ -374,8 +374,8 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public void deleteLicenseByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopDomainId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argTopDomainId,
+		String argName )
 	{
 		final String S_ProcName = "deleteLicenseByUNameIdx";
 		boolean permissionGranted = canDeleteLicense(S_ProcName, Authorization);
@@ -494,7 +494,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argId )
+		ICFLibKeyHash256 argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -528,7 +528,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense[] readDerivedByLicnTenantIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTenantId )
+		ICFLibKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readDerivedByLicnTenantIdx";
 		boolean permissionGranted = false;
@@ -558,7 +558,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense[] readDerivedByDomainIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopDomainId )
+		ICFLibKeyHash256 argTopDomainId )
 	{
 		final String S_ProcName = "readDerivedByDomainIdx";
 		boolean permissionGranted = false;
@@ -591,8 +591,8 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopDomainId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argTopDomainId,
+		String argName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
 		boolean permissionGranted = false;
@@ -699,7 +699,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense readRecByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argId )
+		ICFLibKeyHash256 argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -725,7 +725,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense[] readRecByLicnTenantIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTenantId )
+		ICFLibKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readRecByLicnTenantIdx";
 		boolean permissionGranted = false;
@@ -751,7 +751,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense[] readRecByDomainIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopDomainId )
+		ICFLibKeyHash256 argTopDomainId )
 	{
 		final String S_ProcName = "readRecByDomainIdx";
 		boolean permissionGranted = false;
@@ -780,8 +780,8 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense readRecByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopDomainId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argTopDomainId,
+		String argName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
 		boolean permissionGranted = false;

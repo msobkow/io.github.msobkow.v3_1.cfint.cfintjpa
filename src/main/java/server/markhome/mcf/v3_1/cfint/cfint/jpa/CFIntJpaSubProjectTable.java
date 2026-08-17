@@ -296,7 +296,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public void deleteSubProjectByTenantIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTenantId )
+		ICFLibKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "deleteSubProjectByTenantIdx";
 		boolean permissionGranted = canDeleteSubProject(S_ProcName, Authorization);
@@ -337,7 +337,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public void deleteSubProjectByTopProjectIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopProjectId )
+		ICFLibKeyHash256 argTopProjectId )
 	{
 		final String S_ProcName = "deleteSubProjectByTopProjectIdx";
 		boolean permissionGranted = canDeleteSubProject(S_ProcName, Authorization);
@@ -380,8 +380,8 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public void deleteSubProjectByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopProjectId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argTopProjectId,
+		String argName )
 	{
 		final String S_ProcName = "deleteSubProjectByNameIdx";
 		boolean permissionGranted = canDeleteSubProject(S_ProcName, Authorization);
@@ -500,7 +500,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argId )
+		ICFLibKeyHash256 argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -534,7 +534,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject[] readDerivedByTenantIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTenantId )
+		ICFLibKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
 		boolean permissionGranted = false;
@@ -564,7 +564,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject[] readDerivedByTopProjectIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopProjectId )
+		ICFLibKeyHash256 argTopProjectId )
 	{
 		final String S_ProcName = "readDerivedByTopProjectIdx";
 		boolean permissionGranted = false;
@@ -597,8 +597,8 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopProjectId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argTopProjectId,
+		String argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -705,7 +705,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject readRecByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argId )
+		ICFLibKeyHash256 argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -731,7 +731,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject[] readRecByTenantIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTenantId )
+		ICFLibKeyHash256 argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
 		boolean permissionGranted = false;
@@ -757,7 +757,7 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject[] readRecByTopProjectIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopProjectId )
+		ICFLibKeyHash256 argTopProjectId )
 	{
 		final String S_ProcName = "readRecByTopProjectIdx";
 		boolean permissionGranted = false;
@@ -786,8 +786,8 @@ public class CFIntJpaSubProjectTable implements ICFIntSubProjectTable
 	 */
 	@Override
 	public ICFIntSubProject readRecByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argTopProjectId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argTopProjectId,
+		String argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;

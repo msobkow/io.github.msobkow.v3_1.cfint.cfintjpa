@@ -60,7 +60,7 @@ public class CFIntJpaURLProtocol
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="URLProtoIdGenSeq")
 	@SequenceGenerator(name = "URLProtoIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFInt31")
 	@Column( name="URLProtocolId", nullable=false )
-	protected $implJavaAtomType$ requiredURLProtocolId;
+	protected int requiredURLProtocolId;
 	protected int requiredRevision;
 
 
@@ -90,11 +90,11 @@ public class CFIntJpaURLProtocol
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=16 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 	@Column( name="Description", nullable=false, length=50 )
-	protected $implJavaAtomType$ requiredDescription;
+	protected String requiredDescription;
 	@Column( name="IsSecure", nullable=false )
-	protected $implJavaAtomType$ requiredIsSecure;
+	protected boolean requiredIsSecure;
 
 	public CFIntJpaURLProtocol() {
 		requiredURLProtocolId = ICFIntPubURLProtocol.URLPROTOCOLID_INIT_VALUE;
@@ -161,12 +161,12 @@ public class CFIntJpaURLProtocol
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public Integer getPKey() {
 		return getRequiredURLProtocolId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredURLProtocolId) {
+	public void setPKey(Integer requiredURLProtocolId) {
 		this.requiredURLProtocolId = requiredURLProtocolId;
 	}
 

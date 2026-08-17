@@ -94,11 +94,11 @@ public class CFIntJpaURLProtocolH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=16 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 	@Column( name="Description", nullable=false, length=50 )
-	protected $implJavaAtomType$ requiredDescription;
+	protected String requiredDescription;
 	@Column( name="IsSecure", nullable=false )
-	protected $implJavaAtomType$ requiredIsSecure;
+	protected boolean requiredIsSecure;
 
     public CFIntJpaURLProtocolH() {
             // The primary key member attributes are initialized on construction
@@ -233,12 +233,12 @@ public class CFIntJpaURLProtocolH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredURLProtocolId() {
+    public int getRequiredURLProtocolId() {
         return( pkey.getRequiredURLProtocolId() );
     }
 
     @Override
-    public void setRequiredURLProtocolId( $implJavaAtomType$ requiredURLProtocolId ) {
+    public void setRequiredURLProtocolId( int requiredURLProtocolId ) {
         pkey.setRequiredURLProtocolId( requiredURLProtocolId );
     }
 

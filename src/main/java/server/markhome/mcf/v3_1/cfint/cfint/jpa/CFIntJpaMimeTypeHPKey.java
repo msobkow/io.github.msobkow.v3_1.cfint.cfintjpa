@@ -67,7 +67,7 @@ public class CFIntJpaMimeTypeHPKey
 	protected CFLibDbKeyHash256 auditSessionId;
 
 	@Column( name="MimeTypeId", nullable=false )
-	protected $implJavaAtomType$ requiredMimeTypeId;
+	protected int requiredMimeTypeId;
 
 	public CFIntJpaMimeTypeHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;

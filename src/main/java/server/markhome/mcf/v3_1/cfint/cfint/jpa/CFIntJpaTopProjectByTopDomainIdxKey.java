@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 public class CFIntJpaTopProjectByTopDomainIdxKey
 	implements ICFIntTopProjectByTopDomainIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredTopDomainId;
+	protected ICFLibKeyHash256 requiredTopDomainId;
 	public CFIntJpaTopProjectByTopDomainIdxKey() {
 		requiredTopDomainId = CFLibDbKeyHash256.fromHex( ICFIntPubTopProject.TOPDOMAINID_INIT_VALUE.toString() );
 	}

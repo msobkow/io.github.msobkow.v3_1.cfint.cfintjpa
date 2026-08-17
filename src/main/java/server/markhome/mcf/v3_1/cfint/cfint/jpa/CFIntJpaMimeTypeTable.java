@@ -296,7 +296,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 	 */
 	@Override
 	public void deleteMimeTypeByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "deleteMimeTypeByUNameIdx";
 		boolean permissionGranted = canDeleteMimeType(S_ProcName, Authorization);
@@ -413,7 +413,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 	 */
 	@Override
 	public ICFIntMimeType readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argMimeTypeId )
+		int argMimeTypeId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -439,7 +439,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 	 */
 	@Override
 	public ICFIntMimeType readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
 		boolean permissionGranted = false;
@@ -536,7 +536,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 	 */
 	@Override
 	public ICFIntMimeType readRecByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argMimeTypeId )
+		int argMimeTypeId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -563,7 +563,7 @@ public class CFIntJpaMimeTypeTable implements ICFIntMimeTypeTable
 	 */
 	@Override
 	public ICFIntMimeType readRecByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
 		boolean permissionGranted = false;
