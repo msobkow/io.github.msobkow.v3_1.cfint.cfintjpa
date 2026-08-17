@@ -50,11 +50,11 @@ public class CFIntJpaTopDomainByTldIdxKey
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredTldId() {
+	public ICFLibKeyHash256 getRequiredTldId() {
 		return(requiredTldId);
 	}
 
-	public void setRequiredTldId( CFLibDbKeyHash256 value ) {
+	public void setRequiredTldId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTldId",
