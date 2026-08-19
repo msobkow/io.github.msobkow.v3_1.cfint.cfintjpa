@@ -203,7 +203,7 @@ public class CFIntJpaTopProjectByTenantIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntTopProjectByTenantIdxKey, ICFIntTopProject$emitIndexKeyEqualsHistoryClass$");
+				"ICFIntTopProjectByTenantIdxKey, ICFIntTopProject, ICFIntTopProjectH");
 		}
 	}
 

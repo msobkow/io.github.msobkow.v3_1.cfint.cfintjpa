@@ -213,7 +213,7 @@ public class CFIntJpaURLProtocolByUNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntURLProtocolByUNameIdxKey, ICFIntURLProtocol$emitIndexKeyEqualsHistoryClass$");
+				"ICFIntURLProtocolByUNameIdxKey, ICFIntURLProtocol, ICFIntURLProtocolH");
 		}
 	}
 

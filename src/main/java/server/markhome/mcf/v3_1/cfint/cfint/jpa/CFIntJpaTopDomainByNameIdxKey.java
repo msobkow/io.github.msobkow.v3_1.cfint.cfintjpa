@@ -318,7 +318,7 @@ public class CFIntJpaTopDomainByNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntTopDomainByNameIdxKey, ICFIntTopDomain$emitIndexKeyEqualsHistoryClass$");
+				"ICFIntTopDomainByNameIdxKey, ICFIntTopDomain, ICFIntTopDomainH");
 		}
 	}
 

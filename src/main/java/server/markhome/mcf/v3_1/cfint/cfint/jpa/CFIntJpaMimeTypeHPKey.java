@@ -922,7 +922,7 @@ public class CFIntJpaMimeTypeHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntMimeTypePKey, ICFIntMimeType$emitHPKeyHistoryClassNames$" );
+				"ICFIntMimeTypePKey, ICFIntMimeType, CFIntMimeTypeHPKey, CFIntMimeTypeH" );
 		}
 	}
 

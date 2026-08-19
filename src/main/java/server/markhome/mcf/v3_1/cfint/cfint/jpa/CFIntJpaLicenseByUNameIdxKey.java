@@ -318,7 +318,7 @@ public class CFIntJpaLicenseByUNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntLicenseByUNameIdxKey, ICFIntLicense$emitIndexKeyEqualsHistoryClass$");
+				"ICFIntLicenseByUNameIdxKey, ICFIntLicense, ICFIntLicenseH");
 		}
 	}
 

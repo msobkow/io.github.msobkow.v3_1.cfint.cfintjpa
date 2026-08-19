@@ -203,7 +203,7 @@ public class CFIntJpaTldByTenantIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntTldByTenantIdxKey, ICFIntTld$emitIndexKeyEqualsHistoryClass$");
+				"ICFIntTldByTenantIdxKey, ICFIntTld, ICFIntTldH");
 		}
 	}
 

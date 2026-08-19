@@ -213,7 +213,7 @@ public class CFIntJpaTldByNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntTldByNameIdxKey, ICFIntTld$emitIndexKeyEqualsHistoryClass$");
+				"ICFIntTldByNameIdxKey, ICFIntTld, ICFIntTldH");
 		}
 	}
 

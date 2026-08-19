@@ -1101,7 +1101,7 @@ public class CFIntJpaTldHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntTldPKey, ICFIntTld$emitHPKeyHistoryClassNames$" );
+				"ICFIntTldPKey, ICFIntTld, CFIntTldHPKey, CFIntTldH" );
 		}
 	}
 

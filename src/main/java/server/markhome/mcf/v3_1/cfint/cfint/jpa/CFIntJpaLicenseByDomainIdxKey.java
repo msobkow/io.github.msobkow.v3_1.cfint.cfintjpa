@@ -203,7 +203,7 @@ public class CFIntJpaLicenseByDomainIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntLicenseByDomainIdxKey, ICFIntLicense$emitIndexKeyEqualsHistoryClass$");
+				"ICFIntLicenseByDomainIdxKey, ICFIntLicense, ICFIntLicenseH");
 		}
 	}
 

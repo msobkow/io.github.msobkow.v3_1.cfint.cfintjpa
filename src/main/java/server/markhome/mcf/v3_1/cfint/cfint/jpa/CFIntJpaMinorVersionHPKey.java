@@ -1101,7 +1101,7 @@ public class CFIntJpaMinorVersionHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntMinorVersionPKey, ICFIntMinorVersion$emitHPKeyHistoryClassNames$" );
+				"ICFIntMinorVersionPKey, ICFIntMinorVersion, CFIntMinorVersionHPKey, CFIntMinorVersionH" );
 		}
 	}
 

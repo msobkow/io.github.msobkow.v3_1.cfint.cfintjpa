@@ -1089,7 +1089,7 @@ public class CFIntJpaLicenseHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntLicensePKey, ICFIntLicense$emitHPKeyHistoryClassNames$" );
+				"ICFIntLicensePKey, ICFIntLicense, CFIntLicenseHPKey, CFIntLicenseH" );
 		}
 	}
 

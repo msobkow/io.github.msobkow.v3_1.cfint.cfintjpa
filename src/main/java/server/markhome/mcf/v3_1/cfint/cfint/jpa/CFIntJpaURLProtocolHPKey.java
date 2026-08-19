@@ -922,7 +922,7 @@ public class CFIntJpaURLProtocolHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFIntURLProtocolPKey, ICFIntURLProtocol$emitHPKeyHistoryClassNames$" );
+				"ICFIntURLProtocolPKey, ICFIntURLProtocol, CFIntURLProtocolHPKey, CFIntURLProtocolH" );
 		}
 	}
 
