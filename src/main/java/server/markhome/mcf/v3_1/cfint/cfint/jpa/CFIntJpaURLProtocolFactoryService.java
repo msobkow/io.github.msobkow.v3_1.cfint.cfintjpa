@@ -53,11 +53,13 @@ public class CFIntJpaURLProtocolFactoryService
     public CFIntJpaURLProtocolFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntURLProtocolHPKey newHPKey() {
         ICFIntURLProtocolHPKey hpkey = new CFIntJpaURLProtocolHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaURLProtocolHPKey ensureHPKey(ICFIntURLProtocolHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFIntJpaURLProtocolFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntURLProtocolByUNameIdxKey newByUNameIdxKey() {
 		ICFIntURLProtocolByUNameIdxKey key = new CFIntJpaURLProtocolByUNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaURLProtocolByUNameIdxKey ensureByUNameIdxKey(ICFIntURLProtocolByUNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFIntJpaURLProtocolFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntURLProtocolByIsSecureIdxKey newByIsSecureIdxKey() {
 		ICFIntURLProtocolByIsSecureIdxKey key = new CFIntJpaURLProtocolByIsSecureIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaURLProtocolByIsSecureIdxKey ensureByIsSecureIdxKey(ICFIntURLProtocolByIsSecureIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFIntJpaURLProtocolFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntURLProtocol newRec() {
         ICFIntURLProtocol rec = new CFIntJpaURLProtocol();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaURLProtocol ensureRec(ICFIntURLProtocol rec) {
 		if( rec == null ) {
 			return( null );
@@ -149,6 +157,7 @@ public class CFIntJpaURLProtocolFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaURLProtocolH ensureHRec(ICFIntURLProtocolH hrec) {
 		if( hrec == null ) {
 			return( null );

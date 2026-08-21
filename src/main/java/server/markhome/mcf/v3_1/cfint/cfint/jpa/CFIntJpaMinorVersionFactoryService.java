@@ -53,11 +53,13 @@ public class CFIntJpaMinorVersionFactoryService
     public CFIntJpaMinorVersionFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntMinorVersionHPKey newHPKey() {
         ICFIntMinorVersionHPKey hpkey = new CFIntJpaMinorVersionHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaMinorVersionHPKey ensureHPKey(ICFIntMinorVersionHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFIntJpaMinorVersionFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntMinorVersionByTenantIdxKey newByTenantIdxKey() {
 		ICFIntMinorVersionByTenantIdxKey key = new CFIntJpaMinorVersionByTenantIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaMinorVersionByTenantIdxKey ensureByTenantIdxKey(ICFIntMinorVersionByTenantIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFIntJpaMinorVersionFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntMinorVersionByMajorVerIdxKey newByMajorVerIdxKey() {
 		ICFIntMinorVersionByMajorVerIdxKey key = new CFIntJpaMinorVersionByMajorVerIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaMinorVersionByMajorVerIdxKey ensureByMajorVerIdxKey(ICFIntMinorVersionByMajorVerIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFIntJpaMinorVersionFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntMinorVersionByNameIdxKey newByNameIdxKey() {
 		ICFIntMinorVersionByNameIdxKey key = new CFIntJpaMinorVersionByNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaMinorVersionByNameIdxKey ensureByNameIdxKey(ICFIntMinorVersionByNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -138,11 +146,13 @@ public class CFIntJpaMinorVersionFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntMinorVersion newRec() {
         ICFIntMinorVersion rec = new CFIntJpaMinorVersion();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaMinorVersion ensureRec(ICFIntMinorVersion rec) {
 		if( rec == null ) {
 			return( null );
@@ -170,6 +180,7 @@ public class CFIntJpaMinorVersionFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaMinorVersionH ensureHRec(ICFIntMinorVersionH hrec) {
 		if( hrec == null ) {
 			return( null );

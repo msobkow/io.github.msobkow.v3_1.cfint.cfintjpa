@@ -61,6 +61,7 @@ public class CFIntJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
 	public CFLibDbKeyHash256 generateMajorVersionIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -70,7 +71,7 @@ public class CFIntJpaIdGenService {
 	*
 	*		@return The next integer value for the MimeTypeIdGen type.
 	*/
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
 	@SequenceGenerator(name = "MimeTypeIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFInt31")
 	public int generateMimeTypeIdGen() {
 		throw new CFLibNotImplementedYetException( getClass(), "generateMimeTypeIdGen" );
@@ -81,6 +82,7 @@ public class CFIntJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
 	public CFLibDbKeyHash256 generateMinorVersionIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -90,6 +92,7 @@ public class CFIntJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
 	public CFLibDbKeyHash256 generateSubProjectIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -99,6 +102,7 @@ public class CFIntJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
 	public CFLibDbKeyHash256 generateTldIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -108,6 +112,7 @@ public class CFIntJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
 	public CFLibDbKeyHash256 generateTopDomainIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -117,6 +122,7 @@ public class CFIntJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
 	public CFLibDbKeyHash256 generateTopProjectIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -126,7 +132,7 @@ public class CFIntJpaIdGenService {
 	*
 	*		@return The next integer value for the URLProtocolIdGen type.
 	*/
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
 	@SequenceGenerator(name = "URLProtoIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFInt31")
 	public int generateURLProtocolIdGen() {
 		throw new CFLibNotImplementedYetException( getClass(), "generateURLProtocolIdGen" );
@@ -137,6 +143,7 @@ public class CFIntJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfintTransactionManager")
 	public CFLibDbKeyHash256 generateLicenseIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}

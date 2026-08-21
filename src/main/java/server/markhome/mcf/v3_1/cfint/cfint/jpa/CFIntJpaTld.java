@@ -50,7 +50,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 		@Index(name = "TldNameIdx", columnList = "safe_name", unique = true)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFIntPU")
 public class CFIntJpaTld
 	implements Comparable<Object>,

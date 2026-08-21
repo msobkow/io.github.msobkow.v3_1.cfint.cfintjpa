@@ -55,7 +55,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
         @Index(name = "MinorVersionNameIdx_h", columnList = "MajorVersionId, safe_name", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFIntPU")
 public class CFIntJpaMinorVersionH
     implements ICFIntMinorVersionH, Comparable<Object>, Serializable

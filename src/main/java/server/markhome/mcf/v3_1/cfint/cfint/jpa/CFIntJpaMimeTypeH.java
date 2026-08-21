@@ -53,7 +53,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
         @Index(name = "MimeTypeUNameIdx_h", columnList = "safe_name", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFIntPU")
 public class CFIntJpaMimeTypeH
     implements ICFIntMimeTypeH, Comparable<Object>, Serializable

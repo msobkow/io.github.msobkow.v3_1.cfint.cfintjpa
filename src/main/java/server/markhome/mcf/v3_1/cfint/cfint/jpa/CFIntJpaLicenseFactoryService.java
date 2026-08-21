@@ -53,11 +53,13 @@ public class CFIntJpaLicenseFactoryService
     public CFIntJpaLicenseFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntLicenseHPKey newHPKey() {
         ICFIntLicenseHPKey hpkey = new CFIntJpaLicenseHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaLicenseHPKey ensureHPKey(ICFIntLicenseHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFIntJpaLicenseFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntLicenseByLicnTenantIdxKey newByLicnTenantIdxKey() {
 		ICFIntLicenseByLicnTenantIdxKey key = new CFIntJpaLicenseByLicnTenantIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaLicenseByLicnTenantIdxKey ensureByLicnTenantIdxKey(ICFIntLicenseByLicnTenantIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFIntJpaLicenseFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntLicenseByDomainIdxKey newByDomainIdxKey() {
 		ICFIntLicenseByDomainIdxKey key = new CFIntJpaLicenseByDomainIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaLicenseByDomainIdxKey ensureByDomainIdxKey(ICFIntLicenseByDomainIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFIntJpaLicenseFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntLicenseByUNameIdxKey newByUNameIdxKey() {
 		ICFIntLicenseByUNameIdxKey key = new CFIntJpaLicenseByUNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaLicenseByUNameIdxKey ensureByUNameIdxKey(ICFIntLicenseByUNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -138,11 +146,13 @@ public class CFIntJpaLicenseFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntLicense newRec() {
         ICFIntLicense rec = new CFIntJpaLicense();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaLicense ensureRec(ICFIntLicense rec) {
 		if( rec == null ) {
 			return( null );
@@ -170,6 +180,7 @@ public class CFIntJpaLicenseFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaLicenseH ensureHRec(ICFIntLicenseH hrec) {
 		if( hrec == null ) {
 			return( null );

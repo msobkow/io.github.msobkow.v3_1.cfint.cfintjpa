@@ -52,7 +52,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 		@Index(name = "MinorVersionMajorVersionIdxParentMajVer", columnList = "MajorVersionIdParentMajVer", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFIntPU")
 public class CFIntJpaMinorVersion
 	implements Comparable<Object>,

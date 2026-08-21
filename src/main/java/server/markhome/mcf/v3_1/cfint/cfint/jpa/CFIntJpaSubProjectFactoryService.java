@@ -53,11 +53,13 @@ public class CFIntJpaSubProjectFactoryService
     public CFIntJpaSubProjectFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntSubProjectHPKey newHPKey() {
         ICFIntSubProjectHPKey hpkey = new CFIntJpaSubProjectHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaSubProjectHPKey ensureHPKey(ICFIntSubProjectHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFIntJpaSubProjectFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntSubProjectByTenantIdxKey newByTenantIdxKey() {
 		ICFIntSubProjectByTenantIdxKey key = new CFIntJpaSubProjectByTenantIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaSubProjectByTenantIdxKey ensureByTenantIdxKey(ICFIntSubProjectByTenantIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFIntJpaSubProjectFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntSubProjectByTopProjectIdxKey newByTopProjectIdxKey() {
 		ICFIntSubProjectByTopProjectIdxKey key = new CFIntJpaSubProjectByTopProjectIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaSubProjectByTopProjectIdxKey ensureByTopProjectIdxKey(ICFIntSubProjectByTopProjectIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFIntJpaSubProjectFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntSubProjectByNameIdxKey newByNameIdxKey() {
 		ICFIntSubProjectByNameIdxKey key = new CFIntJpaSubProjectByNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaSubProjectByNameIdxKey ensureByNameIdxKey(ICFIntSubProjectByNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -138,11 +146,13 @@ public class CFIntJpaSubProjectFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntSubProject newRec() {
         ICFIntSubProject rec = new CFIntJpaSubProject();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaSubProject ensureRec(ICFIntSubProject rec) {
 		if( rec == null ) {
 			return( null );
@@ -170,6 +180,7 @@ public class CFIntJpaSubProjectFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaSubProjectH ensureHRec(ICFIntSubProjectH hrec) {
 		if( hrec == null ) {
 			return( null );

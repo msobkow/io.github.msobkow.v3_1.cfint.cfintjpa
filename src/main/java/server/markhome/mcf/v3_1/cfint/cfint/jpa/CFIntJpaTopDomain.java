@@ -52,7 +52,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 		@Index(name = "TopDomainTldIdxParentTld", columnList = "TldIdParentTld", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFIntPU")
 public class CFIntJpaTopDomain
 	implements Comparable<Object>,

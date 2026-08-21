@@ -52,7 +52,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 		@Index(name = "LicenseTopDomainIdxTopDomain", columnList = "TopDomainIdTopDomain", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFIntPU")
 public class CFIntJpaLicense
 	implements Comparable<Object>,

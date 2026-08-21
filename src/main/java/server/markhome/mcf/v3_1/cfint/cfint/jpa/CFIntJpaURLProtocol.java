@@ -50,7 +50,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 		@Index(name = "URLProtocolIsSecureIdx", columnList = "IsSecure", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFIntPU")
 public class CFIntJpaURLProtocol
 	implements Comparable<Object>,

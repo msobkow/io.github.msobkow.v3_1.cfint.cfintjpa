@@ -53,11 +53,13 @@ public class CFIntJpaMimeTypeFactoryService
     public CFIntJpaMimeTypeFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntMimeTypeHPKey newHPKey() {
         ICFIntMimeTypeHPKey hpkey = new CFIntJpaMimeTypeHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaMimeTypeHPKey ensureHPKey(ICFIntMimeTypeHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFIntJpaMimeTypeFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntMimeTypeByUNameIdxKey newByUNameIdxKey() {
 		ICFIntMimeTypeByUNameIdxKey key = new CFIntJpaMimeTypeByUNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaMimeTypeByUNameIdxKey ensureByUNameIdxKey(ICFIntMimeTypeByUNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFIntJpaMimeTypeFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntMimeType newRec() {
         ICFIntMimeType rec = new CFIntJpaMimeType();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaMimeType ensureRec(ICFIntMimeType rec) {
 		if( rec == null ) {
 			return( null );
@@ -129,6 +135,7 @@ public class CFIntJpaMimeTypeFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaMimeTypeH ensureHRec(ICFIntMimeTypeH hrec) {
 		if( hrec == null ) {
 			return( null );

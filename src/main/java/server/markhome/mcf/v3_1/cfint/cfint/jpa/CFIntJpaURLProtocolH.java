@@ -54,7 +54,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
         @Index(name = "URLProtocolIsSecureIdx_h", columnList = "IsSecure", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFIntPU")
 public class CFIntJpaURLProtocolH
     implements ICFIntURLProtocolH, Comparable<Object>, Serializable

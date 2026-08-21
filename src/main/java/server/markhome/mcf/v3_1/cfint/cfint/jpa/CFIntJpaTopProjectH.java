@@ -55,7 +55,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
         @Index(name = "TopProjectNameIdx_h", columnList = "TopDomainId, safe_name", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFIntPU")
 public class CFIntJpaTopProjectH
     implements ICFIntTopProjectH, Comparable<Object>, Serializable

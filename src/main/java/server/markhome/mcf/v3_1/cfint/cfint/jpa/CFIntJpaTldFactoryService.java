@@ -53,11 +53,13 @@ public class CFIntJpaTldFactoryService
     public CFIntJpaTldFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntTldHPKey newHPKey() {
         ICFIntTldHPKey hpkey = new CFIntJpaTldHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaTldHPKey ensureHPKey(ICFIntTldHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFIntJpaTldFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntTldByTenantIdxKey newByTenantIdxKey() {
 		ICFIntTldByTenantIdxKey key = new CFIntJpaTldByTenantIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaTldByTenantIdxKey ensureByTenantIdxKey(ICFIntTldByTenantIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFIntJpaTldFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntTldByNameIdxKey newByNameIdxKey() {
 		ICFIntTldByNameIdxKey key = new CFIntJpaTldByNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaTldByNameIdxKey ensureByNameIdxKey(ICFIntTldByNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFIntJpaTldFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
     public ICFIntTld newRec() {
         ICFIntTld rec = new CFIntJpaTld();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaTld ensureRec(ICFIntTld rec) {
 		if( rec == null ) {
 			return( null );
@@ -149,6 +157,7 @@ public class CFIntJpaTldFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
 	public CFIntJpaTldH ensureHRec(ICFIntTldH hrec) {
 		if( hrec == null ) {
 			return( null );
