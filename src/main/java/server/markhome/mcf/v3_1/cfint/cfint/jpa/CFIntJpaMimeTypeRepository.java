@@ -50,7 +50,7 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFIntJpaMimeTypeRepository extends JpaRepository<CFIntJpaMimeType, Integer> {
+public interface CFIntJpaMimeTypeRepository extends JpaRepository<CFIntJpaMimeType, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -64,7 +64,7 @@ public interface CFIntJpaMimeTypeRepository extends JpaRepository<CFIntJpaMimeTy
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFIntJpaMimeType r where r.requiredMimeTypeId = :mimeTypeId")
-	CFIntJpaMimeType get(@Param("mimeTypeId") int requiredMimeTypeId);
+	CFIntJpaMimeType get(@Param("mimeTypeId") $implIJavaAtomType$ requiredMimeTypeId);
 
 	// CFIntJpaMimeType specified index readers
 
@@ -76,7 +76,7 @@ public interface CFIntJpaMimeTypeRepository extends JpaRepository<CFIntJpaMimeTy
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFIntJpaMimeType r where r.requiredName = :name")
-	CFIntJpaMimeType findByUNameIdx(@Param("name") String requiredName);
+	CFIntJpaMimeType findByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFIntMimeTypeByUNameIdxKey entity reader convenience method for object-based access.
@@ -101,7 +101,7 @@ public interface CFIntJpaMimeTypeRepository extends JpaRepository<CFIntJpaMimeTy
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFIntJpaMimeType r where r.requiredMimeTypeId = :mimeTypeId")
-	CFIntJpaMimeType lockByIdIdx(@Param("mimeTypeId") int requiredMimeTypeId);
+	CFIntJpaMimeType lockByIdIdx(@Param("mimeTypeId") $implIJavaAtomType$ requiredMimeTypeId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -113,7 +113,7 @@ public interface CFIntJpaMimeTypeRepository extends JpaRepository<CFIntJpaMimeTy
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFIntJpaMimeType r where r.requiredName = :name")
-	CFIntJpaMimeType lockByUNameIdx(@Param("name") String requiredName);
+	CFIntJpaMimeType lockByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFIntMimeTypeByUNameIdxKey based lock method for object-based access.
@@ -136,7 +136,7 @@ public interface CFIntJpaMimeTypeRepository extends JpaRepository<CFIntJpaMimeTy
 	@Transactional
 	@Modifying
 	@Query("delete from CFIntJpaMimeType r where r.requiredMimeTypeId = :mimeTypeId")
-	void deleteByIdIdx(@Param("mimeTypeId") int requiredMimeTypeId);
+	void deleteByIdIdx(@Param("mimeTypeId") $implIJavaAtomType$ requiredMimeTypeId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -146,7 +146,7 @@ public interface CFIntJpaMimeTypeRepository extends JpaRepository<CFIntJpaMimeTy
 	@Transactional
 	@Modifying
 	@Query("delete from CFIntJpaMimeType r where r.requiredName = :name")
-	void deleteByUNameIdx(@Param("name") String requiredName);
+	void deleteByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFIntMimeTypeByUNameIdxKey based lock method for object-based access.

@@ -277,7 +277,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public void deleteMajorVersionByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ argKey )
 	{
 		final String S_ProcName = "deleteMajorVersionByIdIdx";
 		boolean permissionGranted = canDeleteMajorVersion(S_ProcName, Authorization);
@@ -297,7 +297,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public void deleteMajorVersionByTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$implIJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "deleteMajorVersionByTenantIdx";
 		boolean permissionGranted = canDeleteMajorVersion(S_ProcName, Authorization);
@@ -338,7 +338,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public void deleteMajorVersionBySubProjectIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSubProjectId )
+		$implIJavaAtomType$ argSubProjectId )
 	{
 		final String S_ProcName = "deleteMajorVersionBySubProjectIdx";
 		boolean permissionGranted = canDeleteMajorVersion(S_ProcName, Authorization);
@@ -381,8 +381,8 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public void deleteMajorVersionByNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSubProjectId,
-		String argName )
+		$implIJavaAtomType$ argSubProjectId,
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "deleteMajorVersionByNameIdx";
 		boolean permissionGranted = canDeleteMajorVersion(S_ProcName, Authorization);
@@ -429,7 +429,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
@@ -453,7 +453,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion lockDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateMajorVersion(S_ProcName, Authorization);
@@ -501,7 +501,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argId )
+		$implIJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -535,7 +535,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion[] readDerivedByTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$implIJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
 		boolean permissionGranted = false;
@@ -565,7 +565,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion[] readDerivedBySubProjectIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSubProjectId )
+		$implIJavaAtomType$ argSubProjectId )
 	{
 		final String S_ProcName = "readDerivedBySubProjectIdx";
 		boolean permissionGranted = false;
@@ -598,8 +598,8 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSubProjectId,
-		String argName )
+		$implIJavaAtomType$ argSubProjectId,
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -637,7 +637,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadMajorVersion(S_ProcName, Authorization);
@@ -662,7 +662,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion lockRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateMajorVersion(S_ProcName, Authorization);
@@ -706,7 +706,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argId )
+		$implIJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -732,7 +732,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion[] readRecByTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$implIJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
 		boolean permissionGranted = false;
@@ -758,7 +758,7 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion[] readRecBySubProjectIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSubProjectId )
+		$implIJavaAtomType$ argSubProjectId )
 	{
 		final String S_ProcName = "readRecBySubProjectIdx";
 		boolean permissionGranted = false;
@@ -787,8 +787,8 @@ public class CFIntJpaMajorVersionTable implements ICFIntMajorVersionTable
 	 */
 	@Override
 	public ICFIntMajorVersion readRecByNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSubProjectId,
-		String argName )
+		$implIJavaAtomType$ argSubProjectId,
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;

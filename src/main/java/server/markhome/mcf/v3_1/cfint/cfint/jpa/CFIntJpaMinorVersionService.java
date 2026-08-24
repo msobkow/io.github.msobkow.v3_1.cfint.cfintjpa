@@ -73,7 +73,7 @@ public class CFIntJpaMinorVersionService {
 		if (data == null) {
 			return( null );
 		}
-		ICFLibKeyHash256 originalRequiredId = data.getRequiredId();
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredId = data.getRequiredId();
 		boolean generatedRequiredId = false;
 		if (data.getRequiredOwnerTenant() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
@@ -116,8 +116,8 @@ public class CFIntJpaMinorVersionService {
 				"data.requiredName");
 		}
 		try {
-			if(data.getPKey() != null && !data.getPKey().isNull() && cfint31MinorVersionRepository.existsById((ICFLibKeyHash256)data.getPKey())) {
-				return( (CFIntJpaMinorVersion)(cfint31MinorVersionRepository.findById((ICFLibKeyHash256)(data.getPKey())).get()));
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfint31MinorVersionRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFIntJpaMinorVersion)(cfint31MinorVersionRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -201,7 +201,7 @@ public class CFIntJpaMinorVersionService {
 				"data.requiredName");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFIntJpaMinorVersion existing = cfint31MinorVersionRepository.findById((ICFLibKeyHash256)(data.getPKey()))
+		CFIntJpaMinorVersion existing = cfint31MinorVersionRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -228,7 +228,7 @@ public class CFIntJpaMinorVersionService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaMinorVersion find(@Param("id") ICFLibKeyHash256 requiredId) {
+	public CFIntJpaMinorVersion find(@Param("id") $implIJavaAtomType$ requiredId) {
 		return( cfint31MinorVersionRepository.get(requiredId));
 	}
 
@@ -252,7 +252,7 @@ public class CFIntJpaMinorVersionService {
 	 *		@return List&lt;CFIntJpaMinorVersion&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public List<CFIntJpaMinorVersion> findByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId) {
+	public List<CFIntJpaMinorVersion> findByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId) {
 		return( cfint31MinorVersionRepository.findByTenantIdx(requiredTenantId));
 	}
 
@@ -276,7 +276,7 @@ public class CFIntJpaMinorVersionService {
 	 *		@return List&lt;CFIntJpaMinorVersion&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public List<CFIntJpaMinorVersion> findByMajorVerIdx(@Param("majorVersionId") ICFLibKeyHash256 requiredMajorVersionId) {
+	public List<CFIntJpaMinorVersion> findByMajorVerIdx(@Param("majorVersionId") $implIJavaAtomType$ requiredMajorVersionId) {
 		return( cfint31MinorVersionRepository.findByMajorVerIdx(requiredMajorVersionId));
 	}
 
@@ -301,8 +301,8 @@ public class CFIntJpaMinorVersionService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaMinorVersion findByNameIdx(@Param("majorVersionId") ICFLibKeyHash256 requiredMajorVersionId,
-		@Param("name") String requiredName) {
+	public CFIntJpaMinorVersion findByNameIdx(@Param("majorVersionId") $implIJavaAtomType$ requiredMajorVersionId,
+		@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfint31MinorVersionRepository.findByNameIdx(requiredMajorVersionId,
 			requiredName));
 	}
@@ -329,7 +329,7 @@ public class CFIntJpaMinorVersionService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaMinorVersion lockByIdIdx(@Param("id") ICFLibKeyHash256 requiredId) {
+	public CFIntJpaMinorVersion lockByIdIdx(@Param("id") $implIJavaAtomType$ requiredId) {
 		return( cfint31MinorVersionRepository.lockByIdIdx(requiredId));
 	}
 
@@ -341,7 +341,7 @@ public class CFIntJpaMinorVersionService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public List<CFIntJpaMinorVersion> lockByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId) {
+	public List<CFIntJpaMinorVersion> lockByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId) {
 		return( cfint31MinorVersionRepository.lockByTenantIdx(requiredTenantId));
 	}
 
@@ -365,7 +365,7 @@ public class CFIntJpaMinorVersionService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public List<CFIntJpaMinorVersion> lockByMajorVerIdx(@Param("majorVersionId") ICFLibKeyHash256 requiredMajorVersionId) {
+	public List<CFIntJpaMinorVersion> lockByMajorVerIdx(@Param("majorVersionId") $implIJavaAtomType$ requiredMajorVersionId) {
 		return( cfint31MinorVersionRepository.lockByMajorVerIdx(requiredMajorVersionId));
 	}
 
@@ -390,8 +390,8 @@ public class CFIntJpaMinorVersionService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaMinorVersion lockByNameIdx(@Param("majorVersionId") ICFLibKeyHash256 requiredMajorVersionId,
-		@Param("name") String requiredName) {
+	public CFIntJpaMinorVersion lockByNameIdx(@Param("majorVersionId") $implIJavaAtomType$ requiredMajorVersionId,
+		@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfint31MinorVersionRepository.lockByNameIdx(requiredMajorVersionId,
 			requiredName));
 	}
@@ -416,7 +416,7 @@ public class CFIntJpaMinorVersionService {
 	 *		@param requiredId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public void deleteByIdIdx(@Param("id") ICFLibKeyHash256 requiredId) {
+	public void deleteByIdIdx(@Param("id") $implIJavaAtomType$ requiredId) {
 		cfint31MinorVersionRepository.deleteByIdIdx(requiredId);
 	}
 
@@ -426,7 +426,7 @@ public class CFIntJpaMinorVersionService {
 	 *		@param requiredTenantId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public void deleteByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId) {
+	public void deleteByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId) {
 		cfint31MinorVersionRepository.deleteByTenantIdx(requiredTenantId);
 	}
 
@@ -446,7 +446,7 @@ public class CFIntJpaMinorVersionService {
 	 *		@param requiredMajorVersionId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public void deleteByMajorVerIdx(@Param("majorVersionId") ICFLibKeyHash256 requiredMajorVersionId) {
+	public void deleteByMajorVerIdx(@Param("majorVersionId") $implIJavaAtomType$ requiredMajorVersionId) {
 		cfint31MinorVersionRepository.deleteByMajorVerIdx(requiredMajorVersionId);
 	}
 
@@ -467,8 +467,8 @@ public class CFIntJpaMinorVersionService {
 	 *		@param requiredName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public void deleteByNameIdx(@Param("majorVersionId") ICFLibKeyHash256 requiredMajorVersionId,
-		@Param("name") String requiredName) {
+	public void deleteByNameIdx(@Param("majorVersionId") $implIJavaAtomType$ requiredMajorVersionId,
+		@Param("name") $implIJavaAtomType$ requiredName) {
 		cfint31MinorVersionRepository.deleteByNameIdx(requiredMajorVersionId,
 			requiredName);
 	}

@@ -57,12 +57,12 @@ public class CFIntJpaLicenseH
 		@AttributeOverride(name="Id", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
     protected CFIntJpaLicenseHPKey pkey;
-	protected ICFLibKeyHash256 requiredTenantId;
-	protected ICFLibKeyHash256 requiredTopDomainId;
-	protected String requiredName;
-	protected String optionalDescription;
-	protected String optionalEmbeddedText;
-	protected String optionalFullText;
+	protected $implIJavaAtomType$ requiredTenantId;
+	protected $implIJavaAtomType$ requiredTopDomainId;
+	protected $implIJavaAtomType$ requiredName;
+	protected $implIJavaAtomType$ optionalDescription;
+	protected $implIJavaAtomType$ optionalEmbeddedText;
+	protected $implIJavaAtomType$ optionalFullText;
 
     public CFIntJpaLicenseH() {
             // The primary key member attributes are initialized on construction
@@ -148,21 +148,21 @@ public class CFIntJpaLicenseH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( ICFLibKeyHash256 requiredId ) {
+    public void setRequiredId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 
 	@Override
-	public ICFLibKeyHash256 getRequiredTenantId() {
+	public $implIJavaAtomType$ getRequiredTenantId() {
 		return(requiredTenantId);
 	}
 
-	public void setRequiredTenantId( ICFLibKeyHash256 value ) {
+	public void setRequiredTenantId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTenantId",
@@ -173,11 +173,11 @@ public class CFIntJpaLicenseH
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredTopDomainId() {
+	public $implIJavaAtomType$ getRequiredTopDomainId() {
 		return(requiredTopDomainId);
 	}
 
-	public void setRequiredTopDomainId( ICFLibKeyHash256 value ) {
+	public void setRequiredTopDomainId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTopDomainId",
@@ -188,11 +188,11 @@ public class CFIntJpaLicenseH
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",
@@ -211,11 +211,11 @@ public class CFIntJpaLicenseH
 	}
 
 	@Override
-	public String getOptionalDescription() {
+	public $implIJavaAtomType$ getOptionalDescription() {
 		return(optionalDescription);
 	}
 
-	public void setOptionalDescription( String value ) {
+	public void setOptionalDescription( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 1024 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
@@ -228,11 +228,11 @@ public class CFIntJpaLicenseH
 	}
 
 	@Override
-	public String getOptionalEmbeddedText() {
+	public $implIJavaAtomType$ getOptionalEmbeddedText() {
 		return(optionalEmbeddedText);
 	}
 
-	public void setOptionalEmbeddedText( String value ) {
+	public void setOptionalEmbeddedText( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 8000 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalEmbeddedText",
@@ -245,11 +245,11 @@ public class CFIntJpaLicenseH
 	}
 
 	@Override
-	public String getOptionalFullText() {
+	public $implIJavaAtomType$ getOptionalFullText() {
 		return(optionalFullText);
 	}
 
-	public void setOptionalFullText( String value ) {
+	public void setOptionalFullText( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 8000 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalFullText",

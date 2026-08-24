@@ -73,7 +73,7 @@ public class CFIntJpaLicenseService {
 		if (data == null) {
 			return( null );
 		}
-		ICFLibKeyHash256 originalRequiredId = data.getRequiredId();
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredId = data.getRequiredId();
 		boolean generatedRequiredId = false;
 		if (data.getRequiredOwnerTenant() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
@@ -116,8 +116,8 @@ public class CFIntJpaLicenseService {
 				"data.requiredName");
 		}
 		try {
-			if(data.getPKey() != null && !data.getPKey().isNull() && cfint31LicenseRepository.existsById((ICFLibKeyHash256)data.getPKey())) {
-				return( (CFIntJpaLicense)(cfint31LicenseRepository.findById((ICFLibKeyHash256)(data.getPKey())).get()));
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfint31LicenseRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFIntJpaLicense)(cfint31LicenseRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -198,7 +198,7 @@ public class CFIntJpaLicenseService {
 				"data.requiredName");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFIntJpaLicense existing = cfint31LicenseRepository.findById((ICFLibKeyHash256)(data.getPKey()))
+		CFIntJpaLicense existing = cfint31LicenseRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -225,7 +225,7 @@ public class CFIntJpaLicenseService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaLicense find(@Param("id") ICFLibKeyHash256 requiredId) {
+	public CFIntJpaLicense find(@Param("id") $implIJavaAtomType$ requiredId) {
 		return( cfint31LicenseRepository.get(requiredId));
 	}
 
@@ -249,7 +249,7 @@ public class CFIntJpaLicenseService {
 	 *		@return List&lt;CFIntJpaLicense&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public List<CFIntJpaLicense> findByLicnTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId) {
+	public List<CFIntJpaLicense> findByLicnTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId) {
 		return( cfint31LicenseRepository.findByLicnTenantIdx(requiredTenantId));
 	}
 
@@ -273,7 +273,7 @@ public class CFIntJpaLicenseService {
 	 *		@return List&lt;CFIntJpaLicense&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public List<CFIntJpaLicense> findByDomainIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId) {
+	public List<CFIntJpaLicense> findByDomainIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId) {
 		return( cfint31LicenseRepository.findByDomainIdx(requiredTopDomainId));
 	}
 
@@ -298,8 +298,8 @@ public class CFIntJpaLicenseService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaLicense findByUNameIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId,
-		@Param("name") String requiredName) {
+	public CFIntJpaLicense findByUNameIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId,
+		@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfint31LicenseRepository.findByUNameIdx(requiredTopDomainId,
 			requiredName));
 	}
@@ -326,7 +326,7 @@ public class CFIntJpaLicenseService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaLicense lockByIdIdx(@Param("id") ICFLibKeyHash256 requiredId) {
+	public CFIntJpaLicense lockByIdIdx(@Param("id") $implIJavaAtomType$ requiredId) {
 		return( cfint31LicenseRepository.lockByIdIdx(requiredId));
 	}
 
@@ -338,7 +338,7 @@ public class CFIntJpaLicenseService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public List<CFIntJpaLicense> lockByLicnTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId) {
+	public List<CFIntJpaLicense> lockByLicnTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId) {
 		return( cfint31LicenseRepository.lockByLicnTenantIdx(requiredTenantId));
 	}
 
@@ -362,7 +362,7 @@ public class CFIntJpaLicenseService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public List<CFIntJpaLicense> lockByDomainIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId) {
+	public List<CFIntJpaLicense> lockByDomainIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId) {
 		return( cfint31LicenseRepository.lockByDomainIdx(requiredTopDomainId));
 	}
 
@@ -387,8 +387,8 @@ public class CFIntJpaLicenseService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaLicense lockByUNameIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId,
-		@Param("name") String requiredName) {
+	public CFIntJpaLicense lockByUNameIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId,
+		@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfint31LicenseRepository.lockByUNameIdx(requiredTopDomainId,
 			requiredName));
 	}
@@ -413,7 +413,7 @@ public class CFIntJpaLicenseService {
 	 *		@param requiredId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public void deleteByIdIdx(@Param("id") ICFLibKeyHash256 requiredId) {
+	public void deleteByIdIdx(@Param("id") $implIJavaAtomType$ requiredId) {
 		cfint31LicenseRepository.deleteByIdIdx(requiredId);
 	}
 
@@ -423,7 +423,7 @@ public class CFIntJpaLicenseService {
 	 *		@param requiredTenantId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public void deleteByLicnTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId) {
+	public void deleteByLicnTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId) {
 		cfint31LicenseRepository.deleteByLicnTenantIdx(requiredTenantId);
 	}
 
@@ -443,7 +443,7 @@ public class CFIntJpaLicenseService {
 	 *		@param requiredTopDomainId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public void deleteByDomainIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId) {
+	public void deleteByDomainIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId) {
 		cfint31LicenseRepository.deleteByDomainIdx(requiredTopDomainId);
 	}
 
@@ -464,8 +464,8 @@ public class CFIntJpaLicenseService {
 	 *		@param requiredName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public void deleteByUNameIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId,
-		@Param("name") String requiredName) {
+	public void deleteByUNameIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId,
+		@Param("name") $implIJavaAtomType$ requiredName) {
 		cfint31LicenseRepository.deleteByUNameIdx(requiredTopDomainId,
 			requiredName);
 	}

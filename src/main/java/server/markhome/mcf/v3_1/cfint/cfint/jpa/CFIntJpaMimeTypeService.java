@@ -73,7 +73,7 @@ public class CFIntJpaMimeTypeService {
 		if (data == null) {
 			return( null );
 		}
-		int originalRequiredMimeTypeId = data.getRequiredMimeTypeId();
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredMimeTypeId = data.getRequiredMimeTypeId();
 		boolean generatedRequiredMimeTypeId = false;
 		if(data.getRequiredName() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -82,8 +82,8 @@ public class CFIntJpaMimeTypeService {
 				"data.requiredName");
 		}
 		try {
-			if(data.getPKey() != null && cfint31MimeTypeRepository.existsById((Integer)data.getPKey())) {
-				return( (CFIntJpaMimeType)(cfint31MimeTypeRepository.findById((Integer)(data.getPKey())).get()));
+			if(data.getPKey() != null && cfint31MimeTypeRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFIntJpaMimeType)(cfint31MimeTypeRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -129,7 +129,7 @@ public class CFIntJpaMimeTypeService {
 				"data.requiredName");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFIntJpaMimeType existing = cfint31MimeTypeRepository.findById((Integer)(data.getPKey()))
+		CFIntJpaMimeType existing = cfint31MimeTypeRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -152,7 +152,7 @@ public class CFIntJpaMimeTypeService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaMimeType find(@Param("mimeTypeId") int requiredMimeTypeId) {
+	public CFIntJpaMimeType find(@Param("mimeTypeId") $implIJavaAtomType$ requiredMimeTypeId) {
 		return( cfint31MimeTypeRepository.get(requiredMimeTypeId));
 	}
 
@@ -176,7 +176,7 @@ public class CFIntJpaMimeTypeService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaMimeType findByUNameIdx(@Param("name") String requiredName) {
+	public CFIntJpaMimeType findByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfint31MimeTypeRepository.findByUNameIdx(requiredName));
 	}
 
@@ -202,7 +202,7 @@ public class CFIntJpaMimeTypeService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaMimeType lockByIdIdx(@Param("mimeTypeId") int requiredMimeTypeId) {
+	public CFIntJpaMimeType lockByIdIdx(@Param("mimeTypeId") $implIJavaAtomType$ requiredMimeTypeId) {
 		return( cfint31MimeTypeRepository.lockByIdIdx(requiredMimeTypeId));
 	}
 
@@ -214,7 +214,7 @@ public class CFIntJpaMimeTypeService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public CFIntJpaMimeType lockByUNameIdx(@Param("name") String requiredName) {
+	public CFIntJpaMimeType lockByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfint31MimeTypeRepository.lockByUNameIdx(requiredName));
 	}
 
@@ -238,7 +238,7 @@ public class CFIntJpaMimeTypeService {
 	 *		@param requiredMimeTypeId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public void deleteByIdIdx(@Param("mimeTypeId") int requiredMimeTypeId) {
+	public void deleteByIdIdx(@Param("mimeTypeId") $implIJavaAtomType$ requiredMimeTypeId) {
 		cfint31MimeTypeRepository.deleteByIdIdx(requiredMimeTypeId);
 	}
 
@@ -248,7 +248,7 @@ public class CFIntJpaMimeTypeService {
 	 *		@param requiredName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfint31TransactionManager")
-	public void deleteByUNameIdx(@Param("name") String requiredName) {
+	public void deleteByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName) {
 		cfint31MimeTypeRepository.deleteByUNameIdx(requiredName);
 	}
 

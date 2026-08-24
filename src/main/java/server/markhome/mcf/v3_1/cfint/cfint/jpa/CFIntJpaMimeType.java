@@ -60,7 +60,7 @@ public class CFIntJpaMimeType
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="MimeTypeIdGenSeq")
 	@SequenceGenerator(name = "MimeTypeIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFInt31")
 	@Column( name="MimeTypeId", nullable=false )
-	protected int requiredMimeTypeId;
+	protected $implIJavaAtomType$ requiredMimeTypeId;
 	protected int requiredRevision;
 
 
@@ -90,9 +90,9 @@ public class CFIntJpaMimeType
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=128 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 	@Column( name="FileTypes", nullable=true, length=128 )
-	protected String optionalFileTypes;
+	protected $implIJavaAtomType$ optionalFileTypes;
 
 	public CFIntJpaMimeType() {
 		requiredMimeTypeId = ICFIntPubMimeType.MIMETYPEID_INIT_VALUE;
@@ -158,22 +158,22 @@ public class CFIntJpaMimeType
 	}
 
 	@Override
-	public Integer getPKey() {
+	public $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredMimeTypeId();
 	}
 
 	@Override
-	public void setPKey(Integer requiredMimeTypeId) {
+	public void setPKey($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ requiredMimeTypeId) {
 		this.requiredMimeTypeId = requiredMimeTypeId;
 	}
 
 	@Override
-	public int getRequiredMimeTypeId() {
+	public $implIJavaAtomType$ getRequiredMimeTypeId() {
 		return(getPKey().getRequiredMimeTypeId());
 	}
 
 	@Override
-	public void setRequiredMimeTypeId( int value ) {
+	public void setRequiredMimeTypeId( $implIJavaAtomType$ value ) {
 		if( value < ICFIntPubMimeType.MIMETYPEID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredMimeTypeId",
@@ -196,11 +196,11 @@ public class CFIntJpaMimeType
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",
@@ -219,11 +219,11 @@ public class CFIntJpaMimeType
 	}
 
 	@Override
-	public String getOptionalFileTypes() {
+	public $implIJavaAtomType$ getOptionalFileTypes() {
 		return(optionalFileTypes);
 	}
 
-	public void setOptionalFileTypes( String value ) {
+	public void setOptionalFileTypes( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 128 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalFileTypes",

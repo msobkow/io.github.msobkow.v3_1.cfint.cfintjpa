@@ -94,9 +94,9 @@ public class CFIntJpaMimeTypeH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=128 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 	@Column( name="FileTypes", nullable=true, length=128 )
-	protected String optionalFileTypes;
+	protected $implIJavaAtomType$ optionalFileTypes;
 
     public CFIntJpaMimeTypeH() {
             // The primary key member attributes are initialized on construction
@@ -230,21 +230,21 @@ public class CFIntJpaMimeTypeH
     }
 
     @Override
-    public int getRequiredMimeTypeId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredMimeTypeId() {
         return( pkey.getRequiredMimeTypeId() );
     }
 
     @Override
-    public void setRequiredMimeTypeId( int requiredMimeTypeId ) {
+    public void setRequiredMimeTypeId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredMimeTypeId ) {
         pkey.setRequiredMimeTypeId( requiredMimeTypeId );
     }
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",
@@ -263,11 +263,11 @@ public class CFIntJpaMimeTypeH
 	}
 
 	@Override
-	public String getOptionalFileTypes() {
+	public $implIJavaAtomType$ getOptionalFileTypes() {
 		return(optionalFileTypes);
 	}
 
-	public void setOptionalFileTypes( String value ) {
+	public void setOptionalFileTypes( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 128 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalFileTypes",

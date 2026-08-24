@@ -50,7 +50,7 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense, ICFLibKeyHash256> {
+public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -64,7 +64,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFIntJpaLicense r where r.requiredId = :id")
-	CFIntJpaLicense get(@Param("id") ICFLibKeyHash256 requiredId);
+	CFIntJpaLicense get(@Param("id") $implIJavaAtomType$ requiredId);
 
 	// CFIntJpaLicense specified index readers
 
@@ -76,7 +76,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	 *		@return List&lt;CFIntJpaLicense&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFIntJpaLicense r where r.requiredTenantId = :tenantId")
-	List<CFIntJpaLicense> findByLicnTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	List<CFIntJpaLicense> findByLicnTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFIntLicenseByLicnTenantIdxKey entity list reader convenience method for object-based access.
@@ -97,7 +97,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	 *		@return List&lt;CFIntJpaLicense&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFIntJpaLicense r where r.requiredContainerTopDomain.requiredId = :topDomainId")
-	List<CFIntJpaLicense> findByDomainIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId);
+	List<CFIntJpaLicense> findByDomainIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId);
 
 	/**
 	 *	CFIntLicenseByDomainIdxKey entity list reader convenience method for object-based access.
@@ -119,8 +119,8 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFIntJpaLicense r where r.requiredContainerTopDomain.requiredId = :topDomainId and r.requiredName = :name")
-	CFIntJpaLicense findByUNameIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId,
-		@Param("name") String requiredName);
+	CFIntJpaLicense findByUNameIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFIntLicenseByUNameIdxKey entity reader convenience method for object-based access.
@@ -145,7 +145,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFIntJpaLicense r where r.requiredId = :id")
-	CFIntJpaLicense lockByIdIdx(@Param("id") ICFLibKeyHash256 requiredId);
+	CFIntJpaLicense lockByIdIdx(@Param("id") $implIJavaAtomType$ requiredId);
 
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -157,7 +157,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFIntJpaLicense r where r.requiredTenantId = :tenantId")
-	List<CFIntJpaLicense> lockByLicnTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	List<CFIntJpaLicense> lockByLicnTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFIntLicenseByLicnTenantIdxKey based lock method for object-based access.
@@ -180,7 +180,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFIntJpaLicense r where r.requiredContainerTopDomain.requiredId = :topDomainId")
-	List<CFIntJpaLicense> lockByDomainIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId);
+	List<CFIntJpaLicense> lockByDomainIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId);
 
 	/**
 	 *	CFIntLicenseByDomainIdxKey based lock method for object-based access.
@@ -204,8 +204,8 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFIntJpaLicense r where r.requiredContainerTopDomain.requiredId = :topDomainId and r.requiredName = :name")
-	CFIntJpaLicense lockByUNameIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId,
-		@Param("name") String requiredName);
+	CFIntJpaLicense lockByUNameIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFIntLicenseByUNameIdxKey based lock method for object-based access.
@@ -228,7 +228,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	@Transactional
 	@Modifying
 	@Query("delete from CFIntJpaLicense r where r.requiredId = :id")
-	void deleteByIdIdx(@Param("id") ICFLibKeyHash256 requiredId);
+	void deleteByIdIdx(@Param("id") $implIJavaAtomType$ requiredId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -238,7 +238,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	@Transactional
 	@Modifying
 	@Query("delete from CFIntJpaLicense r where r.requiredTenantId = :tenantId")
-	void deleteByLicnTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	void deleteByLicnTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFIntLicenseByLicnTenantIdxKey based lock method for object-based access.
@@ -257,7 +257,7 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	@Transactional
 	@Modifying
 	@Query("delete from CFIntJpaLicense r where r.requiredContainerTopDomain.requiredId = :topDomainId")
-	void deleteByDomainIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId);
+	void deleteByDomainIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId);
 
 	/**
 	 *	CFIntLicenseByDomainIdxKey based lock method for object-based access.
@@ -277,8 +277,8 @@ public interface CFIntJpaLicenseRepository extends JpaRepository<CFIntJpaLicense
 	@Transactional
 	@Modifying
 	@Query("delete from CFIntJpaLicense r where r.requiredContainerTopDomain.requiredId = :topDomainId and r.requiredName = :name")
-	void deleteByUNameIdx(@Param("topDomainId") ICFLibKeyHash256 requiredTopDomainId,
-		@Param("name") String requiredName);
+	void deleteByUNameIdx(@Param("topDomainId") $implIJavaAtomType$ requiredTopDomainId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFIntLicenseByUNameIdxKey based lock method for object-based access.

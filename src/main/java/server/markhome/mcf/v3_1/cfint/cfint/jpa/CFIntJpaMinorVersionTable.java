@@ -277,7 +277,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public void deleteMinorVersionByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ argKey )
 	{
 		final String S_ProcName = "deleteMinorVersionByIdIdx";
 		boolean permissionGranted = canDeleteMinorVersion(S_ProcName, Authorization);
@@ -297,7 +297,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public void deleteMinorVersionByTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$implIJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "deleteMinorVersionByTenantIdx";
 		boolean permissionGranted = canDeleteMinorVersion(S_ProcName, Authorization);
@@ -338,7 +338,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public void deleteMinorVersionByMajorVerIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argMajorVersionId )
+		$implIJavaAtomType$ argMajorVersionId )
 	{
 		final String S_ProcName = "deleteMinorVersionByMajorVerIdx";
 		boolean permissionGranted = canDeleteMinorVersion(S_ProcName, Authorization);
@@ -381,8 +381,8 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public void deleteMinorVersionByNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argMajorVersionId,
-		String argName )
+		$implIJavaAtomType$ argMajorVersionId,
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "deleteMinorVersionByNameIdx";
 		boolean permissionGranted = canDeleteMinorVersion(S_ProcName, Authorization);
@@ -429,7 +429,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadMinorVersion(S_ProcName, Authorization);
@@ -453,7 +453,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion lockDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateMinorVersion(S_ProcName, Authorization);
@@ -501,7 +501,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argId )
+		$implIJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -535,7 +535,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion[] readDerivedByTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$implIJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readDerivedByTenantIdx";
 		boolean permissionGranted = false;
@@ -565,7 +565,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion[] readDerivedByMajorVerIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argMajorVersionId )
+		$implIJavaAtomType$ argMajorVersionId )
 	{
 		final String S_ProcName = "readDerivedByMajorVerIdx";
 		boolean permissionGranted = false;
@@ -598,8 +598,8 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argMajorVersionId,
-		String argName )
+		$implIJavaAtomType$ argMajorVersionId,
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -637,7 +637,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadMinorVersion(S_ProcName, Authorization);
@@ -662,7 +662,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion lockRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateMinorVersion(S_ProcName, Authorization);
@@ -706,7 +706,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argId )
+		$implIJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -732,7 +732,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion[] readRecByTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$implIJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readRecByTenantIdx";
 		boolean permissionGranted = false;
@@ -758,7 +758,7 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion[] readRecByMajorVerIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argMajorVersionId )
+		$implIJavaAtomType$ argMajorVersionId )
 	{
 		final String S_ProcName = "readRecByMajorVerIdx";
 		boolean permissionGranted = false;
@@ -787,8 +787,8 @@ public class CFIntJpaMinorVersionTable implements ICFIntMinorVersionTable
 	 */
 	@Override
 	public ICFIntMinorVersion readRecByNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argMajorVersionId,
-		String argName )
+		$implIJavaAtomType$ argMajorVersionId,
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;

@@ -271,7 +271,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public void deleteLicenseByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ argKey )
 	{
 		final String S_ProcName = "deleteLicenseByIdIdx";
 		boolean permissionGranted = canDeleteLicense(S_ProcName, Authorization);
@@ -291,7 +291,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public void deleteLicenseByLicnTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$implIJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "deleteLicenseByLicnTenantIdx";
 		boolean permissionGranted = canDeleteLicense(S_ProcName, Authorization);
@@ -332,7 +332,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public void deleteLicenseByDomainIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTopDomainId )
+		$implIJavaAtomType$ argTopDomainId )
 	{
 		final String S_ProcName = "deleteLicenseByDomainIdx";
 		boolean permissionGranted = canDeleteLicense(S_ProcName, Authorization);
@@ -375,8 +375,8 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public void deleteLicenseByUNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTopDomainId,
-		String argName )
+		$implIJavaAtomType$ argTopDomainId,
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "deleteLicenseByUNameIdx";
 		boolean permissionGranted = canDeleteLicense(S_ProcName, Authorization);
@@ -423,7 +423,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadLicense(S_ProcName, Authorization);
@@ -447,7 +447,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense lockDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateLicense(S_ProcName, Authorization);
@@ -495,7 +495,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argId )
+		$implIJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -529,7 +529,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense[] readDerivedByLicnTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$implIJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readDerivedByLicnTenantIdx";
 		boolean permissionGranted = false;
@@ -559,7 +559,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense[] readDerivedByDomainIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTopDomainId )
+		$implIJavaAtomType$ argTopDomainId )
 	{
 		final String S_ProcName = "readDerivedByDomainIdx";
 		boolean permissionGranted = false;
@@ -592,8 +592,8 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTopDomainId,
-		String argName )
+		$implIJavaAtomType$ argTopDomainId,
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
 		boolean permissionGranted = false;
@@ -631,7 +631,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadLicense(S_ProcName, Authorization);
@@ -656,7 +656,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense lockRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateLicense(S_ProcName, Authorization);
@@ -700,7 +700,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argId )
+		$implIJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -726,7 +726,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense[] readRecByLicnTenantIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTenantId )
+		$implIJavaAtomType$ argTenantId )
 	{
 		final String S_ProcName = "readRecByLicnTenantIdx";
 		boolean permissionGranted = false;
@@ -752,7 +752,7 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense[] readRecByDomainIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTopDomainId )
+		$implIJavaAtomType$ argTopDomainId )
 	{
 		final String S_ProcName = "readRecByDomainIdx";
 		boolean permissionGranted = false;
@@ -781,8 +781,8 @@ public class CFIntJpaLicenseTable implements ICFIntLicenseTable
 	 */
 	@Override
 	public ICFIntLicense readRecByUNameIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argTopDomainId,
-		String argName )
+		$implIJavaAtomType$ argTopDomainId,
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
 		boolean permissionGranted = false;

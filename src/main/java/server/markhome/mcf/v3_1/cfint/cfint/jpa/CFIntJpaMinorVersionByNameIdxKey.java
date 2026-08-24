@@ -44,19 +44,19 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.*;
 public class CFIntJpaMinorVersionByNameIdxKey
 	implements ICFIntMinorVersionByNameIdxKey, Comparable<Object>, Serializable
 {
-	protected ICFLibKeyHash256 requiredMajorVersionId;
-	protected String requiredName;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredMajorVersionId;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredName;
 	public CFIntJpaMinorVersionByNameIdxKey() {
 		requiredMajorVersionId = CFLibDbKeyHash256.fromHex( ICFIntPubMinorVersion.MAJORVERSIONID_INIT_VALUE.toString() );
 		requiredName = ICFIntPubMinorVersion.NAME_INIT_VALUE;
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredMajorVersionId() {
+	public $implIJavaAtomType$ getRequiredMajorVersionId() {
 		return(requiredMajorVersionId);
 	}
 
-	public void setRequiredMajorVersionId( ICFLibKeyHash256 value ) {
+	public void setRequiredMajorVersionId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredMajorVersionId",
@@ -67,11 +67,11 @@ public class CFIntJpaMinorVersionByNameIdxKey
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",

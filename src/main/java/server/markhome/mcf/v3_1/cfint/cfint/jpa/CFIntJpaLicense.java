@@ -63,7 +63,7 @@ public class CFIntJpaLicense
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredId;
+	protected $implIJavaAtomType$ requiredId;
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -73,19 +73,19 @@ public class CFIntJpaLicense
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredTenantId;
+	protected $implIJavaAtomType$ requiredTenantId;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TopDomainId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredTopDomainId;
+	protected $implIJavaAtomType$ requiredTopDomainId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 	@Column( name="descr", nullable=true, length=1024 )
-	protected String optionalDescription;
+	protected $implIJavaAtomType$ optionalDescription;
 	@Column( name="EmbeddedText", nullable=true, length=8000 )
-	protected String optionalEmbeddedText;
+	protected $implIJavaAtomType$ optionalEmbeddedText;
 	@Column( name="FullTxt", nullable=true, length=8000 )
-	protected String optionalFullText;
+	protected $implIJavaAtomType$ optionalFullText;
 
 	public CFIntJpaLicense() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFIntPubLicense.ID_INIT_VALUE.toString() );
@@ -127,7 +127,7 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(ICFLibKeyHash256 argTenantId) {
+	public void setRequiredOwnerTenant($implIJavaAtomType$ argTenantId) {
 		requiredTenantId = argTenantId;
 	}
 
@@ -165,7 +165,7 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public void setRequiredContainerTopDomain(ICFLibKeyHash256 argTopDomainId) {
+	public void setRequiredContainerTopDomain($implIJavaAtomType$ argTopDomainId) {
 		ICFIntSchema targetBackingSchema = ICFIntSchema.getBackingCFInt();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerTopDomain", 0, "ICFIntSchema.getBackingCFInt()");
@@ -179,21 +179,21 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public ICFLibKeyHash256 getPKey() {
+	public $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey(ICFLibKeyHash256 requiredId) {
+	public void setPKey($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ requiredId) {
 		this.requiredId = requiredId;
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredId() {
+	public $implIJavaAtomType$ getRequiredId() {
 		return(getPKey().getRequiredId());
 	}
 
-	public void setRequiredId( ICFLibKeyHash256 value ) {
+	public void setRequiredId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredId",
@@ -214,11 +214,11 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredTenantId() {
+	public $implIJavaAtomType$ getRequiredTenantId() {
 		return(requiredTenantId);
 	}
 
-	public void setRequiredTenantId( ICFLibKeyHash256 value ) {
+	public void setRequiredTenantId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTenantId",
@@ -229,11 +229,11 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredTopDomainId() {
+	public $implIJavaAtomType$ getRequiredTopDomainId() {
 		return(requiredTopDomainId);
 	}
 
-	public void setRequiredTopDomainId( ICFLibKeyHash256 value ) {
+	public void setRequiredTopDomainId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTopDomainId",
@@ -244,11 +244,11 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",
@@ -267,11 +267,11 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public String getOptionalDescription() {
+	public $implIJavaAtomType$ getOptionalDescription() {
 		return(optionalDescription);
 	}
 
-	public void setOptionalDescription( String value ) {
+	public void setOptionalDescription( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 1024 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
@@ -284,11 +284,11 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public String getOptionalEmbeddedText() {
+	public $implIJavaAtomType$ getOptionalEmbeddedText() {
 		return(optionalEmbeddedText);
 	}
 
-	public void setOptionalEmbeddedText( String value ) {
+	public void setOptionalEmbeddedText( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 8000 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalEmbeddedText",
@@ -301,11 +301,11 @@ public class CFIntJpaLicense
 	}
 
 	@Override
-	public String getOptionalFullText() {
+	public $implIJavaAtomType$ getOptionalFullText() {
 		return(optionalFullText);
 	}
 
-	public void setOptionalFullText( String value ) {
+	public void setOptionalFullText( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 8000 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalFullText",

@@ -50,7 +50,7 @@ import server.markhome.mcf.v3_1.cfint.cfint.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMajorVersion, ICFLibKeyHash256> {
+public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMajorVersion, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -64,7 +64,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFIntJpaMajorVersion r where r.requiredId = :id")
-	CFIntJpaMajorVersion get(@Param("id") ICFLibKeyHash256 requiredId);
+	CFIntJpaMajorVersion get(@Param("id") $implIJavaAtomType$ requiredId);
 
 	// CFIntJpaMajorVersion specified index readers
 
@@ -76,7 +76,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	 *		@return List&lt;CFIntJpaMajorVersion&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFIntJpaMajorVersion r where r.requiredTenantId = :tenantId")
-	List<CFIntJpaMajorVersion> findByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	List<CFIntJpaMajorVersion> findByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFIntMajorVersionByTenantIdxKey entity list reader convenience method for object-based access.
@@ -97,7 +97,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	 *		@return List&lt;CFIntJpaMajorVersion&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFIntJpaMajorVersion r where r.requiredContainerParentSPrj.requiredId = :subProjectId")
-	List<CFIntJpaMajorVersion> findBySubProjectIdx(@Param("subProjectId") ICFLibKeyHash256 requiredSubProjectId);
+	List<CFIntJpaMajorVersion> findBySubProjectIdx(@Param("subProjectId") $implIJavaAtomType$ requiredSubProjectId);
 
 	/**
 	 *	CFIntMajorVersionBySubProjectIdxKey entity list reader convenience method for object-based access.
@@ -119,8 +119,8 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFIntJpaMajorVersion r where r.requiredContainerParentSPrj.requiredId = :subProjectId and r.requiredName = :name")
-	CFIntJpaMajorVersion findByNameIdx(@Param("subProjectId") ICFLibKeyHash256 requiredSubProjectId,
-		@Param("name") String requiredName);
+	CFIntJpaMajorVersion findByNameIdx(@Param("subProjectId") $implIJavaAtomType$ requiredSubProjectId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFIntMajorVersionByNameIdxKey entity reader convenience method for object-based access.
@@ -145,7 +145,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFIntJpaMajorVersion r where r.requiredId = :id")
-	CFIntJpaMajorVersion lockByIdIdx(@Param("id") ICFLibKeyHash256 requiredId);
+	CFIntJpaMajorVersion lockByIdIdx(@Param("id") $implIJavaAtomType$ requiredId);
 
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -157,7 +157,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFIntJpaMajorVersion r where r.requiredTenantId = :tenantId")
-	List<CFIntJpaMajorVersion> lockByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	List<CFIntJpaMajorVersion> lockByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFIntMajorVersionByTenantIdxKey based lock method for object-based access.
@@ -180,7 +180,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFIntJpaMajorVersion r where r.requiredContainerParentSPrj.requiredId = :subProjectId")
-	List<CFIntJpaMajorVersion> lockBySubProjectIdx(@Param("subProjectId") ICFLibKeyHash256 requiredSubProjectId);
+	List<CFIntJpaMajorVersion> lockBySubProjectIdx(@Param("subProjectId") $implIJavaAtomType$ requiredSubProjectId);
 
 	/**
 	 *	CFIntMajorVersionBySubProjectIdxKey based lock method for object-based access.
@@ -204,8 +204,8 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFIntJpaMajorVersion r where r.requiredContainerParentSPrj.requiredId = :subProjectId and r.requiredName = :name")
-	CFIntJpaMajorVersion lockByNameIdx(@Param("subProjectId") ICFLibKeyHash256 requiredSubProjectId,
-		@Param("name") String requiredName);
+	CFIntJpaMajorVersion lockByNameIdx(@Param("subProjectId") $implIJavaAtomType$ requiredSubProjectId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFIntMajorVersionByNameIdxKey based lock method for object-based access.
@@ -228,7 +228,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	@Transactional
 	@Modifying
 	@Query("delete from CFIntJpaMajorVersion r where r.requiredId = :id")
-	void deleteByIdIdx(@Param("id") ICFLibKeyHash256 requiredId);
+	void deleteByIdIdx(@Param("id") $implIJavaAtomType$ requiredId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -238,7 +238,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	@Transactional
 	@Modifying
 	@Query("delete from CFIntJpaMajorVersion r where r.requiredTenantId = :tenantId")
-	void deleteByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	void deleteByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFIntMajorVersionByTenantIdxKey based lock method for object-based access.
@@ -257,7 +257,7 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	@Transactional
 	@Modifying
 	@Query("delete from CFIntJpaMajorVersion r where r.requiredContainerParentSPrj.requiredId = :subProjectId")
-	void deleteBySubProjectIdx(@Param("subProjectId") ICFLibKeyHash256 requiredSubProjectId);
+	void deleteBySubProjectIdx(@Param("subProjectId") $implIJavaAtomType$ requiredSubProjectId);
 
 	/**
 	 *	CFIntMajorVersionBySubProjectIdxKey based lock method for object-based access.
@@ -277,8 +277,8 @@ public interface CFIntJpaMajorVersionRepository extends JpaRepository<CFIntJpaMa
 	@Transactional
 	@Modifying
 	@Query("delete from CFIntJpaMajorVersion r where r.requiredContainerParentSPrj.requiredId = :subProjectId and r.requiredName = :name")
-	void deleteByNameIdx(@Param("subProjectId") ICFLibKeyHash256 requiredSubProjectId,
-		@Param("name") String requiredName);
+	void deleteByNameIdx(@Param("subProjectId") $implIJavaAtomType$ requiredSubProjectId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFIntMajorVersionByNameIdxKey based lock method for object-based access.

@@ -58,7 +58,7 @@ public class CFIntJpaLicenseHPKey
 
 	protected CFLibDbKeyHash256 auditSessionId;
 
-	protected ICFLibKeyHash256 requiredId;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredId;
 
 	public CFIntJpaLicenseHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
@@ -120,11 +120,11 @@ public class CFIntJpaLicenseHPKey
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredId() {
+	public $implIJavaAtomType$ getRequiredId() {
 		return(requiredId);
 	}
 
-	public void setRequiredId( ICFLibKeyHash256 value ) {
+	public void setRequiredId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredId",

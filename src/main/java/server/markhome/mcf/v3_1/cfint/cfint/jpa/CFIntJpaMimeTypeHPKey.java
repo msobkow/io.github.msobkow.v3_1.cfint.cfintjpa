@@ -68,7 +68,7 @@ public class CFIntJpaMimeTypeHPKey
 	protected CFLibDbKeyHash256 auditSessionId;
 
 	@Column( name="MimeTypeId", nullable=false )
-	protected int requiredMimeTypeId;
+	protected $implIJavaAtomType$ requiredMimeTypeId;
 
 	public CFIntJpaMimeTypeHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
@@ -130,12 +130,12 @@ public class CFIntJpaMimeTypeHPKey
 	}
 
 	@Override
-	public int getRequiredMimeTypeId() {
+	public $implIJavaAtomType$ getRequiredMimeTypeId() {
 		return(requiredMimeTypeId);
 	}
 
 	@Override
-	public void setRequiredMimeTypeId( int value ) {
+	public void setRequiredMimeTypeId( $implIJavaAtomType$ value ) {
 		if( value < ICFIntPubMimeType.MIMETYPEID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredMimeTypeId",
