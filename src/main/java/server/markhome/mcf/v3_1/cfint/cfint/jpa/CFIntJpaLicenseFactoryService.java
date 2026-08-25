@@ -72,8 +72,7 @@ public class CFIntJpaLicenseFactoryService
 			mapped.setAuditClusterId(key.getAuditClusterId());
 			mapped.setAuditActionId(key.getAuditActionId());
 			mapped.setAuditSessionId(key.getAuditSessionId());
-			mapped.setAuditStamp(key.getAuditStamp());
-			mapped.setRequiredId( key.getRequiredId() );
+			mapped.setAuditStamp(key.getAuditStamp());$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
@@ -94,8 +93,7 @@ public class CFIntJpaLicenseFactoryService
 			return( (CFIntJpaLicenseByLicnTenantIdxKey)key );
 		}
 		else {
-			CFIntJpaLicenseByLicnTenantIdxKey mapped = new CFIntJpaLicenseByLicnTenantIdxKey();
-			mapped.setRequiredTenantId( key.getRequiredTenantId() );
+			CFIntJpaLicenseByLicnTenantIdxKey mapped = new CFIntJpaLicenseByLicnTenantIdxKey();$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
@@ -116,8 +114,7 @@ public class CFIntJpaLicenseFactoryService
 			return( (CFIntJpaLicenseByDomainIdxKey)key );
 		}
 		else {
-			CFIntJpaLicenseByDomainIdxKey mapped = new CFIntJpaLicenseByDomainIdxKey();
-			mapped.setRequiredTopDomainId( key.getRequiredTopDomainId() );
+			CFIntJpaLicenseByDomainIdxKey mapped = new CFIntJpaLicenseByDomainIdxKey();$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
@@ -138,9 +135,7 @@ public class CFIntJpaLicenseFactoryService
 			return( (CFIntJpaLicenseByUNameIdxKey)key );
 		}
 		else {
-			CFIntJpaLicenseByUNameIdxKey mapped = new CFIntJpaLicenseByUNameIdxKey();
-			mapped.setRequiredTopDomainId( key.getRequiredTopDomainId() );
-			mapped.setRequiredName( key.getRequiredName() );
+			CFIntJpaLicenseByUNameIdxKey mapped = new CFIntJpaLicenseByUNameIdxKey();$implBuffCopyKeyAttrToMapped$$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
