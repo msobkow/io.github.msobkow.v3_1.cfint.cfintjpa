@@ -57,19 +57,19 @@ public class CFIntJpaLicenseH
 		@AttributeOverride(name="Id", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
     protected CFIntJpaLicenseHPKey pkey;
-	protected $implIJavaAtomType$ requiredTenantId;
-	protected $implIJavaAtomType$ requiredTopDomainId;
-	protected $implIJavaAtomType$ requiredName;
-	protected $implIJavaAtomType$ optionalDescription;
-	protected $implIJavaAtomType$ optionalEmbeddedText;
-	protected $implIJavaAtomType$ optionalFullText;
+	protected ICFLibKeyHash256 requiredTenantId;
+	protected ICFLibKeyHash256 requiredTopDomainId;
+	protected String requiredName;
+	protected String optionalDescription;
+	protected String optionalEmbeddedText;
+	protected String optionalFullText;
 
     public CFIntJpaLicenseH() {
             // The primary key member attributes are initialized on construction
             pkey = new CFIntJpaLicenseHPKey();
-		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFInt$emitScopingMidfix$License.TENANTID_INIT_VALUE.toString() );
-		requiredTopDomainId = CFLibDbKeyHash256.fromHex( ICFInt$emitScopingMidfix$License.TOPDOMAINID_INIT_VALUE.toString() );
-		requiredName = ICFInt$emitScopingMidfix$License.NAME_INIT_VALUE;
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFIntPubLicense.TENANTID_INIT_VALUE.toString() );
+		requiredTopDomainId = CFLibDbKeyHash256.fromHex( ICFIntPubLicense.TOPDOMAINID_INIT_VALUE.toString() );
+		requiredName = ICFIntPubLicense.NAME_INIT_VALUE;
 		optionalDescription = null;
 		optionalEmbeddedText = null;
 		optionalFullText = null;
@@ -148,21 +148,21 @@ public class CFIntJpaLicenseH
     }
 
     @Override
-    public $implIJavaAtomType$ getRequiredId() {
+    public ICFLibKeyHash256 getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( $implIJavaAtomType$ requiredId ) {
+    public void setRequiredId( ICFLibKeyHash256 requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 
 	@Override
-	public $implIJavaAtomType$ getRequiredTenantId() {
+	public ICFLibKeyHash256 getRequiredTenantId() {
 		return(requiredTenantId);
 	}
 
-	public void setRequiredTenantId( $implIJavaAtomType$ value ) {
+	public void setRequiredTenantId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTenantId",
@@ -173,11 +173,11 @@ public class CFIntJpaLicenseH
 	}
 
 	@Override
-	public $implIJavaAtomType$ getRequiredTopDomainId() {
+	public ICFLibKeyHash256 getRequiredTopDomainId() {
 		return(requiredTopDomainId);
 	}
 
-	public void setRequiredTopDomainId( $implIJavaAtomType$ value ) {
+	public void setRequiredTopDomainId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTopDomainId",
@@ -188,11 +188,11 @@ public class CFIntJpaLicenseH
 	}
 
 	@Override
-	public $implIJavaAtomType$ getRequiredName() {
+	public String getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( $implIJavaAtomType$ value ) {
+	public void setRequiredName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",
@@ -211,11 +211,11 @@ public class CFIntJpaLicenseH
 	}
 
 	@Override
-	public $implIJavaAtomType$ getOptionalDescription() {
+	public String getOptionalDescription() {
 		return(optionalDescription);
 	}
 
-	public void setOptionalDescription( $implIJavaAtomType$ value ) {
+	public void setOptionalDescription( String value ) {
 		if( value != null && value.length() > 1024 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalDescription",
@@ -228,11 +228,11 @@ public class CFIntJpaLicenseH
 	}
 
 	@Override
-	public $implIJavaAtomType$ getOptionalEmbeddedText() {
+	public String getOptionalEmbeddedText() {
 		return(optionalEmbeddedText);
 	}
 
-	public void setOptionalEmbeddedText( $implIJavaAtomType$ value ) {
+	public void setOptionalEmbeddedText( String value ) {
 		if( value != null && value.length() > 8000 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalEmbeddedText",
@@ -245,11 +245,11 @@ public class CFIntJpaLicenseH
 	}
 
 	@Override
-	public $implIJavaAtomType$ getOptionalFullText() {
+	public String getOptionalFullText() {
 		return(optionalFullText);
 	}
 
-	public void setOptionalFullText( $implIJavaAtomType$ value ) {
+	public void setOptionalFullText( String value ) {
 		if( value != null && value.length() > 8000 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalFullText",

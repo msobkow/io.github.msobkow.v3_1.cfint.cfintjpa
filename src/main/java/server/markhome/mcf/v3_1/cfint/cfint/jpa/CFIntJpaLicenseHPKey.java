@@ -58,15 +58,15 @@ public class CFIntJpaLicenseHPKey
 
 	protected CFLibDbKeyHash256 auditSessionId;
 
-	protected $implIJavaAtomType$ requiredId;
+	protected ICFLibKeyHash256 requiredId;
 
 	public CFIntJpaLicenseHPKey() {
-		auditClusterId = ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE;
+		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredId = CFLibDbKeyHash256.fromHex( ICFInt$emitScopingMidfix$License.ID_INIT_VALUE.toString() );
+		requiredId = CFLibDbKeyHash256.fromHex( ICFIntPubLicense.ID_INIT_VALUE.toString() );
 	}
 
 	@Override
@@ -120,11 +120,11 @@ public class CFIntJpaLicenseHPKey
 	}
 
 	@Override
-	public $implIJavaAtomType$ getRequiredId() {
+	public ICFLibKeyHash256 getRequiredId() {
 		return(requiredId);
 	}
 
-	public void setRequiredId( $implIJavaAtomType$ value ) {
+	public void setRequiredId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredId",
